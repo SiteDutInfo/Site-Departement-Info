@@ -1,0 +1,146 @@
+{% extends 'general.html.twig' %}
+
+{% block idBody %}tout_savoir{% endblock %}
+
+{% block contenu %}
+    <div class="entete">
+        <div>
+            <h1 class="center blanc up">
+                Tout savoir sur le DUT Informatique
+            </h1>
+            <nav>
+                <ul class="center">
+                    <li><a class="blanc scroll" href="#programme">Le programme</a></li>
+                    <li><a class="blanc scroll" href="#debouches">Que faire avec un <strong>DUT Informatique</strong> ?</a></li>
+                    <li><a class="blanc scroll" href="#alternance">L'alternance</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <section id="programme">
+        <div>
+            <h2 class="bleuF up">
+                Le programme
+            </h2>
+            <p>
+                Le DUT Informatique forme des étudiants polyvalents, qui peuvent répondre à l'essentiel des besoins
+                informatiques d'une entreprise, du développement d'applications spécifiques au support utilisateur,
+                en passant par l'administration système.
+            </p>
+            <p>
+                Devenez en deux ans un spécialiste de la conception et du développement d’applications informatiques :
+            </p>
+            <ul>
+                <li>
+                    Langages Java, PHP, Python et C.
+                </li>
+            </ul>
+            <div class="img_container">
+                <img src="img/java.png" alt="Logo Java">
+                <img src="img/php-logo.png" alt="Logo PHP">
+                <img src="img/python-snake.png" alt="Logo Python">
+                <img src="img/logo_c.png" alt="Logo C">
+            </div>
+            <ul>
+                <li>
+                    Développement Android, iOS et Web.
+                </li>
+            </ul>
+            <div class="img_container">
+                <img src="img/android-logo.png" alt="Logo Android">
+                <img src="img/ios.png" alt="Logo iOS">
+                <img src="img/web.png" alt="Logo Web">
+            </div>
+            <ul>
+                <li>
+                    Stations de travail sous systèmes Linux, MacOS et Windows.
+                </li>
+            </ul>
+            <div class="img_container">
+                <img src="img/linux.png" alt="logo Linux">
+                <img src="img/apple-logotype.png" alt="logo MacOS">
+                <img src="img/windows.png" alt="logo Windows">
+            </div>
+            <p>
+                Consultez ici le <a class="bleuC" href="http://cache.media.enseignementsup-recherche.gouv.fr/file/DUT_-_Programmes_pedagogiques_nationaux/82/6/informatique_157826.pdf" target="_blank">Programme Pédagogique National</a> du <strong>DUT Informatique</strong>
+            </p>
+        </div>
+    </section>
+
+    <section id="debouches">
+        <div>
+            <h2 class="blanc up">
+                Que faire avec un DUT Info ?
+            </h2>
+            <img src="img/infographie.png" alt="Infographie Insertion Professionnelle / Poursuite Etudes">
+            <div>
+                <h3 class="blanc up center">
+                    Les licences informatiques & écoles d'ingénieurs
+                </h3>
+                <div id="poursuiteEtude">
+                    <div>
+                        <p class="blanc center">
+                            La licence Pro. Conception d'Applications Multi-tiers, parcours <span class="reg">Technologies de Projets Web et Mobiles</span> (TeProW) à Belfort
+                        </p>
+                        <p class="blanc center">
+                            La licence <span class="reg">Conception et Développement Orientés Objet d'Applications Multi-tiers</span> à Besançon
+                        </p>
+                    </div>
+                    <div>
+                        <p class="blanc center">
+                            <span class="reg">L3 Informatique</span> ou <span class="reg">CMI Informatique</span> (UFR STGI)
+                        </p>
+                        <p class="blanc center">
+                            Écoles d'ingénieurs (UTBM, UTC, INSA...)
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <section id="alternance">
+        <div>
+            <div id="bg_alt">
+                <div>
+                    <h2 class="blanc up">
+                        L'alternance ?
+                    </h2>
+                    <p class="blanc">
+                        Le département Informatique de l’IUT de Belfort-Montbéliard offre, depuis la rentrée 2016,
+                        la possibilité aux étudiants qui le désirent, d’effectuer la 2e année du DUT en alternance, par le
+                        biais d'un contrat de professionnalisation.
+                    </p>
+                    <p class="blanc">
+                        Sa particularité est qu’il laisse apparaître une période d’une année complète en entreprise. L’étudiant aura
+                        ainsi la possibilité de valoriser au mieux cette expérience lors de ces recherches d’emplois futures.
+                        Qui plus est, cela lui permettra de rechercher un contrat d’alternance à l’échelle nationale et ainsi
+                        ne pas se restreindre à une zone géographique proche de Belfort.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <h3 class="center">
+                    Schéma des études pour 2016-2017 en alternance
+                </h3>
+                <img src="img/schema_etudes.png" alt="Scémas Etudes Alternance">
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block script %}
+    <script>
+        $(document).ready(function() {
+            $('.scroll').click( function() {
+                var page = $(this).attr('href');
+                var speed = 750;
+                $('html, body').animate( { scrollTop: $(page).offset().top }, speed );
+                return false;
+            });
+        });
+    </script>
+{% endblock %}

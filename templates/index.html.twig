@@ -1,0 +1,82 @@
+{% extends 'general.html.twig' %}
+
+{% block idBody %}index{% endblock %}
+
+{% block contenu %}
+        <div class="entete">
+            <div>
+                <div>
+                    <img src="img/logo.png" alt="Logo Département Informatique Belfort">
+                </div>
+                <h1 class="center blanc up">
+                    Département Informatique de l'IUT Belfort
+                </h1>
+                <div>
+                    <a href="https://www.facebook.com/DUT-Informatique-IUT-Belfort-Montb%C3%A9liard-203624589686838/?fref=ts">
+                        <img src="img/social-facebook.png" alt="Logo Facebook" class="fb">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <section id="video">
+            <h1 class="center blanc">
+                Découvrez le DUT Informatique !
+            </h1>
+            <iframe src="https://www.youtube.com/embed/1FwMIiL-_MA" allowfullscreen></iframe>
+            <p class="center blanc">
+                Ce diplôme a pour objectifs de former des spécialistes de l'informatique dont le métier implique une activité de conception, de réalisation et de mise en oeuvre
+                d'outils informatique, mis ensuite à la disposition d'utilisateurs.
+            </p>
+        </section>
+
+        <section id="nav_secondaire">
+            <div id="tout_savoir">
+                <div class="savoir_plus">
+                    <img src="img/accueil_1.jpg" alt="Photo étudiants Départment Informatique">
+                    <a class="center blanc up" href="index.php?page=tout_savoir"><span>En savoir plus</span></a>
+                </div>
+                <div>
+                    <h2 class="center up">Tout savoir sur le DUT</h2>
+                    <p>
+                        Vous êtes lycéens ? Voici ici tout ce qu'il faut savoir sur le <strong>DUT Informatique de Belfort</strong>.
+                    </p>
+                    <p>
+                        Qu'y fait-on ? Que faire après avec ce DUT ? L'<strong>alternance</strong> en deuxième année ?
+                    </p>
+                </div>
+            </div>
+
+            <div id="equipe">
+                <div class="savoir_plus">
+                    <img src="img/accueil_2.jpg" alt="Photo étudiants Département Informatique">
+                    <a class="center blanc up" href="index.php?page=equipe"><span>En savoir plus</span></a>
+                </div>
+                <div>
+                    <h2 class="center up">L'équipe pédagogique</h2>
+                    <p>
+                        Découvrez les différentes personnes composant l'équipe pédagogique du <strong>DUT Informatique de Belfort</strong>.
+                    </p>
+                    <p>
+                        Chef du Département, enseignants ou secrétariat : trouvez ici le moyen de les contacter.
+                    </p>
+                </div>
+            </div>
+
+            <div id="offres">
+                <div class="savoir_plus">
+                    <img src="img/accueil_3.jpg" alt="Photo étudiants Département Informatique">
+                    <a class="center blanc up" href="index.php?page=offres"><span>En savoir plus</span></a>
+                </div>
+                <div>
+                    <h2 class="center up">Offres de stages</h2>
+                    <p>
+                        Vous êtes étudiant et à la recherche de <strong>stage</strong> ou d'<strong>emploi</strong> ?
+                    </p>
+                    <p>
+                        Les entreprises postent leurs offres ici afin de vous aider dans votre recherche.
+                    </p>
+                </div>
+            </div>
+        </section>
+{% endblock %}

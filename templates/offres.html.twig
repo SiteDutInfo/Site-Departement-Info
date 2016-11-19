@@ -1,0 +1,154 @@
+{% extends 'general.html.twig' %}
+
+{% block idBody %}offres{% endblock %}
+
+{% block contenu %}
+    <div>
+        <h2 class="up center">
+            Consultez les offres de stages et d'emplois
+        </h2>
+        <p class="center">Vous êtes une entreprise ? <a href="index.php?page=creerOffre" class="bleuC">Postez votre offre ici</a></p>
+    </div>
+
+    <div>
+        <div id="trieur">
+            <button id="btn_stage" class="up">Stages</button>
+            <button id="btn_emploi" class="up">Emplois</button>
+        </div>
+        <div id="searchForm">
+            <form method="post" action="traitement.php">
+                <img src="img/icone_loupe.png" alt="Icône Loupe">
+                <input type="search"/>
+            </form>
+            <form method="post" action="traitement.php">
+                <img src="img/icone_pointeur.png" alt="Icône Pointeur">
+                <input type="search"/>
+            </form>
+        </div>
+    </div>
+    
+    <section id="listeOffres">
+        <div class="offre offreStage">
+            <div class="logoEntOffre">
+                <img src="img/web.png" alt="Logo Entreprise">
+                <h3 class="bleuF up">Stage | Entreprise</h3>
+            </div>
+            <div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Cum cupiditate delectus dolores ipsum natus nostrum voluptatibus?
+                    A accusamus animi dolorem, eos eveniet iure mollitia nostrum praesentium quas
+                    tempora, temporibus ut?
+                </p>
+                <a href="" class="bleuF">www.entreprise.com</a>
+                <span><a href="index.php?page=offreDetaillee" class="blanc up">Voir l'offre</a></span>
+            </div>
+        </div>
+
+        <div class="offre offreEmploi">
+            <div class="logoEntOffre">
+                <img src="img/web.png" alt="Logo Entreprise">
+                <h3 class="bleuF up">Emploi | Entreprise</h3>
+            </div>
+            <div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Cum cupiditate delectus dolores ipsum natus nostrum voluptatibus?
+                    A accusamus animi dolorem, eos eveniet iure mollitia nostrum praesentium quas
+                    tempora, temporibus ut?
+                </p>
+                <a href="" class="bleuF">www.entreprise.com</a>
+                <span><a href="index.php?page=offreDetaillee" class="blanc up">Voir l'offre</a></span>
+            </div>
+        </div>
+
+        <div class="offre offreStage">
+            <div class="logoEntOffre">
+                <img src="img/web.png" alt="Logo Entreprise">
+                <h3 class="bleuF up">Stage | Entreprise</h3>
+            </div>
+            <div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Cum cupiditate delectus dolores ipsum natus nostrum voluptatibus?
+                    A accusamus animi dolorem, eos eveniet iure mollitia nostrum praesentium quas
+                    tempora, temporibus ut?
+                </p>
+                <a href="" class="bleuF">www.entreprise.com</a>
+                <span><a href="index.php?page=offreDetaillee" class="blanc up">Voir l'offre</a></span>
+            </div>
+        </div>
+
+        <div class="offre offreStage">
+            <div class="logoEntOffre">
+                <img src="img/web.png" alt="Logo Entreprise">
+                <h3 class="bleuF up">Stage | Entreprise</h3>
+            </div>
+            <div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Cum cupiditate delectus dolores ipsum natus nostrum voluptatibus?
+                    A accusamus animi dolorem, eos eveniet iure mollitia nostrum praesentium quas
+                    tempora, temporibus ut?
+                </p>
+                <a href="" class="bleuF">www.entreprise.com</a>
+                <span><a href="index.php?page=offreDetaillee" class="blanc up">Voir l'offre</a></span>
+            </div>
+        </div>
+
+        <div class="offre offreEmploi">
+            <div class="logoEntOffre">
+                <img src="img/web.png" alt="Logo Entreprise">
+                <h3 class="bleuF up">Emploi | Entreprise</h3>
+            </div>
+            <div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Cum cupiditate delectus dolores ipsum natus nostrum voluptatibus?
+                    A accusamus animi dolorem, eos eveniet iure mollitia nostrum praesentium quas
+                    tempora, temporibus ut?
+                </p>
+                <a href="" class="bleuF">www.entreprise.com</a>
+                <span><a href="index.php?page=offreDetaillee" class="blanc up">Voir l'offre</a></span>
+            </div>
+        </div>
+
+        <div class="offre offreEmploi">
+            <div class="logoEntOffre">
+                <img src="img/web.png" alt="Logo Entreprise">
+                <h3 class="bleuF up">Emploi | Entreprise</h3>
+            </div>
+            <div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Cum cupiditate delectus dolores ipsum natus nostrum voluptatibus?
+                    A accusamus animi dolorem, eos eveniet iure mollitia nostrum praesentium quas
+                    tempora, temporibus ut?
+                </p>
+                <a href="" class="bleuF">www.entreprise.com</a>
+                <span><a href="index.php?page=offreDetaillee" class="blanc up">Voir l'offre</a></span>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+{#{% block script %}#}
+
+    {#<script>#}
+        {#(function afficher_emploi() {#}
+            {#"use strict";#}
+
+            {#var buttonEmploi = document.querySelector("#btn_emploi");#}
+            {#var offreStage = document.querySelectorAll(".offreStage");#}
+            {#var listeOffreStage = offreStage.querySelector();#}
+
+            {#function tri_emploi() {#}
+                {#listeOffreStage.classList.toggle("hide")#}
+            {#}#}
+
+            {#buttonEmploi.addEventListener("click", tri_emploi);#}
+        {#}());#}
+    {#</script>#}
+
+{#{% endblock %}#}

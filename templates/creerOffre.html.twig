@@ -1,0 +1,34 @@
+{% extends 'general.html.twig' %}
+
+{% block idBody %}creerOffre{% endblock %}
+
+{% block contenu %}
+    <section>
+        <h2 class="center up">Soumettez-nous une offre de stage ou d'emploi</h2>
+        <div id="formCreation">
+            <form method="post" action="traitement.php">
+                <p>
+                    <label>Type d'offre</label><br>
+                    <span id="typeOffre">
+                        <span>
+                            <input type="radio" name="typeOffre" value="stage" id="stage"/>
+                            <label for="stage">Stage</label>
+                        </span>
+                        <span>
+                            <input type="radio" name="typeOffre" value="job" id="job"/>
+                            <label for="job">Emploi</label>
+                        </span>
+                    </span><br>
+
+                    <label for="descPoste">Description du poste</label>
+                    <textarea name="descPoste" id="descPoste" rows="10" cols="40"></textarea><br>
+
+                    <label for="profil">Profil recherché</label>
+                    <textarea name="profil" id="profil" rows="10" cols="40"></textarea><br>
+
+                    <input class="btn blanc up" type="submit" value="Valider"/>
+                </p>
+            </form>
+        </div>
+    </section>
+{% endblock %}

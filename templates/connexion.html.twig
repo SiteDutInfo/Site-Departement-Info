@@ -1,0 +1,25 @@
+{% extends 'general.html.twig' %}
+
+{% block idBody %}connexion{% endblock %}
+
+{% block contenu %}
+    <section>
+        <h2 class="center up">Connexion</h2>
+        <div id="formCo">
+            <form method="post" action="traitement.php">
+                <p>
+                    <label for="idCo">Identifiant</label>
+                    <input type="text" name="identifiant" id="idCo"/><br>
+
+                    <label for="psw">Mot de passe</label>
+                    <input type="password" name="psw" id="psw"/><br>
+                    <a id="oubli_mdp" class="bleuC" href="">Mot de passe oublié ?</a><br>
+
+                    <input class="btn blanc up" type="submit" value="Valider"/>
+                </p>
+            </form>
+            <p class="center">Pas encore de compte ?</p>
+            <a class="bleuC center" href="index.php?page=inscription">Inscrivez-vous</a>
+        </div>
+    </section>
+{% endblock %}

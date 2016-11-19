@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dép. Info. Belfort</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/typographie.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="img/logo.png" />
+</head>
+<body id="{% block idBody %}{% endblock %}">
+    <header>
+        <div id="nav_handle">
+            <div id="logo_index"><a class="up blanc" href="index.php?page=index"><img src="img/logo.png" alt="Icône Département Informatique Belfort">Département informatique belfort</a></div>
+            <div id="logo_menu"><img src="img/icone-menu.png" alt="Icône Menu"></div>
+            <nav id="menu" class="hide">
+                <ul>
+                    <li><a class="up" href="index.php?page=tout_savoir">Tout savoir sur le DUT</a></li>
+                    <li><a class="up" href="index.php?page=equipe">L'équipe pédagogique</a></li>
+                    <li><a class="up" href="index.php?page=offres">Offres de stages & emplois</a></li>
+                    <li><a class="up" href="index.php?page=connexion">Connexion</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <nav id="nav_desktop">
+            <ul>
+                <li><a id="ongletIndex" href="index.php?page=index"><img src="img/logotest.png" alt="Icône Département Informatique Belfort"></a></li>
+                <li><a class="up blanc effect" href="index.php?page=tout_savoir">Tout savoir sur le DUT</a></li>
+                <li><a class="up blanc effect" href="index.php?page=equipe">L'équipe pédagogique</a></li>
+                <li><a class="up blanc effect" href="index.php?page=offres">Offres de stages & emplois</a></li>
+                <li><a id="ongletCo" class="up blanc" href="index.php?page=connexion">Connexion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block contenu %}{% endblock %}
+    </main>
+
+    <footer>
+        <div>
+            <div>
+                <div>
+                    <a href="index.php?page=mentions-legales"><img src="img/logo.png" alt="Logo Département Informatique Belfort" class="logo_dut"></a>
+                </div>
+                <div>
+                    <p><strong>Département Informatique de Belfort</strong></p>
+                    <p>Site Belfort Techn'hom</p>
+                    <p>19 av. du Maréchal JUIN - BP 527</p>
+                    <p>90016 BELFORT Cedex</p>
+                    <p>tél. +33 (0)3 84 58 77 82</p>
+                    <a class="reg" href="mailto:dut-info-belfort@univ-fcomte.fr">dut-info-belfort@univ-fcomte.fr</a>
+                </div>
+            </div>
+            <div id="logos_footer">
+                <div>
+                    <a href="https://www.facebook.com/DUT-Informatique-IUT-Belfort-Montb%C3%A9liard-203624589686838/?fref=ts"><img src="img/social-facebook.png" alt="Logo Facebook" class="fb"></a>
+                </div>
+                <div>
+                    <a href="http://www.iut-bm.univ-fcomte.fr/pages/fr/dpt-info---actualites-17109.html"><img src="img/logo_iutbm.png" alt="Logo IUTBM" class="iutbm"></a>
+                    <a href="http://www.univ-fcomte.fr/"><img src="img/logo_ufc.png" alt="Logo UCF" class="ufc"></a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+
+    <script>
+        (function open_menu() {
+            "use strict";
+
+            var logoMenu = document.querySelector("#logo_menu");
+            var menu = document.querySelector("#menu");
+
+            function gestEvent() {
+                menu.classList.toggle("hide")
+            }
+
+            logoMenu.addEventListener("click", gestEvent);
+        }());
+    </script>
+
+    <script>
+
+        (function returnTop() {
+            "use strict";
+
+            $(document).ready( function () {
+                $('body').append('<div id="returnOnTop" title="Retour en haut"></div>');
+
+                $('#returnOnTop').click( function() {
+                    $('html,body').animate({scrollTop: 0}, 'slow');
+                });
+            });
+
+            $(window).scroll(function() {
+                if ( $(window).scrollTop() == 0 )
+                    $('#returnOnTop').fadeOut();
+                else
+                    $('#returnOnTop').fadeIn();
+            });
+        }());
+
+    </script>
+
+    {% block script %}{% endblock %}
+
+</body>
+</html>
