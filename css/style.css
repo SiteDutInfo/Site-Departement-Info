@@ -1,0 +1,1145 @@
+/* HARMONIE COLORÉE
+
+bleu foncé : #395c94 rgba(57,92,148,1)
+bleu clair : #3499c8 rgba(52,153,200,1)
+blanc :  #fbfbf1 rgba(251,251,241,1)
+
+*/
+
+
+
+
+/* ---------------------------------------------------------------------------------------- *\
+                            CSS VERSION MOBILE
+\* ---------------------------------------------------------------------------------------- */
+
+/* ELEMENTS COMMUNS */
+html {
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fbfbf1;
+    min-height: 100%;
+    position: relative;
+}
+
+main {
+    padding-bottom: 350px;
+}
+
+p {
+    margin: 3px 10px;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+}
+
+section {
+    padding: 30px 0 50px 0;
+}
+
+.center {
+    text-align: center;
+}
+
+.bleuF {
+    color: #395c94;
+}
+
+.bleuC {
+    color: #3499c8;
+}
+
+.blanc {
+    color: #fbfbf1;
+}
+
+.up {
+    text-transform: uppercase;
+}
+
+iframe {
+    width: 100%;
+    min-height: 210px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+input, textarea, select {
+    margin-bottom: 25px;
+    border: solid 1px rgba(0,0,0,0.3);
+}
+
+textarea {
+    width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline-color: #3499c8;
+}
+
+.btn {
+    background-color: #395c94;
+    padding: 5px 10px;
+    margin: 25px auto 30px auto;
+    display: block;
+}
+
+#returnOnTop {
+    background: url("img-interface/arrow.png");
+    position: fixed;
+    bottom: 1%;
+    right: 1%;
+    cursor: pointer;
+    display: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+
+
+
+/* HEADER MOBILE */
+header {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: #395c94;
+}
+
+#nav_desktop {
+    display: none;
+}
+
+#logo_menu {
+    width: 50px;
+    height: 40px;
+    float: right;
+    margin-top: 5px;
+}
+
+#logo_menu img {
+    width: 40px;
+}
+
+#logo_index {
+    width: 50px;
+    height: 40px;
+    float: left;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+#logo_index a {
+    display: inline-block;
+    width: 250px;
+    margin-top: 5px;
+}
+
+#logo_index img {
+    height: 40px;
+    float: left;
+    margin-right: 10px;
+    margin-top: -5px;
+}
+
+.hide {
+    visibility: hidden;
+    display: none;
+}
+
+#nav_handle nav {
+    background-color: #fbfbf1;
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    border-bottom: 2px solid #395c94;
+    padding-top: 3px;
+    position: absolute;
+    top: 50px;
+}
+
+#nav_handle nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+#nav_handle nav ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(57,92,148,0.5);
+}
+
+#nav_handle nav ul li:last-child {
+    border-bottom: none;
+}
+
+#nav_handle nav a {
+    color:black;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+
+
+
+/* PAGE ACCUEIL MOBILE */
+#index .entete {
+    width: 100%;
+    height: 670px;
+    background: url("img-interface/iut_belfort.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.entete h1 {
+    margin: 0 10px;
+}
+
+#index .entete>div>div:first-child {
+    padding-top: 200px;
+}
+
+#index .entete>div>div>img {
+    width: 125px;
+    display: block;
+    margin: 0 auto 30px auto;
+}
+
+#index .entete>div>div:last-child {
+    padding-top: 160px;
+}
+
+ #index .entete>div>div:last-child a {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+}
+
+.fb {
+    width: 40px;
+}
+
+#index #video {
+    background-color: #395c94;
+}
+
+#index #video iframe {
+    margin: 20px 0;
+    border: none;
+}
+
+#index #nav_secondaire {
+    background-color: #fbfbf1;
+    display: flex;
+    flex-direction: column;
+}
+
+#index #nav_secondaire>div {
+    margin-bottom: 25px;
+}
+
+#nav_secondaire .savoir_plus {
+    width: 100%;
+    position: relative;
+}
+
+#nav_secondaire .savoir_plus img {
+    width: 100%;
+}
+
+#nav_secondaire .savoir_plus a {
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 100px);
+    width: 200px;
+}
+
+#nav_secondaire .savoir_plus a span {
+    border: solid 1px #fbfbf1;
+    display: block;
+    padding: 15px;
+}
+
+#nav_secondaire h2 {
+    border-bottom: solid 2px #395c94;
+    padding: 10px;
+    color: #395c94;
+}
+
+#nav_secondaire p {
+    margin: 15px 10px;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+
+
+
+/*PAGE TOUT SAVOIR MOBILE */
+#tout_savoir .entete {
+    width: 100%;
+    height: 670px;
+    background: url("img-interface/image_tout_savoir.jpg") no-repeat center;
+    background-size: cover;
+}
+
+#tout_savoir .entete h1 {
+    padding-top: 140px;
+}
+
+#tout_savoir .entete nav {
+    padding-top: 100px;
+}
+
+#tout_savoir .entete nav ul li {
+    margin-bottom: 50px;
+}
+
+#tout_savoir .entete nav ul li a:after {
+    content: '';
+    display: block;
+    border-bottom: solid 1px #fbfbf1;
+    width: 130px;
+    margin: 5px auto;
+}
+
+#tout_savoir section h2 {
+    margin-left: 10px;
+}
+
+#tout_savoir section p {
+    margin: 20px 10px;
+}
+
+#programme>div>p:nth-child(3) {
+    margin-bottom: 5px;
+}
+
+#programme ul {
+    padding-left: 50px;
+    list-style: circle;
+}
+
+#programme ul li {
+    margin: 10px;
+}
+
+#programme .img_container {
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#programme img {
+    width: 40px;
+    height: 100%;
+}
+
+#programme>div>p:last-child {
+    margin-top: 70px;
+}
+
+#debouches {
+    background-color: #395c94;
+}
+
+#debouches>div>img, #alternance img {
+    width: 100%;
+    margin: 30px 0;
+    padding: 10px;
+}
+
+#debouches>div>div>h3 {
+    margin: 10px 10px 15px 10px;
+    border-bottom: 1px solid #fbfbf1;
+    padding-bottom: 10px;
+}
+
+#poursuiteEtude {
+    display: flex;
+    flex-direction: column;
+}
+
+#alternance {
+    padding-top: 0;
+}
+
+#bg_alt {
+    width: 100%;
+    height: 345px;
+    background: url("img-interface/image_alternance.jpg") no-repeat center fixed;
+    background-size: cover;
+}
+
+#bg_alt>div {
+    padding-top: 30px;
+}
+
+#alternance>div>div:last-child>h3 {
+    padding-top: 30px;
+}
+/* ---------------------------------------------------------------------------------------- */
+
+
+
+/* PAGE EQUIPE MOBILE */
+#equipe section ul {
+    margin-top: 40px;
+}
+
+#equipe section ul li {
+    margin-bottom: 25px;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+
+
+
+/* PAGE OFFRES STAGES ET EMPLOIS MOBILE */
+#offres>main>div:first-child {
+    margin-top: 30px;
+}
+
+#offres>main>div:first-child h2 {
+    margin: 0 10px 20px 10px;
+}
+
+#offres form img {
+    height: 30px;
+}
+
+#trieur {
+    width: 70%;
+    margin: 30px auto 15px auto;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    max-width: 800px;
+}
+
+#trieur button {
+    width: 50%;
+    border: none;
+    background-color: #fbfbf1;
+    padding: 3px 0;
+}
+
+#trieur>button:first-child {
+    border-right: 1px solid black;
+}
+
+#trieur button:focus {
+    color: #fbfbf1;
+    background-color: #395c94;
+    outline-color: #395c94;
+}
+
+#searchForm {
+    display: flex;
+    justify-content: center;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+#searchForm form {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+#searchForm form:first-child {
+    margin-right: 50px;
+}
+
+#searchForm form img {
+    margin-right: 10px;
+}
+
+#searchForm form input {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+#listeOffres {
+    display: flex;
+    flex-direction: column;
+}
+
+.offre {
+    margin: 10px;
+    border: solid 1px black;
+    border-radius: 5px;
+    position: relative;
+    background-color: white;
+}
+
+.offre>div:last-child>a {
+    margin: 10px;
+}
+
+.offre>div:last-child>span {
+    display: block;
+    margin-top: 15px;
+    background-color: #395c94;
+    padding: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.offre>div:last-child>span>a {
+    display: block;
+    text-align: center;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+
+
+
+/* PAGE OFFRE DETAILLEE MOBILE*/
+#offreDetaillee main>div {
+    margin: 40px 10px;
+    border: solid 1px black;
+    border-radius: 5px;
+    background-color: white;
+    padding-bottom: 20px;
+    min-height: 450px;
+}
+
+#offreDetaillee main div h3 {
+    margin-left: 10px;
+}
+
+.logoEntOffre {
+    display: flex;
+    align-items: center;
+}
+
+.logoEntOffre img {
+    width: 40px;
+    float: left;
+    margin: 10px;
+}
+
+#donneesOffre {
+    margin: 20px 0;
+}
+
+#donneesOffre h3 {
+    margin: 20px 0 10px 0;
+}
+
+#offreDetaillee main>div>div>div:last-child>p:nth-child(2) {
+    margin: 15px 10px;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+
+
+
+/* PAGE CONNEXION MOBILE */
+#connexion section {
+    margin: 0 10px;
+}
+
+#formCo {
+    margin: 40px auto 0 auto;
+    padding: 40px 0;
+    border: solid 2px #395c94;
+    max-width: 450px;
+}
+
+#connexion main section div>a {
+    display: block;
+}
+
+#formCo label {
+    width: 120px;
+    margin-left: 15px;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+#oubli_mdp {
+    margin-left: 155px;
+    margin-top: 3px;
+}
+
+#connexion #psw {
+    margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+
+
+
+/* PAGE INSCRIPTION MOBILE */
+#formInsc {
+    margin-top: 40px;
+}
+
+#formInsc>form>p>label {
+    width: 40%;
+    display: inline-block;
+}
+
+#formInsc textarea {
+    display: block;
+    margin: 10px 0;
+}
+
+.radioContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.radioContainerEff {
+    flex-direction: column;
+}
+
+.radioContainerEff input {
+    margin-bottom: 15px;
+}
+
+.radioContainerEff>span:last-child input {
+    margin-bottom: 25px;
+}
+
+#logoEnt {
+    margin: 10px 0 25px 0;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+
+
+
+/* PAGE CREATION D'OFFRE MOBILE */
+#creerOffre>main>section>h2 {
+    margin: 0 10px;
+}
+
+#formCreation {
+    margin-top: 40px;
+}
+
+#formCreation>form>p>label {
+    width: 150px;
+    display: inline-block;
+}
+
+#formCreation textarea, #typeOffre {
+    display: block;
+    margin: 10px 0;
+}
+
+#typeOffre>span:first-child {
+    margin-right: 30px;
+}
+
+#typeOffre input {
+    margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+
+
+
+/* FOOTER MOBILE*/
+footer {
+    background-color: #395c94;
+    color: #fbfbf1;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+footer>div {
+    display: flex;
+    flex-direction: column;
+}
+
+footer * {
+    text-align: center;
+}
+
+footer a {
+    color: #fbfbf1;
+}
+
+footer>div>div {
+    padding: 20px 0;
+}
+
+#logos_footer>div:last-child {
+    width: 250px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .logo_dut {
+    width: 40px;
+}
+
+.iutbm, .ufc {
+    height: 40px;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+
+
+
+
+/* ---------------------------------------------------------------------------------------- *\
+                            CSS VERSION TABLETTE
+\* ---------------------------------------------------------------------------------------- */
+
+@media screen and (min-width: 640px) and (max-width: 960px) {
+
+    /* PAGE ACCUEIL TABLETTE*/
+    #index #video p {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    #index #video iframe {
+        display: block;
+        margin: 20px auto;
+        max-width: 600px;
+        min-height: 330px;
+    }
+
+    #index #nav_secondaire>div {
+        max-width: 600px;
+        margin: 0 auto 25px auto;
+    }
+
+    /* ---------------------------------------------------------------------------------------- */
+
+
+
+    /* PAGE TOUT SAVOIR TABLETTE */
+    #programme .img_container {
+        margin: 30px auto 50px auto;
+    }
+
+    #programme img {
+        width: 60px;
+    }
+
+    #programme>div, #debouches>div {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    #alternance>div>div:last-child {
+        max-width: 860px;
+        margin: 0 auto;
+    }
+
+    #bg_alt {
+        width: 100%;
+        height: 345px;
+        background: url("img-interface/image_alternance.jpg") no-repeat center fixed;
+        background-size: cover;
+    }
+
+    #bg_alt>div {
+        padding-top: 60px;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    /* ---------------------------------------------------------------------------------------- */
+
+
+
+    /* PAGE OFFRES STAGES ET EMPLOIS TABLETTE */
+    #listeOffres {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0 10px;
+    }
+
+    .offre {
+        width: calc(50% - 20px);
+    }
+
+    /* ---------------------------------------------------------------------------------------- */
+
+
+
+    /* PAGE OFFRES DETAILLEES TABLETTE */
+    #offreDetaillee main>div {
+        max-width: 640px;
+        margin: 40px auto;
+    }
+
+    /* ---------------------------------------------------------------------------------------- */
+
+
+
+    /* PAGE CREATION D'OFFRE TABLETTE */
+    #formCreation {
+        max-width: 640px;
+        margin: 40px auto 0 auto;
+        padding: 20px;
+        border: 2px solid #395c94;
+    }
+
+    /* ---------------------------------------------------------------------------------------- */
+
+
+
+    /* PAGE INSCRIPTION TABLETTE */
+    #formInsc {
+        max-width: 640px;
+        margin: 40px auto;
+        padding: 20px;
+        border: 2px solid #395c94;
+    }
+
+    .radioContainerJur {
+        max-width: 60%;
+    }
+    /* ---------------------------------------------------------------------------------------- */
+
+}
+
+/* ---------------------------------------------------------------------------------------- */
+
+
+
+
+/* ---------------------------------------------------------------------------------------- *\
+                            CSS VERSION BUREAU
+\* ---------------------------------------------------------------------------------------- */
+
+@media screen and (min-width: 960px) {
+
+    main {
+        padding-bottom: 150px;
+    }
+
+    /* HEADER BUREAU */
+    #nav_handle {
+        display: none;
+    }
+
+    #nav_desktop {
+        display: block;
+        height: 50px;
+    }
+
+    #nav_desktop ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 50px;
+    }
+
+    #nav_desktop ul>li {
+        display: inline-block;
+    }
+
+    .effect::before {
+        margin-right: 10px;
+        content: '>';
+        -webkit-transform: translateX(20px);
+        -moz-transform: translateX(20px);
+        transform: translateX(20px);
+    }
+
+    .effect::after {
+        margin-left: 10px;
+        content: '<';
+        -webkit-transform: translateX(-20px);
+        -moz-transform: translateX(-20px);
+        transform: translateX(-20px);
+    }
+    .effect::before, .effect::after {
+        display: inline-block;
+        opacity: 0;
+        -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+        -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+        transition: transform 0.3s, opacity 0.2s;
+    }
+
+    .effect:hover::before, .effect:hover::after {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    #ongletCo {
+        border: 1px solid #fbfbf1;
+        padding: 5px;
+    }
+
+    #ongletIndex img {
+        height: 40px;
+        /*height: 80px;*/
+        /*margin-top: -50px;*/
+    }
+
+    /* ---------------------------------------------------------------------------------------- */
+
+
+
+    /* PAGE ACCUEIL BUREAU */
+    #index .entete {
+        height: 800px;
+    }
+
+    #index #video p {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    #index #video iframe {
+        display: block;
+        margin: 20px auto;
+        max-width: 960px;
+        min-height: 530px;
+    }
+
+    #index #nav_secondaire {
+        max-width: 960px;
+        margin: 0 auto;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #nav_secondaire>div {
+        width: 30%;
+    }
+
+    #nav_secondaire>div p {
+        margin-left: 0;
+    }
+
+    #nav_secondaire .savoir_plus {
+        overflow: hidden;
+    }
+
+    #nav_secondaire .savoir_plus img {
+        height: 300px;
+        width: initial;
+    }
+
+    /* ---------------------------------------------------------------------------------------- */
+
+
+
+    /* PAGE TOUT SAVOIR BUREAU */
+    #programme .img_container {
+        margin: 30px auto 50px auto;
+    }
+
+    #programme img {
+        width: 80px;
+        opacity: 0.7;
+        -webkit-transition: opacity 0.4s ease-in-out;
+        -moz-transition: opacity 0.4s ease-in-out;
+        transition: opacity 0.4s ease-in-out;
+    }
+
+    #programme img:hover {
+        opacity: 1;
+    }
+
+    #programme>div>p:last-child {
+        margin-top: 100px;
+    }
+
+    #programme>div, #debouches>div {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    #alternance>div>div:last-child {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    #debouches>div>div {
+        margin-top: 100px;
+    }
+
+    #poursuiteEtude {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #poursuiteEtude>div {
+        width: 45%;
+    }
+
+    #bg_alt {
+        width: 100%;
+        height: 345px;
+        background: url("img-interface/image_alternance.jpg") no-repeat center fixed;
+        background-size: cover;
+    }
+
+    #bg_alt>div {
+        padding-top: 60px;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    /* ---------------------------------------------------------------------------------------- */
+
+
+
+    /* PAGE EQUIPE BUREAU */
+    #equipe main, #connexion main, #offreDetaillee main {
+
+    }
+
+    /* ---------------------------------------------------------------------------------------- */
+
+
+
+    /* PAGE OFFRES STAGES ET EMPLOIS BUREAU */
+    #listeOffres {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 40px auto;
+        max-width: 960px;
+    }
+
+    .offre {
+        width: calc(33% - 20px);
+    }
+
+    /* ---------------------------------------------------------------------------------------- */
+
+
+
+    /* PAGE OFFRES DETAILLEES BUREAU */
+    #offreDetaillee main>div {
+        max-width: 960px;
+        margin: 40px auto;
+    }
+
+    #offreDetaillee main>div>div:last-child {
+        display: flex;
+    }
+
+    #donneesOffre {
+        width: 70%;
+        margin-right: 20px;
+    }
+
+    #offreDetaillee main>div>div>div:last-child {
+        width: 30%;
+        border-left: 1px solid #395c94;
+        padding: 20px;
+    }
+
+    /* ---------------------------------------------------------------------------------------- */
+
+
+
+    /* PAGE CREATION D'OFFRE BUREAU */
+    #formCreation {
+        max-width: 960px;
+        margin: 40px auto 0 auto;
+        padding: 20px;
+        border: 2px solid #395c94;
+    }
+
+    /* ---------------------------------------------------------------------------------------- */
+
+
+
+    /* PAGE INSCRIPTION BUREAU */
+    #formInsc {
+        max-width: 960px;
+        margin: 40px auto;
+        padding: 20px;
+        border: 2px solid #395c94;
+    }
+
+    .radioContainerJur {
+        max-width: 60%;
+    }
+    /* ---------------------------------------------------------------------------------------- */
+
+
+
+    /* FOOTER BUREAU */
+    footer>div {
+        max-width: 960px;
+        margin: 0 auto;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    footer * {
+        text-align: left;
+    }
+
+    footer>div>div {
+        padding: 0;
+        margin: 20px 0;
+        display: flex;
+    }
+
+    footer p {
+        margin-left: 0;
+    }
+
+    #logos_footer {
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #logos_footer>div:last-child {
+        width: auto;
+        margin: 0;
+        display: block;
+    }
+
+    footer .logo_dut {
+        width: 80px;
+        margin-right: 20px;
+    }
+
+    .iutbm, .ufc, footer .fb{
+        height: 50px;
+    }
+
+    .iutbm {
+        margin-right: 80px;
+    }
+
+    footer .fb {
+        width: auto;
+    }
+
+    /* ---------------------------------------------------------------------------------------- */
+}
+
+
+/* ---------------------------------------------------------------------------------------- */
