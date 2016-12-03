@@ -11,9 +11,9 @@
     </div>
 
     <div>
-        <div id="trieur">
-            <button id="btn_stage" class="up">Stages</button>
-            <button id="btn_emploi" class="up">Emplois</button>
+        <div id="filtres">
+            <button id="btn_stage" class="up" data-affiche="affiche-offreStage">Stages</button>
+            <button id="btn_emploi" class="up" data-affiche="affiche-offreEmploi">Emplois</button>
         </div>
         <div id="searchForm">
             <form method="post" action="traitement.php">
@@ -133,22 +133,27 @@
 {% endblock %}
 
 
-{#{% block script %}#}
+{% block script %}
 
-    {#<script>#}
-        {#(function afficher_emploi() {#}
-            {#"use strict";#}
+    <script>
+        (function () {
+            "use strict";
 
-            {#var buttonEmploi = document.querySelector("#btn_emploi");#}
-            {#var offreStage = document.querySelectorAll(".offreStage");#}
-            {#var listeOffreStage = offreStage.querySelector();#}
+            var liste = document.querySelector("#listeOffres");
 
-            {#function tri_emploi() {#}
-                {#listeOffreStage.classList.toggle("hide")#}
-            {#}#}
+            var filtres = document.querySelector("#filtres");
 
-            {#buttonEmploi.addEventListener("click", tri_emploi);#}
-        {#}());#}
-    {#</script>#}
+            function clickAffiche(evt) {
+                if (evt.target.matches("button")) {
+                    console.log("utiliser : ", evt.target.affiche);
 
-{#{% endblock %}#}
+                    liste.className = '';
+                    liste.classList.add(evt.target.dataset.affiche);
+                }
+            }
+            filtres.addEventListener("click", clickAffiche);
+
+        }());
+    </script>
+
+{% endblock %}

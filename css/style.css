@@ -29,6 +29,7 @@ body {
 }
 
 main {
+    padding-top: 50px;
     padding-bottom: 350px;
 }
 
@@ -117,10 +118,12 @@ input:focus, select:focus, textarea:focus {
 
 /* HEADER MOBILE */
 header {
-    position: relative;
+    position: fixed;
     width: 100%;
     height: 50px;
     background-color: #395c94;
+    z-index: 2;
+    box-shadow: 0 0 10px 1px rgba(0,0,0,0.5);
 }
 
 #nav_desktop {
@@ -205,8 +208,12 @@ header {
     background-size: cover;
 }
 
-.entete h1 {
+#titreIndex_handle {
     margin: 0 10px;
+}
+
+#titreIndex_desktop {
+    display: none;
 }
 
 #index .entete>div>div:first-child {
@@ -423,7 +430,7 @@ header {
     height: 30px;
 }
 
-#trieur {
+#filtres {
     width: 70%;
     margin: 30px auto 15px auto;
     border: 2px solid black;
@@ -432,18 +439,20 @@ header {
     max-width: 800px;
 }
 
-#trieur button {
+#filtres button {
     width: 50%;
     border: none;
     background-color: #fbfbf1;
     padding: 3px 0;
+    cursor: pointer;
+    text-align: center;
 }
 
-#trieur>button:first-child {
+#filtres>button:first-child {
     border-right: 1px solid black;
 }
 
-#trieur button:focus {
+#filtres button:focus {
     color: #fbfbf1;
     background-color: #395c94;
     outline-color: #395c94;
@@ -504,6 +513,11 @@ header {
 .offre>div:last-child>span>a {
     display: block;
     text-align: center;
+}
+
+#listeOffres.affiche-offreStage > div.offreEmploi,
+#listeOffres.affiche-offreEmploi > div.offreStage {
+    display: none;
 }
 
 /* ---------------------------------------------------------------------------------------- */
@@ -894,9 +908,8 @@ footer .logo_dut {
     }
 
     #ongletIndex img {
-        height: 40px;
-        /*height: 80px;*/
-        /*margin-top: -50px;*/
+        height: 80px;
+        margin-top: 50px;
     }
 
     /* ---------------------------------------------------------------------------------------- */
@@ -906,6 +919,21 @@ footer .logo_dut {
     /* PAGE ACCUEIL BUREAU */
     #index .entete {
         height: 800px;
+    }
+
+    #titreIndex_handle {
+        display: none;
+    }
+
+    #titreIndex_desktop {
+        margin: 0 auto;
+        display: block;
+        width: 960px;
+    }
+
+    #titreIndex_desktop .cls-1, #titreIndex_desktop rect {
+        opacity: 0;
+        fill: #fbfbf1;
     }
 
     #index #video p {

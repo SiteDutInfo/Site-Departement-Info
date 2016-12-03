@@ -19,6 +19,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Perfect';
+    src: url('fonts/Perfect.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html {
     font-size: 100%;
     font-family: ColaborateThin;
@@ -44,5 +51,10 @@ h1, h2, h3, h4 {
 
 footer p, footer a, #oubli_mdp {
     font-size: 0.8em;
+}
+
+#titreIndex_desktop .cls-1 {
+    font-size: 10px;
+    font-family: Perfect;
 }
 
