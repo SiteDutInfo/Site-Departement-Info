@@ -33,7 +33,7 @@ class DaoResponsable extends Dao {
     }
 
     public function create(){
-        $sql = "INSERT INTO responsable(NOM_RESP, MAIL_RESP, TEL_RESP)
+        $sql = "INSERT INTO responsable(NOM_RESP, MAIL_RESP, TEL_RESP, ID_ENT)
                VALUES(?, ?, ?)";
 
         $requete = $this->pdo->prepare($sql);
@@ -41,6 +41,7 @@ class DaoResponsable extends Dao {
         $requete->bindValue(1, $this->bean->getNom());
         $requete->bindValue(2, $this->bean->getMail());
         $requete->bindValue(3, $this->bean->getTel());
+        $requete->bindValue(4, $this->bean->getEntreprise()->getId());
 
         $requete->execute();
     }

@@ -42,7 +42,7 @@ class DaoAnnonce extends Dao {
         $dateFin = explode("/", $this->bean->getFin());
         $finStage = $dateFin[2] . "-" . $dateFin[1] . "-" . $dateFin[0];
 
-        $sql = "INSERT INTO annonce(ID_ANNONCE, POSTE_RECHERCHE, DESC_POSTE, PROFIL_RECHERCHE, DEBUT_STAGE, FIN_STAGE, ETAT_PUBLICATION)
+        $sql = "INSERT INTO annonce(ID_ANNONCE, POSTE_RECHERCHE, DESC_POSTE, PROFIL_RECHERCHE, DEBUT_STAGE, FIN_STAGE, ETAT_PUBLICATION, ID_ENT, ID_ADMIN)
                VALUES(?, ?, ?, ?, ?, ?, ?)";
 
         $requete = $this->pdo->prepare($sql);
@@ -54,6 +54,8 @@ class DaoAnnonce extends Dao {
         $requete->bindValue(5, $debutStage);
         $requete->bindValue(6, $finStage);
         $requete->bindValue(7, $this->bean->getEtatPublication());
+        $requete->bindValue(8, $this->bean->getEntreprise()->getId());
+        $requete->bindValue(9, $this->bean->getAdmin()->getId());
 
         $requete->execute();
     }
@@ -93,23 +95,24 @@ class DaoAnnonce extends Dao {
     }
 
     public function setAdmin(){
-        $sql = "SELECT *
+    $sql = "SELECT *
                 FROM annonce, administrateur
                 WHERE
                 annonce.ID_ANNONCE = ".$this->bean->getId()."
                 AND annonce.ID_ADMIN = administrateur.ID_ADMIN
             ";
 
-        $requete = $this->pdo->prepare($sql);
-        if($requete->execute()){
-            while($donnees = $requete->fetch()){
-                $admin = new Administrateur(
-                    $donnees['ID_ADMIN'],
-                    $donnees['LOGIN_ADMIN'],
-                    $donnees['MDP_ADMIN']
-                );
-                $this->bean->setAdmin($admin);
-            }
+    $requete = $this->pdo->prepare($sql);
+    if($requete->execute()){
+        while($donnees = $requete->fetch()){
+            $admin = new Administrateur(
+                $donnees['ID_ADMIN'],
+                $donnees['LOGIN_ADMIN'],
+                $donnees['MDP_ADMIN']
+            );
+            $this->bean->setAdmin($admin);
         }
     }
+    }
+
 }
