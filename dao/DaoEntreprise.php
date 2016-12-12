@@ -39,11 +39,7 @@ class DaoEntreprise extends Dao {
 
     public function create(){
         $sql = "INSERT INTO entreprise(NOM_ENT, NUM_SIRET, CODE_APE_NAF, URL_ENT, DESC_ENT, LOGIN_ENT, MDP_ENT, LOGO, ID_VILLE, ID_RESP, ID_TYPE_ENT, ID_STATUT, ID_EFF)
-<<<<<<< HEAD
                VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-=======
-               VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
->>>>>>> origin/master
 
         $requete = $this->pdo->prepare($sql);
 

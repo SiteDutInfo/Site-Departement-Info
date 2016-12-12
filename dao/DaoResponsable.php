@@ -34,11 +34,7 @@ class DaoResponsable extends Dao {
 
     public function create(){
         $sql = "INSERT INTO responsable(NOM_RESP, MAIL_RESP, TEL_RESP, ID_ENT)
-<<<<<<< HEAD
                VALUES(?, ?, ?, ?)";
-=======
-               VALUES(?, ?, ?)";
->>>>>>> origin/master
 
         $requete = $this->pdo->prepare($sql);
 

@@ -38,7 +38,6 @@ class Annonce {
     public function getEtatPublication(){return $this->etatPublication;}
     public function getEntreprise(){return $this->entreprise;}
     public function getAdmin(){return $this->admin;}
-    public function getTypeAnnonce($typeAnnonce){$this->typeAnnonce=$typeAnnonce;}
 
     public function setId($id){$this->id=$id;}
     public function setPosteRecherche($posteRecherche){$this->posteRecherche=$posteRecherche;}
@@ -49,5 +48,4 @@ class Annonce {
     public function setEtatPublication($etatPublication){$this->etatPublication=$etatPublication;}
     public function setEntreprise($entreprise){$this->entreprise=$entreprise;}
     public function setAdmin($admin){$this->admin=$admin;}
-    public function setTypeAnnonce($typeAnnonce){$this->typeAnnonce=$typeAnnonce;}
 }
