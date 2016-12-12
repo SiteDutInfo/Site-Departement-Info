@@ -78,4 +78,20 @@ class DaoAdministrateur extends Dao {
             $this->bean->setLesAnnonces($liste);
         }
     }
+
+    public function cnx($login, $mdp){
+        $sql = "SELECT *
+                FROM administrateur
+                WHERE
+                administrateur.LOGIN_ADMIN = '".$login."'
+                AND administrateur.MDP_ADMIN = '".$mdp."' ";
+        $requete = $this->pdo->prepare($sql);
+        if($requete->execute()){
+            while($donnees = $requete->fetch()){
+                $this->bean->setId($donnees['ID_ADMIN']);
+                $this->bean->setLogin($donnees['LOGIN_ADMIN']);
+                $this->bean->setMdp($donnees['MDP_ADMIN']);
+            }
+        }
+    }
 }
