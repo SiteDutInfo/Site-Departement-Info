@@ -22,40 +22,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DaoEntreprise.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dao/DaoEntreprise.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.884615">
-              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-              <folding>
-                <marker date="1481380460458" expanded="true" signature="835:908" placeholder="SELECT * FRO..entreprise..." />
-                <marker date="1481380460458" expanded="true" signature="1446:1644" placeholder="INSERT INTO ..." />
-                <marker date="1481380460458" expanded="true" signature="2669:2856" placeholder="SELECT * FRO..entreprise..." />
-                <marker date="1481380460458" expanded="true" signature="3353:3550" placeholder="SELECT * FRO..entreprise..." />
-                <marker date="1481380460458" expanded="true" signature="4080:4293" placeholder="SELECT * FRO..entreprise..." />
-                <marker date="1481380460458" expanded="true" signature="4733:4944" placeholder="SELECT * FRO..entreprise..." />
-                <marker date="1481380460458" expanded="true" signature="5395:5584" placeholder="SELECT * FRO..entreprise..." />
-                <marker date="1481380460458" expanded="true" signature="6008:6236" placeholder="SELECT * FRO..entreprise..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DaoAnnonce.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dao/DaoAnnonce.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-37.26923">
-              <caret line="57" column="65" selection-start-line="57" selection-start-column="65" selection-end-line="57" selection-end-column="65" />
-              <folding>
-                <marker date="1481382211031" expanded="true" signature="799:873" placeholder="SELECT * FRO..annonce..." />
-                <marker date="1481382211031" expanded="true" signature="1664:1845" placeholder="INSERT INTO ..." />
-                <marker date="1481382211031" expanded="true" signature="2674:2862" placeholder="SELECT * FRO..annonce..." />
-                <marker date="1481382211031" expanded="true" signature="3578:3778" placeholder="SELECT * FRO..annonce..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="class.Effectif.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/class.Effectif.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -66,57 +32,52 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="class.Annonce.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="class.Entreprise.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/class.Entreprise.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.2692308">
+              <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class.Annonce.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/class.Annonce.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.95238096">
+            <state vertical-scroll-proportion="-34.0">
               <caret line="52" column="1" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DaoTypeAnnonce.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dao/DaoTypeAnnonce.php">
+      <file leaf-file-name="class.TypeAnnonce.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/class.TypeAnnonce.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.384615">
-              <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+            <state vertical-scroll-proportion="-2.6153846">
+              <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DaoTypeEntreprise.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dao/DaoTypeEntreprise.php">
+      <file leaf-file-name="connexion.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/connexion.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.961538">
-              <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.1904762">
+              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DaoVille.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dao/DaoVille.php">
+      <file leaf-file-name="class.Administrateur.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/class.Administrateur.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614">
-              <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-              <folding>
-                <marker date="1481201836259" expanded="true" signature="561:624" placeholder="SELECT * FRO..ville..." />
-                <marker date="1481201836259" expanded="true" signature="1156:1369" placeholder="SELECT * FRO..ville..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DaoPays.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dao/DaoPays.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.461538">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding>
-                <marker date="1481201835949" expanded="true" signature="451:519" placeholder="SELECT * FRO..pays..." />
-              </folding>
+            <state vertical-scroll-proportion="-17.653847">
+              <caret line="27" column="82" selection-start-line="27" selection-start-column="82" selection-end-line="27" selection-end-column="82" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -151,6 +112,7 @@
         <option value="$PROJECT_DIR$/classes/class.Annonce.php" />
         <option value="$PROJECT_DIR$/dao/DaoResponsable.php" />
         <option value="$PROJECT_DIR$/dao/DaoAnnonce.php" />
+        <option value="$PROJECT_DIR$/templates/connexion.html.twig" />
       </list>
     </option>
   </component>
@@ -309,7 +271,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1925" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -385,14 +347,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="177" column="39" selection-start-line="0" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
           <folding>
-            <marker date="1481380460458" expanded="true" signature="835:908" placeholder="SELECT * FRO..entreprise..." />
-            <marker date="1481380460458" expanded="true" signature="1446:1644" placeholder="INSERT INTO ..." />
-            <marker date="1481380460458" expanded="true" signature="2669:2856" placeholder="SELECT * FRO..entreprise..." />
-            <marker date="1481380460458" expanded="true" signature="3353:3550" placeholder="SELECT * FRO..entreprise..." />
-            <marker date="1481380460458" expanded="true" signature="4080:4293" placeholder="SELECT * FRO..entreprise..." />
-            <marker date="1481380460458" expanded="true" signature="4733:4944" placeholder="SELECT * FRO..entreprise..." />
-            <marker date="1481380460458" expanded="true" signature="5395:5584" placeholder="SELECT * FRO..entreprise..." />
-            <marker date="1481380460458" expanded="true" signature="6008:6236" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
           </folding>
         </state>
       </provider>
@@ -422,14 +384,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="177" column="39" selection-start-line="0" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
           <folding>
-            <marker date="1481380460458" expanded="true" signature="835:908" placeholder="SELECT * FRO..entreprise..." />
-            <marker date="1481380460458" expanded="true" signature="1446:1644" placeholder="INSERT INTO ..." />
-            <marker date="1481380460458" expanded="true" signature="2669:2856" placeholder="SELECT * FRO..entreprise..." />
-            <marker date="1481380460458" expanded="true" signature="3353:3550" placeholder="SELECT * FRO..entreprise..." />
-            <marker date="1481380460458" expanded="true" signature="4080:4293" placeholder="SELECT * FRO..entreprise..." />
-            <marker date="1481380460458" expanded="true" signature="4733:4944" placeholder="SELECT * FRO..entreprise..." />
-            <marker date="1481380460458" expanded="true" signature="5395:5584" placeholder="SELECT * FRO..entreprise..." />
-            <marker date="1481380460458" expanded="true" signature="6008:6236" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
           </folding>
         </state>
       </provider>
@@ -491,52 +453,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/class.Pays.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/class.Responsable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59615386">
-          <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/class.Entreprise.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/class.Ville.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17307693">
           <caret line="273" column="47" selection-start-line="273" selection-start-column="47" selection-end-line="273" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/class.StatutJuridique.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03846154">
-          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/class.TypeEntreprise.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28846154">
-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -555,28 +475,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/class.Administrateur.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64285713">
-          <caret line="27" column="82" selection-start-line="27" selection-start-column="82" selection-end-line="27" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/class.TypeAnnonce.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0952381">
-          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dao/DaoPays.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.461538">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <marker date="1481201835949" expanded="true" signature="451:519" placeholder="SELECT * FRO..pays..." />
+            <marker date="1481201835949" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..pays..." />
           </folding>
         </state>
       </provider>
@@ -618,14 +522,14 @@
         <state vertical-scroll-proportion="-23.884615">
           <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding>
-            <marker date="1481380460458" expanded="true" signature="835:908" placeholder="SELECT * FRO..entreprise..." />
-            <marker date="1481380460458" expanded="true" signature="1446:1644" placeholder="INSERT INTO ..." />
-            <marker date="1481380460458" expanded="true" signature="2669:2856" placeholder="SELECT * FRO..entreprise..." />
-            <marker date="1481380460458" expanded="true" signature="3353:3550" placeholder="SELECT * FRO..entreprise..." />
-            <marker date="1481380460458" expanded="true" signature="4080:4293" placeholder="SELECT * FRO..entreprise..." />
-            <marker date="1481380460458" expanded="true" signature="4733:4944" placeholder="SELECT * FRO..entreprise..." />
-            <marker date="1481380460458" expanded="true" signature="5395:5584" placeholder="SELECT * FRO..entreprise..." />
-            <marker date="1481380460458" expanded="true" signature="6008:6236" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
+            <marker date="1481380460458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..entreprise..." />
           </folding>
         </state>
       </provider>
@@ -651,8 +555,8 @@
         <state vertical-scroll-proportion="-0.65384614">
           <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
           <folding>
-            <marker date="1481201836259" expanded="true" signature="561:624" placeholder="SELECT * FRO..ville..." />
-            <marker date="1481201836259" expanded="true" signature="1156:1369" placeholder="SELECT * FRO..ville..." />
+            <marker date="1481201836259" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ville..." />
+            <marker date="1481201836259" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ville..." />
           </folding>
         </state>
       </provider>
@@ -662,11 +566,59 @@
         <state vertical-scroll-proportion="-37.26923">
           <caret line="57" column="65" selection-start-line="57" selection-start-column="65" selection-end-line="57" selection-end-column="65" />
           <folding>
-            <marker date="1481382211031" expanded="true" signature="799:873" placeholder="SELECT * FRO..annonce..." />
-            <marker date="1481382211031" expanded="true" signature="1664:1845" placeholder="INSERT INTO ..." />
-            <marker date="1481382211031" expanded="true" signature="2674:2862" placeholder="SELECT * FRO..annonce..." />
-            <marker date="1481382211031" expanded="true" signature="3578:3778" placeholder="SELECT * FRO..annonce..." />
+            <marker date="1481382211031" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..annonce..." />
+            <marker date="1481382211031" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1481382211031" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..annonce..." />
+            <marker date="1481382211031" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..annonce..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/class.Ville.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21428572">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/class.TypeEntreprise.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35714287">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/class.StatutJuridique.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04761905">
+          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/class.Responsable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7380952">
+          <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/class.Pays.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0952381">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/class.Administrateur.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.653847">
+          <caret line="27" column="82" selection-start-line="27" selection-start-column="82" selection-end-line="27" selection-end-column="82" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -678,10 +630,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/classes/class.Entreprise.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/classes/class.Annonce.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.95238096">
+        <state vertical-scroll-proportion="-34.0">
           <caret line="52" column="1" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/class.TypeAnnonce.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6153846">
+          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/connexion.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1904762">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="55" />
           <folding />
         </state>
       </provider>
