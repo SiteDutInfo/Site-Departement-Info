@@ -61,6 +61,24 @@ class DaoEntreprise extends Dao {
     }
 
     public function update(){
+        $sql = "
+                UPDATE entreprise
+                SET NOM_ENT = '".$this->bean->getNom()."' ,
+                    NUM_SIRET = ".$this->bean->getNumSiret().",
+                    CODE_APE_NAF = ".$this->bean->getCodeApeNaf().",
+                    URL_ENT = ".$this->bean->getUrl().",
+                    DESC_ENT = ".$this->bean->getDesc().",
+                    LOGIN_ENT = ".$this->bean->getLogin().",
+                    MDP_ENT = ".$this->bean->getMdp().",
+                    LOGO = ".$this->bean->getLogo().",
+                    ID_VILLE = ".$this->bean->getLaVille()->getId().",
+                    ID_RESP = ".$this->bean->getLeResponsable()->getId().",
+                    ID_TYPE_ENT = ".$this->bean->getLeTypeEnt()->getId().",
+                    ID_STATUT = ".$this->bean->getLeStatutJur()->getId().",
+                    ID_EFF = ".$this->bean->getEffectif()->getId().",
+                WHERE ID_ENT = ".$this->bean->getId();
+        $requete = $this->pdo->prepare($sql);
+        $requete->execute();
     }
 
     public function delete(){

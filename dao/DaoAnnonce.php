@@ -58,10 +58,31 @@ class DaoAnnonce extends Dao {
     }
 
     public function update(){
-    }
+            $sql = "
+                UPDATE annonce
+                SET POSTE_RECHERCHE = '".$this->bean->getPosteRecherche()."' ,
+                    DESC_POSTE = ".$this->bean->getDescPoste().",
+                    PROFIL_RECHERCHE = ".$this->bean->getProfilRecherche().",
+                    STAGE = ".$this->bean->getStage().",
+                    ETAT_PUBLICATION = ".$this->bean->getEtatPublication().",
+                    DEBUT_STAGE = ".$this->bean->getDebut().",
+                    FIN_STAGE = ".$this->bean->getFin().",
+                    ID_ENT = ".$this->bean->getEntreprise()->getId().",
+                    ID_ADMIN = ".$this->bean->getAdmin()->getId()."
+                WHERE ID_ANNONCE = ".$this->bean->getId();
+            $requete = $this->pdo->prepare($sql);
+            $requete->execute();
+        }
+
 
     public function delete(){
         $this->deleteById("annonce", "ID_ANNONCE", $this->bean->getId());
+
+        $sql = "
+                    DELETE FROM annonce
+                    WHERE ID_ANNONCE = ".$this->bean->getId();
+        $requete = $this->pdo->prepare($sql);
+        $requete->execute();
     }
 
     public function setEntreprise(){

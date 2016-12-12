@@ -48,6 +48,13 @@ class DaoAdministrateur extends Dao {
     }
 
     public function update(){
+        $sql = "
+                UPDATE administrateur
+                SET LOGIN_ADMIN = ".$this->bean->getLogin().",
+                    MDP_ADMIN = ".$this->bean->getMdp().",
+                WHERE ID_ADMIN = ".$this->bean->getId();
+        $requete = $this->pdo->prepare($sql);
+        $requete->execute();
     }
 
     public function delete(){
