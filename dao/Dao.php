@@ -18,7 +18,7 @@ class Dao {
     }
 
     public function findById($table=null, $colonne = null, $valeur=0){
-        $sql = "SELECT * FROM ".$table." WHERE ".$colonne." = ".$valeur;
+        $sql = "SELECT * FROM ".$table." WHERE ".$colonne." = '$valeur'";
         $requete = $this->pdo->prepare($sql);
         if($requete->execute()){
             if($donnees = $requete->fetch()){

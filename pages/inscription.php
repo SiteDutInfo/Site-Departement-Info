@@ -27,11 +27,6 @@ $listeEff = $daoEff->getListe();
 
 if (isset($_POST["creerEntreprise"])) {
 
-//    $entreprise = new Entreprise(
-//        $daoEntreprise->bean->,
-//        $_POST["nomEnt"],
-//    );
-
     $daoEnt = new DaoEntreprise();
     $daoEnt->bean->setLogin($_POST["loginEnt"]);
 
@@ -45,6 +40,8 @@ if (isset($_POST["creerEntreprise"])) {
 //    $daoEnt->bean->setLogo($_POST["logoEnt"]);
     $daoEnt->bean->setDesc($_POST["desc"]);
 
+
+
     $daoVille = new DaoVille();
     $daoVille->findByName($_POST["ville"]);
     if($daoVille == null) {
@@ -54,15 +51,19 @@ if (isset($_POST["creerEntreprise"])) {
     else {
         $daoVille->bean->getId();
     }
+//    $daoVille->find($_POST["ville"]);
+//    $daoEnt->bean->setLaVille($daoVille->bean);
 
 //    $daoResp = new DaoResponsable();
-//    $daoNomResp = $daoResp->findByName($_POST["nomResp"]);
-//    if($daoNomResp == null) {
-//        $daoResp->bean->setNom();
-//    }
-//    else {
-//        $daoResp->bean->getId();
-//    }
+////    $daoNomResp = $daoResp->findByName($_POST["nomResp"]);
+////    if($daoNomResp == null) {
+////        $daoResp->bean->setNom();
+////    }
+////    else {
+////        $daoResp->bean->getId();
+////    }
+//    $daoResp->find($_POST["nomResp"]);
+//    $daoEnt->bean->setLeResponsable($daoResp->bean);
 
     $daoPays = new DaoPays();
     $daoPays->findByName($_POST["pays"]);
@@ -81,9 +82,6 @@ if (isset($_POST["creerEntreprise"])) {
 
     $daoStatutJur->find($_POST["statutJur"]);
     $daoEnt->bean->setLeStatutJur($daoStatutJur->bean);
-//
-//    $daoResp->find($_POST["nomResp"]);
-//    $daoEnt->bean->setLeResponsable($daoResp->bean);
 
 
     $daoEnt->create();

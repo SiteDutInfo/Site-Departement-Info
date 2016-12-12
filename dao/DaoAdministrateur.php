@@ -71,6 +71,7 @@ class DaoAdministrateur extends Dao {
                     $donnees['PROFIL_RECHERCHE'],
                     $donnees['DEBUT_STAGE'],
                     $donnees['FIN_STAGE'],
+                    $donnees['STAGE'],
                     $donnees['ETAT_PUBLICATION']
                 );
                 $liste[] = $annonce;

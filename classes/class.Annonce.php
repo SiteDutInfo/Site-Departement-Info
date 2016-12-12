@@ -10,6 +10,7 @@ class Annonce {
     private $profilRecherche = null;
     private $debut = null;
     private $fin = null;
+    private $stage = false;
     private $etatPublication = false;
 
     private $entreprise = null;
@@ -19,13 +20,14 @@ class Annonce {
     // OPERATIONS
     public function Annonce($id = 0, $posteRecherche = null, $descPoste = null,
                             $profilRecherche = null, $debut = null, $fin = null,
-                            $etatPublication = false) {
+                            $stage = false, $etatPublication = false) {
         $this->id=$id;
         $this->posteRecherche=$posteRecherche;
         $this->descPoste=$descPoste;
         $this->profilRecherche=$profilRecherche;
         $this->debut=$debut;
         $this->fin=$fin;
+        $this->stage=$stage;
         $this->etatPublication=$etatPublication;
     }
 
@@ -35,6 +37,7 @@ class Annonce {
     public function getProfilRecherche(){return $this->profilRecherche;}
     public function getDebut(){return $this->debut;}
     public function getFin(){return $this->fin;}
+    public function getStage(){return $this->stage;}
     public function getEtatPublication(){return $this->etatPublication;}
     public function getEntreprise(){return $this->entreprise;}
     public function getAdmin(){return $this->admin;}
@@ -45,6 +48,7 @@ class Annonce {
     public function setProfilRecherche($profilRecherche){$this->profilRecherche=$profilRecherche;}
     public function setDebut($debut){$this->debut=$debut;}
     public function setFin($fin){$this->fin=$fin;}
+    public function setStage($stage){$this->stage=$stage;}
     public function setEtatPublication($etatPublication){$this->etatPublication=$etatPublication;}
     public function setEntreprise($entreprise){$this->entreprise=$entreprise;}
     public function setAdmin($admin){$this->admin=$admin;}

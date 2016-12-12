@@ -1,25 +1,27 @@
 <?php
 
 require_once('dao/DaoAnnonce.php');
-require_once('dao/DaoTypeAnnonce.php');
-
-
-$daoTypeAnn = new DaoTypeAnnonce();
 
 
 if (isset($_POST["creerAnnonce"])) {
 
 
     $daoAnn = new DaoAnnonce();
+
+    if($_POST['typeAnnonce'] == "stage"){
+        $daoAnn->bean->setStage(1);
+    }
+    else{
+        $daoAnn->bean->setStage(0);
+    }
+
+    $daoAnn->bean->setPosteRecherche($_POST["posteRecherche"]);
     $daoAnn->bean->setDescPoste($_POST["descPoste"]);
     $daoAnn->bean->setProfilRecherche($_POST["profil"]);
     $daoAnn->bean->setDebut($_POST["dateDebut"]);
     $daoAnn->bean->setFin($_POST["dateFin"]);
 
-    $daoTypeAnn->find($_POST["typeAnnonce"]);
-    $daoTypeAnn->bean->setStage($daoTypeAnn->bean);
-
-
+    $daoAnn->bean->setEtatPublication(0);
 
     $daoAnn->create();
 

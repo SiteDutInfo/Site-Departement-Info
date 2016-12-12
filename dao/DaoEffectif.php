@@ -18,7 +18,7 @@ class DaoEffectif extends Dao {
     public function getListe(){
         $sql = "SELECT *
                 FROM effectif
-                ORDER BY QTE_EFF";
+                ORDER BY ID_EFF";
         $requete = $this->pdo->prepare($sql);
         $liste = array();
         if($requete->execute()){
