@@ -36,14 +36,18 @@ class DaoAnnonce extends Dao {
     }
 
     public function create(){
-        $dateDebut = explode("/", $this->bean->getDebut());
-        $debutStage = $dateDebut[2] . "-" . $dateDebut[1] . "-" . $dateDebut[0];
+//        $dateDebut = explode("/", $this->bean->getDebut());
+//        $debutStage = $dateDebut[2] . "-" . $dateDebut[1] . "-" . $dateDebut[0];
+//
+//        $dateFin = explode("/", $this->bean->getFin());
+//        $finStage = $dateFin[2] . "-" . $dateFin[1] . "-" . $dateFin[0];
 
-        $dateFin = explode("/", $this->bean->getFin());
-        $finStage = $dateFin[2] . "-" . $dateFin[1] . "-" . $dateFin[0];
+//        $sql = "INSERT INTO annonce(ID_ANNONCE, POSTE_RECHERCHE, DESC_POSTE, PROFIL_RECHERCHE, DEBUT_STAGE, FIN_STAGE, ETAT_PUBLICATION)
+//               VALUES(?, ?, ?, ?, ?, ?, ?)";
 
-        $sql = "INSERT INTO annonce(ID_ANNONCE, POSTE_RECHERCHE, DESC_POSTE, PROFIL_RECHERCHE, DEBUT_STAGE, FIN_STAGE, ETAT_PUBLICATION, ID_ENT, ID_ADMIN)
-               VALUES(?, ?, ?, ?, ?, ?, ?)";
+
+        $sql = "INSERT INTO annonce(ID_ANNONCE, POSTE_RECHERCHE, DESC_POSTE, PROFIL_RECHERCHE, DEBUT_STAGE, FIN_STAGE, ID_ENT, ID_ADMIN)
+               VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $requete = $this->pdo->prepare($sql);
 
@@ -51,9 +55,15 @@ class DaoAnnonce extends Dao {
         $requete->bindValue(2, $this->bean->getPosteRecherche());
         $requete->bindValue(3, $this->bean->getDescPoste());
         $requete->bindValue(4, $this->bean->getProfilRecherche());
-        $requete->bindValue(5, $debutStage);
-        $requete->bindValue(6, $finStage);
+
+//        $requete->bindValue(5, $debutStage);
+//        $requete->bindValue(6, $finStage);
+        $requete->bindValue(5, $this->bean->getDebut());
+        $requete->bindValue(6, $this->bean->getFin());
+//        $requete->bindValue(7, $this->bean->getEtatPublication());
+
         $requete->bindValue(7, $this->bean->getEtatPublication());
+
         $requete->bindValue(8, $this->bean->getEntreprise()->getId());
         $requete->bindValue(9, $this->bean->getAdmin()->getId());
 

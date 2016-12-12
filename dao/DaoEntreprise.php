@@ -13,13 +13,13 @@ class DaoEntreprise extends Dao {
         $donnees = $this->findById("entreprise", "ID_ENT", $id);
         $this->bean->setId($donnees['ID_ENT']);
         $this->bean->setNom($donnees['NOM_ENT']);
-        $this->bean->setNom($donnees['NUM_SIRET']);
-        $this->bean->setNom($donnees['CODE_APE_NAF']);
-        $this->bean->setNom($donnees['URL_ENT']);
-        $this->bean->setNom($donnees['DESC_ENT']);
-        $this->bean->setNom($donnees['LOGIN_ENT']);
-        $this->bean->setNom($donnees['MDP_ENT']);
-        $this->bean->setNom($donnees['LOGO']);
+        $this->bean->setNumSiret($donnees['NUM_SIRET']);
+        $this->bean->setCodeApeNaf($donnees['CODE_APE_NAF']);
+        $this->bean->setUrl($donnees['URL_ENT']);
+        $this->bean->setDesc($donnees['DESC_ENT']);
+        $this->bean->setLogin($donnees['LOGIN_ENT']);
+        $this->bean->setMdp($donnees['MDP_ENT']);
+        $this->bean->setLogo($donnees['LOGO']);
     }
 
     public function getListe(){
@@ -39,7 +39,7 @@ class DaoEntreprise extends Dao {
 
     public function create(){
         $sql = "INSERT INTO entreprise(NOM_ENT, NUM_SIRET, CODE_APE_NAF, URL_ENT, DESC_ENT, LOGIN_ENT, MDP_ENT, LOGO, ID_VILLE, ID_RESP, ID_TYPE_ENT, ID_STATUT, ID_EFF)
-               VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+               VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $requete = $this->pdo->prepare($sql);
 
@@ -193,6 +193,28 @@ class DaoEntreprise extends Dao {
                 $liste[] = $annonce;
             }
             $this->bean->setLesAnnonces($liste);
+        }
+    }
+
+    public function cnx($login, $mdp){
+        $sql = "SELECT *
+                FROM entreprise
+                WHERE
+                entreprise.LOGIN_ENT = '".$login."'
+                AND entreprise.MDP_ENT = '".$mdp."' ";
+        $requete = $this->pdo->prepare($sql);
+        if($requete->execute()){
+            while($donnees = $requete->fetch()){
+                $this->bean->setId($donnees['ID_ENT']);
+                $this->bean->setNom($donnees['NOM_ENT']);
+                $this->bean->setNumSiret($donnees['NUM_SIRET']);
+                $this->bean->setCodeApeNaf($donnees['CODE_APE_NAF']);
+                $this->bean->setUrl($donnees['URL_ENT']);
+                $this->bean->setDesc($donnees['DESC_ENT']);
+                $this->bean->setLogin($donnees['LOGIN_ENT']);
+                $this->bean->setMdp($donnees['MDP_ENT']);
+                $this->bean->setLogo($donnees['LOGO']);
+            }
         }
     }
 }

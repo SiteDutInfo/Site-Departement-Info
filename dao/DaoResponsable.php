@@ -34,7 +34,7 @@ class DaoResponsable extends Dao {
 
     public function create(){
         $sql = "INSERT INTO responsable(NOM_RESP, MAIL_RESP, TEL_RESP, ID_ENT)
-               VALUES(?, ?, ?)";
+               VALUES(?, ?, ?, ?)";
 
         $requete = $this->pdo->prepare($sql);
 
@@ -50,6 +50,16 @@ class DaoResponsable extends Dao {
     }
 
     public function delete(){
+    }
+
+    public function findByName($value){
+        $sql = "SELECT * FROM responsable WHERE NOM_RESP = '$value'";
+        $requete = $this->pdo->prepare($sql);
+        if($requete->execute()){
+            if($donnees = $requete->fetch()){
+                return $donnees;
+            }
+        }
     }
 
     public function setEntreprise(){

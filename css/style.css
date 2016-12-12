@@ -656,16 +656,16 @@ header {
     display: inline-block;
 }
 
-#formCreation textarea, #typeOffre {
+#formCreation textarea, #typeAnnonce {
     display: block;
     margin: 10px 0;
 }
 
-#typeOffre>span:first-child {
+#typeAnnonce>span:first-child {
     margin-right: 30px;
 }
 
-#typeOffre input {
+#typeAnnonce input {
     margin-bottom: 0;
 }
 
@@ -867,11 +867,28 @@ footer .logo_dut {
         display: flex;
         justify-content: space-around;
         align-items: center;
+    }
+
+    #main_nav_desktop {
         height: 50px;
+        width: 90%;
+    }
+
+    #nav_desktop_co {
+        height: 30px;
+        background-color: #9aacc3;
+        padding-left: 8%;
     }
 
     #nav_desktop ul>li {
         display: inline-block;
+    }
+
+    #truc {
+        top: 16px;
+        position: absolute;
+        right: 3%;
+        height: 22px;
     }
 
     .effect::before {
@@ -902,9 +919,13 @@ footer .logo_dut {
         transform: translateX(0);
     }
 
-    #ongletCo {
+    #ongletCo, #ongletDeco {
         border: 1px solid #fbfbf1;
         padding: 5px;
+    }
+
+    #ongletDeco {
+        background-color: transparent;
     }
 
     #ongletIndex img {

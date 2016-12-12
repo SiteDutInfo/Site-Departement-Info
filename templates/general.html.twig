@@ -25,13 +25,34 @@
         </div>
 
         <nav id="nav_desktop">
-            <ul>
-                <li><a id="ongletIndex" href="index.php?page=index"><img src="img/logotest.png" alt="Icône Département Informatique Belfort"></a></li>
-                <li><a class="up blanc effect" href="index.php?page=tout_savoir">Tout savoir sur le DUT</a></li>
-                <li><a class="up blanc effect" href="index.php?page=equipe">L'équipe pédagogique</a></li>
-                <li><a class="up blanc effect" href="index.php?page=offres">Offres de stages & emplois</a></li>
-                <li><a id="ongletCo" class="up blanc" href="index.php?page=connexion">Connexion</a></li>
+            <div>
+                <ul id="main_nav_desktop">
+                    <li><a id="ongletIndex" href="index.php?page=index"><img src="img/logotest.png" alt="Icône Département Informatique Belfort"></a></li>
+                    <li><a class="up blanc effect" href="index.php?page=tout_savoir">Tout savoir sur le DUT</a></li>
+                    <li><a class="up blanc effect" href="index.php?page=equipe">L'équipe pédagogique</a></li>
+                    <li><a class="up blanc effect" href="index.php?page=offres">Offres de stages & emplois</a></li>
+                </ul>
+                <div id="truc">
+                    {% if session.sessionAdmin != "" %}
+                        <form method="post" action="">
+                            <button id="ongletDeco" class="up blanc" type="submit" name="decnx">Déconnexion</button>
+                        </form>
+                    {% else %}
+                        <a id="ongletCo" class="up blanc" href="index.php?page=connexion">Connexion</a>
+                    {% endif %}
+                </div>
+
+            </div>
+
+
+            {% if session.sessionAdmin != "" %}
+            <ul id="nav_desktop_co">
+                <li><a class="up blanc effect" href="">Mon compte</a></li>
+                <li><a class="up blanc effect" href="">Mes annonces</a></li>
+                <li><a class="up blanc effect" href="">Validation des annonces</a></li>
+                <li><a class="up blanc effect" href="">Gestion des annonces</a></li>
             </ul>
+            {% endif %}
         </nav>
     </header>
 

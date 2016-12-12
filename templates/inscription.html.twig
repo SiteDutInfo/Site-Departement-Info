@@ -6,83 +6,54 @@
     <section>
         <h2 class="center up">Inscription</h2>
         <div id="formInsc">
-            <form method="post" action="traitement.php">
+            <form method="post" action="#">
                 <p>
-                    <label for="idCo">Identifiant (Nom de l'entreprise)</label>
-                    <input type="text" name="identifiant" id="idCo"/><br>
+                    <label for="idCo">Identifiant</label>
+                    <input type="text" name="loginEnt" id="idCo"/><br>
 
                     <label for="psw">Mot de passe</label>
-                    <input type="password" name="psw" id="psw"/><br>
+                    <input type="password" name="pswEnt" id="psw"/><br>
 
                     <label for="ConfirmedPsw">Confirmation mot de passe</label>
                     <input type="password" name="ConfirmedPsw" id="ConfirmedPsw"/><br>
+
+                    <label for="nomEnt">Nom de l'entreprise</label>
+                    <input type="text" name="nomEnt" id="nomEnt"/><br>
 
                     <label for="siret">N°SIRET</label>
                     <input type="text" name="numeroSiret" id="siret"/><br>
 
                     <label for="code">Code APE/NAF</label>
-                    <input type="text" name="codeAPE/NAF" id="code"/><br>
+                    <input type="text" name="codeAPENAF" id="code"/><br>
 
                     <label for="typeEnt">Type d'entreprise</label>
                     <select name="typeEnt" id="typeEnt">
-                        <option value="chooseValue">- Choisir une valeur -</option>
-                        <option value="entPrivee">Entreprise privée</option>
-                        <option value="entpublique">Entreprise publique / SEM</option>
-                        <option value="assoc">Association</option>
-                        <option value="admin">Administration</option>
-                        <option value="ong">ONG</option>
-                        <option value="autoEnt">Auto-entreprise</option>
+                        <option>- Choisir une valeur -</option>
+                        {% for typeEnt in listeTypeEntreprise %}
+                            <option value="{{typeEnt.id}}">{{ typeEnt.lib }}</option>
+                        {% endfor %}
                     </select><br>
 
-                    <label>Statut juridique</label>
-                    <span class="radioContainer radioContainerJur">
-                        <span>
-                            <input type="radio" name="statJur" value="sa" id="sa"/>
-                            <label for="sa">SA</label>
-                        </span>
-                        <span>
-                            <input type="radio" name="statJur" value="sarl" id="sarl"/>
-                            <label for="sarl">SARL</label>
-                        </span>
-                        <span>
-                            <input type="radio" name="statJur" value="sas" id="sas"/>
-                            <label for="sas">SAS</label>
-                        </span>
-                        <span>
-                            <input type="radio" name="statJur" value="sns" id="sns"/>
-                            <label for="sns">SNS</label>
-                        </span>
-                        <span>
-                            <input type="radio" name="statJur" value="eurl" id="eurl"/>
-                            <label for="eurl">EURL</label><br>
-                        </span>
-                    </span>
+                    <label for="statutJur">Statut juridique</label>
+                    <select name="statutJur" id="statutJur">
+                        <option>- Choisir une valeur -</option>
+                        {% for statJur in listeStatutJuridique %}
+                            <option value="{{statJur.id}}">{{ statJur.lib }}</option>
+                        {% endfor %}
+                    </select><br>
 
-
-                    <label>Effectifs</label>
-                    <span class="radioContainer radioContainerEff">
-                        <span>
-                            <input type="radio" name="effectif" value="1-9" id="1-9"/>
-                            <label for="1-9">De 1 à 9</label>
-                        </span>
-                        <span>
-                            <input type="radio" name="effectif" value="10-49" id="10-49"/>
-                            <label for="10-49">De 10 à 49</label>
-                        </span>
-                        <span>
-                            <input type="radio" name="effectif" value="50-199" id="50-199"/>
-                            <label for="50-199">De 50 à 199</label>
-                        </span>
-                        <span>
-                            <input type="radio" name="effectif" value="200-999" id="200-999"/>
-                            <label for="200-999">De 200 à 999</label>
-                        </span>
-                        <span>
-                            <input type="radio" name="effectif" value="+1000" id="+1000"/>
-                            <label for="+1000">+ de 1000</label><br>
-                        </span>
-                    </span>
-
+                    <label for="eff">Effectif</label>
+                    <select name="effectif" id="eff">
+                        <option>- Choisir une valeur -</option>
+                        {% for eff in listeEff %}
+                            <option value="{{eff.id}}">{{ eff.qte }}</option>
+                        {% endfor %}
+                        {#<option value="">De 1 à 9</option>#}
+                        {#<option value="">De 10 à 49</option>#}
+                        {#<option value="">De 50 à 199</option>#}
+                        {#<option value="">De 200 à 999</option>#}
+                        {#<option value="">Plus de 1000</option>#}
+                    </select><br>
 
                     <label for="url">Site Web</label>
                     <input type="url" name="url" id="url"/><br>
@@ -114,7 +85,7 @@
                     <label for="cp">Code postal</label>
                     <input type="text" name="cp" id="cp"/><br>
 
-                    <input class="btn blanc up" type="submit" value="Valider"/>
+                    <input class="btn blanc up" type="submit" value="Valider" name="creerEntreprise"/>
                 </p>
             </form>
         </div>

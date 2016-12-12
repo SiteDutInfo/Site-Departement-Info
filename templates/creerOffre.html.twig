@@ -6,16 +6,16 @@
     <section>
         <h2 class="center up">Soumettez-nous une offre de stage ou d'emploi</h2>
         <div id="formCreation">
-            <form method="post" action="traitement.php">
+            <form method="post">
                 <p>
                     <label>Type d'offre</label><br>
-                    <span id="typeOffre">
+                    <span id="typeAnnonce">
                         <span>
-                            <input type="radio" name="typeOffre" value="stage" id="stage"/>
+                            <input type="radio" name="typeAnnonce" value="stage" id="stage"/>
                             <label for="stage">Stage</label>
                         </span>
                         <span>
-                            <input type="radio" name="typeOffre" value="job" id="job"/>
+                            <input type="radio" name="typeAnnonce" value="job" id="job"/>
                             <label for="job">Emploi</label>
                         </span>
                     </span><br>
@@ -26,7 +26,13 @@
                     <label for="profil">Profil recherché</label>
                     <textarea name="profil" id="profil" rows="10" cols="40"></textarea><br>
 
-                    <input class="btn blanc up" type="submit" value="Valider"/>
+                    <label for="dateDebut">Début du stage / de l'emploi</label>
+                    <input type="date" name="dateDebut" id="dateDebut"/>
+
+                    <label for="dateFin">Fin du stage / de l'emploi</label>
+                    <input type="date" name="dateFin" id="dateFin"/>
+
+                    <input name="creerAnnonce" class="btn blanc up" type="submit" value="Valider"/>
                 </p>
             </form>
         </div>

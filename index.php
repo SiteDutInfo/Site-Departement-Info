@@ -16,6 +16,10 @@ $twig = new Twig_Environment($loader, array('cache' => false));
 $uriDemandee = "index";
 // Parsing du fichier des routes
 $routes = parse_ini_file("param/routes.ini", true);
+
+session_start();
+$twig->addGlobal('session', $_SESSION);
+
 // Si une URI est demandée
 if(isset($_GET["page"])){
 	$uriDemandee = $_GET["page"];
@@ -38,5 +42,15 @@ $template = $twig->loadTemplate($template);
 // Avec passage d'un tableau de paramètre 
 // fournit par les programmes de traitement
 echo $template->render($param);
+
+
+
+
+if(isset($_POST["decnx"])){
+	session_destroy();
+
+	header("Location: index.php?page=index");
+	exit();
+}
 
 ?>	
