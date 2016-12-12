@@ -1,7 +1,7 @@
 <?php
 
 require_once("class.Entreprise.php");
-require_once("class.Administrateur");
+require_once("class.Administrateur.php");
 
 class Annonce {
     private $id = 0;

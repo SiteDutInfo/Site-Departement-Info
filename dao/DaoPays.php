@@ -29,6 +29,15 @@ class DaoPays extends Dao {
         }
         return $liste;
     }
+    public function findByName($value){
+        $sql = "SELECT * FROM pays WHERE NOM_PAYS = '$value'";
+        $requete = $this->pdo->prepare($sql);
+        if($requete->execute()){
+            if($donnees = $requete->fetch()){
+                return $donnees;
+            }
+        }
+    }
 
     public function create(){
     }

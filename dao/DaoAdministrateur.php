@@ -24,7 +24,11 @@ class DaoAdministrateur extends Dao {
         $liste = array();
         if($requete->execute()){
             while($donnees = $requete->fetch()){
-                $admin = new Administrateur($donnees['ID_ADMIN'], $donnees['LOGIN_ADMIN'], $donnees['MDP_ADMIN']);
+                $admin = new Administrateur(
+                    $donnees['ID_ADMIN'],
+                    $donnees['LOGIN_ADMIN'],
+                    $donnees['MDP_ADMIN']
+                );
                 $liste[] = $admin;
             }
         }

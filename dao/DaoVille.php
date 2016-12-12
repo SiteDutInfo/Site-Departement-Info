@@ -1,6 +1,6 @@
 <?php
 
-require_once("Dao.php");
+require_once("dao/DaoPays.php");
 require_once("classes/class.Ville.php");
 
 class DaoVille extends DaoPays {
@@ -30,6 +30,16 @@ class DaoVille extends DaoPays {
             }
         }
         return $liste;
+    }
+
+    public function findByName($value){
+        $sql = "SELECT * FROM ville WHERE NOM_VILLE = '$value'";
+        $requete = $this->pdo->prepare($sql);
+        if($requete->execute()){
+            if($donnees = $requete->fetch()){
+                return $donnees;
+            }
+        }
     }
 
     public function create(){
