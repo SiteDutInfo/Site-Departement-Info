@@ -1,9 +1,9 @@
 <?php
 
-require_once("dao/DaoPays.php");
+require_once("dao/Dao.php");
 require_once("classes/class.Ville.php");
 
-class DaoVille extends DaoPays {
+class DaoVille extends Dao {
     public function DaoVille(){
         parent::__construct();
         $this->bean = new Ville();
@@ -12,7 +12,7 @@ class DaoVille extends DaoPays {
     public function find($id) {
         $donnees = $this->findById("ville", "ID_VILLE", $id);
         $this->bean->setId($donnees['ID_VILLE']);
-        $this->bean->setNom($donnees['NOM_VILLE']);
+        $this->bean->setNomVille($donnees['NOM_VILLE']);
         $this->bean->setAdresse($donnees['ADRESSE']);
         $this->bean->setCp($donnees['CP']);
     }
@@ -37,12 +37,26 @@ class DaoVille extends DaoPays {
         $requete = $this->pdo->prepare($sql);
         if($requete->execute()){
             if($donnees = $requete->fetch()){
-                return $donnees;
+                $this->bean->setId($donnees['ID_VILLE']);
+                $this->bean->setNomVille($donnees['NOM_VILLE']);
+                return true;
             }
         }
+        return false;
     }
 
     public function create(){
+        $sql = "INSERT INTO ville(NOM_VILLE, ADRESSE, CP, ID_PAYS)
+               VALUES(?, ?, ?, ?)";
+
+        $requete = $this->pdo->prepare($sql);
+
+        $requete->bindValue(1, $this->bean->getNomVille());
+        $requete->bindValue(2, $this->bean->getAdresse());
+        $requete->bindValue(3, $this->bean->getCp());
+        $requete->bindValue(4, $this->bean->getPays()->getId());
+
+        $requete->execute();
     }
 
     public function update(){

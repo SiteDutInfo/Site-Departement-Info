@@ -36,6 +36,38 @@ class DaoAnnonce extends Dao {
         return $liste;
     }
 
+    public function getAnnoncesPubliees(){
+        $sql = "SELECT *
+                FROM annonce
+                WHERE ETAT_PUBLICATION = 1
+                ORDER BY ID_ANNONCE";
+        $requete = $this->pdo->prepare($sql);
+        $liste = array();
+        if($requete->execute()){
+            while($donnees = $requete->fetch()){
+                $annonce = new Annonce($donnees['ID_ANNONCE'], $donnees['POSTE_RECHERCHE'], $donnees['DESC_POSTE'], $donnees['PROFIL_RECHERCHE'], $donnees['DEBUT_STAGE'], $donnees['FIN_STAGE'], $donnees['STAGE'], $donnees['ETAT_PUBLICATION']);
+                $liste[] = $annonce;
+            }
+        }
+        return $liste;
+    }
+
+    public function getAnnoncesAttente(){
+        $sql = "SELECT *
+                FROM annonce
+                WHERE ETAT_PUBLICATION = 0
+                ORDER BY ID_ANNONCE";
+        $requete = $this->pdo->prepare($sql);
+        $liste = array();
+        if($requete->execute()){
+            while($donnees = $requete->fetch()){
+                $annonce = new Annonce($donnees['ID_ANNONCE'], $donnees['POSTE_RECHERCHE'], $donnees['DESC_POSTE'], $donnees['PROFIL_RECHERCHE'], $donnees['DEBUT_STAGE'], $donnees['FIN_STAGE'], $donnees['STAGE'], $donnees['ETAT_PUBLICATION']);
+                $liste[] = $annonce;
+            }
+        }
+        return $liste;
+    }
+
     public function create(){
         $sql = "INSERT INTO annonce(ID_ANNONCE, POSTE_RECHERCHE, DESC_POSTE, PROFIL_RECHERCHE, STAGE, ETAT_PUBLICATION, DEBUT_STAGE, FIN_STAGE)
                VALUES(?, ?, ?, ?, ?, ?, ?, ?)";

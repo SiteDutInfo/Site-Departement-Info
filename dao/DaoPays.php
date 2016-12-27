@@ -34,12 +34,23 @@ class DaoPays extends Dao {
         $requete = $this->pdo->prepare($sql);
         if($requete->execute()){
             if($donnees = $requete->fetch()){
-                return $donnees;
+                $this->bean->setId($donnees['ID_PAYS']);
+                $this->bean->setNom($donnees['NOM_PAYS']);
+                return true;
             }
         }
+        return false;
     }
 
     public function create(){
+        $sql = "INSERT INTO pays(NOM_PAYS)
+               VALUES(?)";
+
+        $requete = $this->pdo->prepare($sql);
+
+        $requete->bindValue(1, $this->bean->getNom());
+
+        $requete->execute();
     }
 
     public function update(){

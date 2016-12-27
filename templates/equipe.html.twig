@@ -1,35 +1,163 @@
 {% extends 'general.html.twig' %}
 
+{% block head %}
+    <link href="css/killercarousel.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="js/killercarousel.js"></script>
+{% endblock %}
+
 {% block idBody %}equipe{% endblock %}
 
 {% block contenu %}
-    <section>
-        <h2 class="center up">Direction & administration du Département</h2>
-        <ul class="center">
-            <li>
-                <h3 class="bleuF">Chef de Département</h3>
-                <p>David LAIYMANI</p>
-            </li>
-            <li>
-                <h3 class="bleuF">Directeur des études</h3>
-                <p>Arnaud GIERSCH</p>
-            </li>
-            <li>
-                <h3 class="bleuF">Responsable pédagogique<br/>licence pro. SIL/CAM parcours TeproW</h3>
-                <p>Jean-François COUCHOT</p>
-            </li>
-            <li>
-                <h3 class="bleuF">Stages</h3>
-                <p>Mourad HAKEM</p>
-            </li>
-            <li>
-                <h3 class="bleuF">Secrétariat</h3>
-                <p>Patricia PY</p>
-            </li>
-            <li>
-                <h3 class="bleuF">Entretien</h3>
-                <p>Aline BECHIR</p>
-            </li>
-        </ul>
+    {#<section>#}
+        {#<h2 class="center up">Direction & administration du Département</h2>#}
+        {#<ul class="center">#}
+            {#<li>#}
+                {#<h3 class="bleuF">Chef de Département</h3>#}
+                {#<p>David LAIYMANI</p>#}
+            {#</li>#}
+            {#<li>#}
+                {#<h3 class="bleuF">Directeur des études</h3>#}
+                {#<p>Arnaud GIERSCH</p>#}
+            {#</li>#}
+            {#<li>#}
+                {#<h3 class="bleuF">Responsable pédagogique<br/>licence pro. SIL/CAM parcours TeproW</h3>#}
+                {#<p>Jean-François COUCHOT</p>#}
+            {#</li>#}
+            {#<li>#}
+                {#<h3 class="bleuF">Stages</h3>#}
+                {#<p>Mourad HAKEM</p>#}
+            {#</li>#}
+            {#<li>#}
+                {#<h3 class="bleuF">Secrétariat</h3>#}
+                {#<p>Patricia PY</p>#}
+            {#</li>#}
+            {#<li>#}
+                {#<h3 class="bleuF">Entretien</h3>#}
+                {#<p>Aline BECHIR</p>#}
+            {#</li>#}
+        {#</ul>#}
+    {#</section>#}
+
+    <h2 class="center up">Direction & administration du Département</h2>
+    <div id="flecheAnim">
+        <img src="img/arrowDown.png" alt="Icône de flèche">
+    </div>
+    <section id="slider_handle">
+        <div id="wrapper">
+            <!-- The carouse wrapper -->
+            <div id="kc-wrap" class = "kc-wrap-handle">
+                <!-- Carousel items follow -->
+                <div class="kc-item">
+                    <img src="images/image1.jpg" alt = "Salvator Mundi 1519">
+                    <div>
+                        <h3 class="bleuF">Chef de Département</h3>
+                        <p>David LAIYMANI</p>
+                    </div>
+                </div>
+                <div class="kc-item">
+                    <img src="images/image2.jpg" alt = "St. John the Baptist 1516">
+                    <div>
+                        <h3 class="bleuF">Directeur des études</h3>
+                        <p>Arnaud GIERSCH</p>
+                    </div>
+                </div>
+                <div class="kc-item">
+                    <img src="images/image3.jpg" alt = "Lady with an Ermine 1490">
+                    <div>
+                        <h3 class="bleuF">Responsable pédagogique SIL/CAM</h3>
+                        <p>Jean-François COUCHOT</p>
+                    </div>
+                </div>
+                <div class="kc-item">
+                    <img src="images/image4.jpg" alt = "St. Jerome in the Wilderness 1480">
+                    <div>
+                        <h3 class="bleuF">Stages</h3>
+                        <p>Mourad HAKEM</p>
+                    </div>
+                </div>
+                <div class="kc-item">
+                    <img src="images/image5.jpg" alt = "Head of a Woman 1508">
+                    <div>
+                        <h3 class="bleuF">Secrétariat</h3>
+                        <p>Patricia PY</p>
+                    </div>
+                </div>
+                <div class="kc-item">
+                    <img src="images/image6.jpg" alt = "St. John the Baptist 1516">
+                    <div>
+                        <h3 class="bleuF">Entretien</h3>
+                        <p>Aline BECHIR</p>
+                    </div>
+                </div>
+                <div class="kc-item">
+                    <img src="images/image6.jpg" alt = "St. John the Baptist 1516">
+                    <div>
+                        <h3 class="bleuF">Entretien</h3>
+                        <p>Aline BECHIR</p>
+                    </div>
+                </div>
+                <div class="kc-item">
+                    <img src="images/image6.jpg" alt = "St. John the Baptist 1516">
+                    <div>
+                        <h3 class="bleuF">Entretien</h3>
+                        <p>Aline BECHIR</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+{% endblock %}
+
+
+{% block script %}
+    <script type="text/javascript">
+        var carousel = document.getElementById("kc-wrap");
+
+        if (window.matchMedia("(min-width: 640px)").matches)
+        {
+            carousel.className = "kc-wrap-desktop";
+        } else {
+            carousel.className = "kc-wrap-handle";
+        }
+    </script>
+
+    <script type = "text/javascript">
+        // Create the carousel.
+        $(function() {
+            $('.kc-wrap-handle').KillerCarousel({
+                // Default natural width of carousel.
+                width: 800,
+                // Item spacing in 3d (has CSS3 3d) mode.
+                spacing3d: 120,
+                // Item spacing in 2d (no CSS3 3d) mode.
+                spacing2d: 120,
+                showShadow: false,
+                showReflection: false,
+                // Looping mode.
+                infiniteLoop: true,
+                // Scale at 200% of parent element.
+                autoScale: 200
+            });
+        });
+    </script>
+
+    <script type = "text/javascript">
+        // Create the carousel.
+        $(function() {
+            $('.kc-wrap-desktop').KillerCarousel({
+                // Default natural width of carousel.
+                width: 800,
+                // Item spacing in 3d (has CSS3 3d) mode.
+                spacing3d: 120,
+                // Item spacing in 2d (no CSS3 3d) mode.
+                spacing2d: 120,
+                showShadow: false,
+                showReflection: false,
+                // Looping mode.
+                infiniteLoop: true,
+                // Scale at 75% of parent element.
+                autoScale: 75
+            });
+        });
+    </script>
 {% endblock %}

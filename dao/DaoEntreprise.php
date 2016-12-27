@@ -51,8 +51,8 @@ class DaoEntreprise extends Dao {
         $requete->bindValue(6, $this->bean->getLogin());
         $requete->bindValue(7, $this->bean->getMdp());
         $requete->bindValue(8, $this->bean->getLogo());
-        $requete->bindValue(9, $this->bean->getLaVille()->getId());
-        $requete->bindValue(10, $this->bean->getLeResponsable()->getId());
+//        $requete->bindValue(9, $this->bean->getLaVille()->getId());
+//        $requete->bindValue(10, $this->bean->getLeResponsable()->getId());
         $requete->bindValue(11, $this->bean->getLeTypeEnt()->getId());
         $requete->bindValue(12, $this->bean->getLeStatutJur()->getId());
         $requete->bindValue(13, $this->bean->getEffectif()->getId());

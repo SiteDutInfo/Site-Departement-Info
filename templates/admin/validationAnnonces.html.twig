@@ -1,0 +1,37 @@
+{% extends 'general.html.twig' %}
+
+{% block idBody %}validationAnnonces{% endblock %}
+
+{% block contenu %}
+    <h2 class="center up">Validation des annonces</h2>
+    <section id="listeOffres">
+
+        <div class="offre">
+            <div class="logoEntOffre">
+                <img src="img/web.png" alt="Logo Entreprise">
+                <h3 class="bleuF up">Stage | Entreprise</h3>
+            </div>
+            <div>
+                <p class="titre">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, doloremque.</p>
+                <p class="desc">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Cum cupiditate delectus dolores ipsum natus nostrum voluptatibus?
+                    A accusamus animi dolorem, eos eveniet iure mollitia nostrum praesentium quas
+                    tempora, temporibus ut?
+                </p>
+                <a href="" class="bleuF">www.entreprise.com</a>
+                <div class="gestion">
+                    <form>
+                        <button name="valAnnonce" class="val"><img src="img/icone_valider.png" alt="Icone supprimer"></button>
+                    </form>
+                    <form>
+                        <button name="suppAnnonce" class="supp"><img src="img/icone_croix.png" alt="Icone supprimer"></button>
+                    </form>
+                </div>
+                <span><a href="index.php?page=offreDetaillee" class="blanc up">Voir l'offre</a></span>
+            </div>
+        </div>
+
+
+    </section>
+{% endblock %}

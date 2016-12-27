@@ -28,7 +28,7 @@ class Dao {
     }
 
     public function deleteById($table=null, $colonne = null, $valeur=0){
-        $sql = "DELETE FROM ".$table." WHERE ".$colonne." = ".$valeur;
+        $sql = "DELETE FROM ".$table." WHERE ".$colonne." = '$valeur'";
         $requete = $this->pdo->prepare($sql);
         $requete->execute();
     }

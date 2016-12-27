@@ -41,16 +41,16 @@ if (isset($_POST["creerEntreprise"])) {
     $daoEnt->bean->setDesc($_POST["desc"]);
 
 
-
-    $daoVille = new DaoVille();
-    $daoVille->findByName($_POST["ville"]);
-    if($daoVille == null) {
-        $daoVille->bean->setId();
-        $daoVille->bean->setNom();
-    }
-    else {
-        $daoVille->bean->getId();
-    }
+//
+//    $daoVille = new DaoVille();
+//    $daoVille->findByName($_POST["ville"]);
+//    if($daoVille == null) {
+//        $daoVille->bean->setId();
+//        $daoVille->bean->setNom();
+//    }
+//    else {
+//        $daoVille->bean->getId();
+//    }
 //    $daoVille->find($_POST["ville"]);
 //    $daoEnt->bean->setLaVille($daoVille->bean);
 
@@ -67,12 +67,24 @@ if (isset($_POST["creerEntreprise"])) {
 
     $daoPays = new DaoPays();
     $daoPays->findByName($_POST["pays"]);
-    if($daoPays == null) {
-        $daoPays->bean->setNom();
+    if( !$daoPays->findByName($_POST["pays"])) {
+        $daoPays->bean->setNom($_POST["pays"]);
+        $daoPays->create();
     }
-    else {
-        $daoPays->bean->getId();
+
+    $daoVille = new DaoVille();
+    $daoVille->findByName($_POST["ville"]);
+    if( !$daoVille->findByName($_POST["ville"])) {
+        $daoVille->bean->setNomVille($_POST["ville"]);
+        $daoVille->create();
     }
+
+    $daoResp = new DaoResponsable();
+    $daoResp->bean->setNom($_POST["nomResp"]);
+    $daoResp->bean->setMail($_POST["mail"]);
+    $daoResp->bean->setTel($_POST["tel"]);
+    $daoResp->create();
+
 
     $daoEff->find($_POST["effectif"]);
     $daoEnt->bean->setEffectif($daoEff->bean);

@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/typographie.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    {% block head %}{% endblock %}
     <link rel="icon" type="image/png" href="img/logo.png" />
 </head>
 <body id="{% block idBody %}{% endblock %}">
@@ -47,10 +49,9 @@
 
             {% if session.sessionAdmin != "" %}
             <ul id="nav_desktop_co">
-                <li><a class="up blanc effect" href="">Mon compte</a></li>
-                <li><a class="up blanc effect" href="">Mes annonces</a></li>
-                <li><a class="up blanc effect" href="">Validation des annonces</a></li>
-                <li><a class="up blanc effect" href="">Gestion des annonces</a></li>
+                <li><a class="up blanc effect" href="index.php?page=monCompte">Mon compte</a></li>
+                <li><a class="up blanc effect" href="index.php?page=validationAnnonces">Validation des annonces</a></li>
+                <li><a class="up blanc effect" href="index.php?page=supprAnnonces">Gestion des annonces</a></li>
             </ul>
             {% endif %}
         </nav>
@@ -88,7 +89,7 @@
 
     </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+
 
     <script>
         (function open_menu() {

@@ -405,12 +405,74 @@ header {
 
 
 /* PAGE EQUIPE MOBILE */
+#equipe main>h2 {
+    margin-top: 10px;
+}
+
 #equipe section ul {
     margin-top: 40px;
 }
 
 #equipe section ul li {
     margin-bottom: 25px;
+}
+
+#flecheAnim {
+    position: relative;
+    display: block;
+    width: 44px;
+    height: 29px;
+    margin: 0 auto;
+}
+
+#flecheAnim>img {
+    position: absolute;
+    top: 70px;
+}
+
+@media screen and (min-width: 450px) and (max-width: 640px) {
+    #flecheAnim>img {
+        top: 100px;
+    }
+}
+
+@media screen and (min-width: 960px) and (max-width: 1200px) {
+    #flecheAnim>img {
+        top: 90px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #flecheAnim>img {
+        top: 130px;
+    }
+}
+
+#flecheAnim>img {
+    animation-duration: 1s;
+    animation-name: flecheAnim;
+    animation-iteration-count: infinite;
+}
+
+@keyframes flecheAnim {
+    from {
+        transform:translateY(0);
+        -webkit-transform:translateY(0);
+        -moz-transform:translateY(0);
+        -ms-transform:translateY(0);
+    }
+    60% {
+        transform:translateY(10px);
+        -webkit-transform:translateY(10px);
+        -moz-transform:translateY(10px);
+        -ms-transform:translateY(10px);
+    }
+    to {
+        transform:translateY(0);
+        -webkit-transform:translateY(0);
+        -moz-transform:translateY(0);
+        -ms-transform:translateY(0);
+    }
 }
 
 /* ---------------------------------------------------------------------------------------- */
@@ -497,6 +559,10 @@ header {
     background-color: white;
 }
 
+.offre .titre {
+    margin-bottom: 10px;
+}
+
 .offre>div:last-child>a {
     margin: 10px;
 }
@@ -547,6 +613,10 @@ header {
     width: 40px;
     float: left;
     margin: 10px;
+}
+
+.logoEntOffre h3 {
+    overflow: hidden;
 }
 
 #donneesOffre {
@@ -667,6 +737,82 @@ header {
 
 #typeAnnonce input {
     margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+
+
+
+/* PAGE MONCOMPTE MOBILE */
+#monCompte main>h2, #validationAnnonces main>h2, #supprAnnonces main>h2 {
+    margin-top: 10px;
+}
+
+#monCompte #donneesCompte {
+    margin-bottom: 80px;
+    max-width: 960px;
+}
+
+#monCompte #donneesCompte>div {
+    margin: 20px 0;
+}
+
+#monCompte #donneesCompte>p {
+    margin-bottom: 15px;
+}
+
+#monCompte .annonces>h2 {
+    margin: 0 10px;
+    padding: 2px;
+    background-color: white;
+    border: 2px solid black;
+    max-width: 960px;
+}
+
+#monCompte .annonces>div {
+    margin: 20px 10px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+#monCompte #listeOffres, #validationAnnonces #listeOffres, #supprAnnonces #listeOffres {
+    margin-top: 0;
+}
+
+#monCompte .offre>div>span, #validationAnnonces .offre>div>span, #supprAnnonces .offre>div>span {
+    margin-top: 0;
+}
+
+.offre .gestion {
+    display: flex;
+    border-top: 1px solid black;
+    margin-top: 15px;
+}
+
+.offre .gestion>* {
+    width: 50%;
+}
+
+.offre .gestion>span, #validationAnnonces .offre .gestion>form:first-child {
+    border-right: 1px solid black;
+}
+
+.offre .gestion img, .edit a {
+    width: 30px;
+}
+
+.edit a, .supp, .val {
+    display: block;
+    margin: 5px auto;
+}
+
+.supp, .val {
+    background-color: inherit;
+    border: none;
+}
+
+#supprAnnonces .offre .gestion>* {
+    width: 100%;
 }
 
 /* ---------------------------------------------------------------------------------------- */
@@ -988,6 +1134,21 @@ footer .logo_dut {
         overflow: hidden;
     }
 
+    #nav_secondaire .savoir_plus>img {
+        transition: all 1s;
+        -moz-transition: all 1s;
+        -webkit-transition: all 1s;
+        -o-transition: all 1s;
+    }
+
+    #nav_secondaire .savoir_plus:hover>img {
+        transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        -webkit-transform: scale(1.05);
+        -o-transform: scale(1.05);
+        -moz-transform: scale(1.05);
+    }
+
     #nav_secondaire .savoir_plus img {
         height: 300px;
         width: initial;
@@ -1059,9 +1220,6 @@ footer .logo_dut {
 
 
     /* PAGE EQUIPE BUREAU */
-    #equipe main, #connexion main, #offreDetaillee main {
-
-    }
 
     /* ---------------------------------------------------------------------------------------- */
 
@@ -1132,6 +1290,20 @@ footer .logo_dut {
     .radioContainerJur {
         max-width: 60%;
     }
+    /* ---------------------------------------------------------------------------------------- */
+
+
+
+    /* PAGE MONCOMPTE BUREAU */
+    #monCompte #donneesCompte {
+        max-width: 960px;
+        margin: 0 auto 80px auto;
+    }
+
+    #monCompte .annonces>h2 {
+        margin: 0 auto;
+    }
+
     /* ---------------------------------------------------------------------------------------- */
 
 
