@@ -19,7 +19,7 @@ class DaoAdministrateur extends Dao {
     public function getListe(){
         $sql = "SELECT *
                 FROM administrateur
-                ORDER BY ID";
+                ORDER BY ID_ADMIN";
         $requete = $this->pdo->prepare($sql);
         $liste = array();
         if($requete->execute()){
@@ -66,7 +66,7 @@ class DaoAdministrateur extends Dao {
                 WHERE
                 administrateur.ID_ADMIN = ".$this->bean->getId()."
                 AND administrateur.ID_ANNONCE = annonce.ID_ANNONCE
-                ORDER BY NOM_ENT";
+                ORDER BY ID_ADMIN";
         $requete = $this->pdo->prepare($sql);
         $liste = array();
         if($requete->execute()){

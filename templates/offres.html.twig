@@ -7,7 +7,9 @@
         <h2 class="up center">
             Consultez les offres de stages et d'emplois
         </h2>
-        <p class="center">Vous êtes une entreprise ? <a href="index.php?page=creerOffre" class="bleuC">Postez votre offre ici</a></p>
+        {% if session.sessionEnt is defined %}
+            <p class="center">Vous êtes une entreprise ? <a href="index.php?page=creerOffre" class="bleuC">Postez votre offre ici</a></p>
+        {% endif %}
     </div>
 
     <div>

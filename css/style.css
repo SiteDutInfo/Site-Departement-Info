@@ -745,7 +745,7 @@ header {
 
 /* PAGE MONCOMPTE MOBILE */
 #monCompte main>h2, #validationAnnonces main>h2, #supprAnnonces main>h2 {
-    margin-top: 10px;
+    margin-top: 50px;
 }
 
 #monCompte #donneesCompte {
@@ -1030,8 +1030,8 @@ footer .logo_dut {
         display: inline-block;
     }
 
-    #truc {
-        top: 16px;
+    #divDeco {
+        top: 10px;
         position: absolute;
         right: 3%;
         height: 22px;
@@ -1068,6 +1068,7 @@ footer .logo_dut {
     #ongletCo, #ongletDeco {
         border: 1px solid #fbfbf1;
         padding: 5px;
+        display: block;
     }
 
     #ongletDeco {

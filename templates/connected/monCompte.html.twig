@@ -5,84 +5,114 @@
 {% block contenu %}
     <h2 class="center up">Mon compte</h2>
     <div id="donneesCompte">
-        <div class="logoEntOffre">
-            <img src="img/web.png" alt="">
-            <p class="up bleuF">Entreprise</p>
+        {% if session.sessionEnt is defined %}
+            {% for ent in listeEnt %}
+                <div class="logoEntOffre">
+                    <img src="img/web.png" alt="Logo de l'entreprise {{ ent.nom }}">
+                    <p class="up bleuF">{{ ent.nom }}</p>
+                </div>
+                <p>Description : <br><span class="bleuF">{{ ent.desc }}</span></p>
+
+                <p>Pays : <span class="bleuF">{{ ent.pays }}</span></p>
+
+                {% for ville in ent.laVille %}
+                    <p>Ville : <span class="bleuF">{{ ville.nomVille }}</span></p>
+                    <p>Adresse : <span class="bleuF">{{ ville.adresse }}</span></p>
+                    <p>Code postal : <span class="bleuF">{{ ville.cp }}</span></p>
+                {% endfor %}
+
+                <p>Numéro SIRET : <span class="bleuF">{{ ent.numSiret }}</span></p>
+                <p>Code APE/NAF : <span class="bleuF">{{ ent.codeApeNaf }}</span></p>
+
+                {% for typeEnt in ent.leTypeEnt %}
+                    <p>Type d'entreprise : <span class="bleuF">{{ typeEnt.lib }}</span></p>
+                {% endfor %}
+
+                {% for statJur in ent.leStatutJur%}
+                    <p>Statut juridique : <span class="bleuF">{{ statJur.lib }}</span></p>
+                {% endfor %}
+
+                {% for eff in ent.effectif %}
+                    <p>Effectif : <span class="bleuF">{{ eff.qte }}</span></p>
+                {% endfor %}
+
+                <p>Site web : <span class="bleuF">{{ ent.url }}</span></p>
+
+                {% for resp in ent.leResponsable %}
+                    <p>Nom du responsable : <span class="bleuF">{{ resp.nom }}</span></p>
+                    <p>Email du responsable : <span class="bleuF">{{ resp.mail }}</span></p>
+                    <p>Téléphone du responsable : <span class="bleuF">{{ resp.tel }}</span></p>
+                {% endfor %}
+
+                <p>Identifiant : <span class="bleuF">{{ ent.login }}</span></p>
+                <p>Mot de passe : <span class="bleuF">{{ ent.mdp }}</span></p>
+            {% endfor %}
+        {% endif %}
+        {% if session.sessionAdmin is defined %}
+            {% for admin in listeAdmin %}
+                <p>Identifiant : <span class="bleuF">{{ admin.login }}</span></p>
+                <p>Mot de passe : <span class="bleuF">{{ admin.mdp }}</span></p>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    {% if session.sessionEnt is defined %}
+        <div class="annonces">
+            <h2 class="center up bleuF">Mes annonces</h2>
+
+            <section id="listeOffres">
+            {% for ent in listeEnt %}
+                {% for annonce in ent.lesAnnonces %}
+                    <div class="offre">
+                        <div class="logoEntOffre">
+                            <img src="img/web.png" alt="Logo Entreprise">
+                            <h3 class="bleuF up">{% if annonce.stage == 1 %}STAGE{% else %}EMPLOI{% endif %}  | {{ ent.nom }}</h3>
+                        </div>
+                        <div>
+                            <p class="titre">{{ annonce.posteRecherche[:70] }}</p>
+                            <p class="desc">
+                                {{ annonce.descPoste[:220] }}
+                            </p>
+                            <a href="{{ ent.url }}" class="bleuF">{{ ent.url }}</a>
+                            <div class="gestion">
+                            <span class="edit">
+                                <a href=""><img src="img/edit-icon.png" alt="Icone editer"></a>
+                            </span>
+                                <form>
+                                    <button name="suppAnnonce" class="supp"><img src="img/icone_croix.png" alt="Icone supprimer"></button>
+                                </form>
+                            </div>
+                            <span><a href="index.php?page=offreDetaillee&id={{ annonce.id }}" class="blanc up">Voir l'offre</a></span>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+                <div class="offre">
+                    <div class="logoEntOffre">
+                        <img src="img/web.png" alt="Logo Entreprise">
+                        <h3 class="bleuF up">Stage | Entreprise</h3>
+                    </div>
+                    <div>
+                        <p class="titre">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, doloremque.</p>
+                        <p class="desc">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Cum cupiditate delectus dolores ipsum natus nostrum voluptatibus?
+                            A accusamus animi dolorem, eos eveniet iure mollitia nostrum praesentium quas
+                            tempora, temporibus ut?
+                        </p>
+                        <a href="" class="bleuF">www.entreprise.com</a>
+                        <div class="gestion">
+                        <span class="edit">
+                            <a href=""><img src="img/edit-icon.png" alt="Icone editer"></a>
+                        </span>
+                            <form>
+                                <button name="suppAnnonce" class="supp"><img src="img/icone_croix.png" alt="Icone supprimer"></button>
+                            </form>
+                        </div>
+                        <span><a href="index.php?page=offreDetaillee" class="blanc up">Voir l'offre</a></span>
+                    </div>
+                </div>
+            </section>
         </div>
-        <p>Description : <br><span class="bleuF">une description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, dignissimos.</span></p>
-        <p>Pays : <span class="bleuF"></span></p>
-        <p>Ville : <span class="bleuF"></span></p>
-        <p>Adresse : <span class="bleuF"></span></p>
-        <p>Code postal : <span class="bleuF"></span></p>
-        <p>Code APE/NAF : <span class="bleuF"></span></p>
-        <p>Type d'entreprise : <span class="bleuF"></span></p>
-        <p>Statut juridique : <span class="bleuF"></span></p>
-        <p>Effectif : <span class="bleuF"></span></p>
-        <p>Site web : <span class="bleuF"></span></p>
-        <p>Nom du responsable : <span class="bleuF"></span></p>
-        <p>Email du responsable : <span class="bleuF"></span></p>
-        <p>Téléphone du responsable : <span class="bleuF"></span></p>
-        <p>Identifiant : <span class="bleuF"></span></p>
-        <p>Mot de passe : <span class="bleuF"></span></p>
-    </div>
-    <div class="annonces">
-        <h2 class="center up bleuF">Mes annonces</h2>
-
-        <section id="listeOffres">
-            <div class="offre">
-                <div class="logoEntOffre">
-                    <img src="img/web.png" alt="Logo Entreprise">
-                    <h3 class="bleuF up">Stage | Entreprise</h3>
-                </div>
-                <div>
-                    <p class="titre">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, doloremque.</p>
-                    <p class="desc">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Cum cupiditate delectus dolores ipsum natus nostrum voluptatibus?
-                        A accusamus animi dolorem, eos eveniet iure mollitia nostrum praesentium quas
-                        tempora, temporibus ut?
-                    </p>
-                    <a href="" class="bleuF">www.entreprise.com</a>
-                    <div class="gestion">
-                    <span class="edit">
-                        <a href=""><img src="img/edit-icon.png" alt="Icone editer"></a>
-                    </span>
-                        <form>
-                            <button name="suppAnnonce" class="supp"><img src="img/icone_croix.png" alt="Icone supprimer"></button>
-                        </form>
-                    </div>
-                    <span><a href="index.php?page=offreDetaillee" class="blanc up">Voir l'offre</a></span>
-                </div>
-            </div>
-
-            <div class="offre">
-                <div class="logoEntOffre">
-                    <img src="img/web.png" alt="Logo Entreprise">
-                    <h3 class="bleuF up">Stage | Entreprise</h3>
-                </div>
-                <div>
-                    <p class="titre">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, doloremque.</p>
-                    <p class="desc">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Cum cupiditate delectus dolores ipsum natus nostrum voluptatibus?
-                        A accusamus animi dolorem, eos eveniet iure mollitia nostrum praesentium quas
-                        tempora, temporibus ut?
-                    </p>
-                    <a href="" class="bleuF">www.entreprise.com</a>
-                    <div class="gestion">
-                    <span class="edit">
-                        <a href=""><img src="img/edit-icon.png" alt="Icone editer"></a>
-                    </span>
-                        <form>
-                            <button name="suppAnnonce" class="supp"><img src="img/icone_croix.png" alt="Icone supprimer"></button>
-                        </form>
-                    </div>
-                    <span><a href="index.php?page=offreDetaillee" class="blanc up">Voir l'offre</a></span>
-                </div>
-            </div>
-        </section>
-
-
-        
-    </div>
+    {% endif %}
 {% endblock %}

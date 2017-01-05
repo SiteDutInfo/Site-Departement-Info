@@ -89,20 +89,21 @@ class DaoEntreprise extends Dao {
                 FROM entreprise, ville
                 WHERE
                 entreprise.ID_ENT = ".$this->bean->getId()."
-                AND entreprise.ID_VILLE = ville.ID_VILLE
+                AND ville.ID_VILLE = entreprise.ID_VILLE
             ";
 
         $requete = $this->pdo->prepare($sql);
+        $liste = array();
         if($requete->execute()){
             while($donnees = $requete->fetch()){
                 $ville = new Ville(
-                    $donnees['ID_VILLE'],
                     $donnees['NOM_VILLE'],
                     $donnees['ADRESSE'],
                     $donnees['CP']
                 );
-                $this->bean->setLaVille($ville);
+                $liste[] = $ville;
             }
+            $this->bean->setLaVille($liste);
         }
     }
 
@@ -110,11 +111,12 @@ class DaoEntreprise extends Dao {
         $sql = "SELECT *
                 FROM entreprise, responsable
                 WHERE
-                entreprise.ID_ENT = ".$this->bean->getId()."
-                AND entreprise.ID_RESP = responsable.ID_RESP
-            ";
+                entreprise.ID_RESP = responsable.ID_RESP
+                AND entreprise.ID_ENT = ".$this->bean->getId()
+            ;
 
         $requete = $this->pdo->prepare($sql);
+        $liste = array();
         if($requete->execute()){
             while($donnees = $requete->fetch()){
                 $responsable = new Responsable(
@@ -123,8 +125,9 @@ class DaoEntreprise extends Dao {
                     $donnees['MAIL_RESP'],
                     $donnees['TEL_RESP']
                 );
-                $this->bean->setLeResponsable($responsable);
+                $liste[] = $responsable;
             }
+            $this->bean->setLeResponsable($liste);
         }
     }
 
@@ -137,14 +140,16 @@ class DaoEntreprise extends Dao {
             ";
 
         $requete = $this->pdo->prepare($sql);
+        $liste = array();
         if($requete->execute()){
             while($donnees = $requete->fetch()){
                 $typeEnt = new TypeEntreprise(
                     $donnees['ID_TYPE_ENT'],
-                    $donnees['LIB_ENT']
+                    $donnees['LIB_TYPE_ENT']
                 );
-                $this->bean->setLeTypeEnt($typeEnt);
+                $liste[] = $typeEnt;
             }
+            $this->bean->setLeTypeEnt($liste);
         }
     }
 
@@ -157,14 +162,16 @@ class DaoEntreprise extends Dao {
             ";
 
         $requete = $this->pdo->prepare($sql);
+        $liste = array();
         if($requete->execute()){
             while($donnees = $requete->fetch()){
                 $statutJuridique = new StatutJuridique(
                     $donnees['ID_STATUT'],
                     $donnees['LIB_STATUT']
                 );
-                $this->bean->setLeStatutJur($statutJuridique);
+                $liste[] = $statutJuridique;
             }
+            $this->bean->setLeStatutJur($liste);
         }
     }
 
@@ -177,14 +184,16 @@ class DaoEntreprise extends Dao {
             ";
 
         $requete = $this->pdo->prepare($sql);
+        $liste = array();
         if($requete->execute()){
             while($donnees = $requete->fetch()){
                 $effectif = new Effectif(
                     $donnees['ID_EFF'],
                     $donnees['QTE_EFF']
                 );
-                $this->bean->setEffectif($effectif);
+                $liste[] = $effectif;
             }
+            $this->bean->setEffectif($liste);
         }
     }
 
@@ -193,8 +202,8 @@ class DaoEntreprise extends Dao {
                 FROM entreprise, annonce
                 WHERE
                 entreprise.ID_ENT = ".$this->bean->getId()."
-                AND entreprise.ID_ANNONCE = annonce.ID_ANNONCE
-                ORDER BY NOM_ENT";
+                AND annonce.ID_ENT = ".$this->bean->getId()."
+               ";
         $requete = $this->pdo->prepare($sql);
         $liste = array();
         if($requete->execute()){

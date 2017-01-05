@@ -34,25 +34,29 @@
                     <li><a class="up blanc effect" href="index.php?page=equipe">L'équipe pédagogique</a></li>
                     <li><a class="up blanc effect" href="index.php?page=offres">Offres de stages & emplois</a></li>
                 </ul>
-                <div id="truc">
-                    {% if session.sessionAdmin != "" %}
+                <div id="divDeco">
+                    {% if session %}
                         <form method="post" action="">
                             <button id="ongletDeco" class="up blanc" type="submit" name="decnx">Déconnexion</button>
                         </form>
                     {% else %}
-                        <a id="ongletCo" class="up blanc" href="index.php?page=connexion">Connexion</a>
+                        <div>
+                            <a id="ongletCo" class="up blanc" href="index.php?page=connexion">Connexion</a>
+                        </div>
                     {% endif %}
                 </div>
 
             </div>
 
 
-            {% if session.sessionAdmin != "" %}
-            <ul id="nav_desktop_co">
-                <li><a class="up blanc effect" href="index.php?page=monCompte">Mon compte</a></li>
-                <li><a class="up blanc effect" href="index.php?page=validationAnnonces">Validation des annonces</a></li>
-                <li><a class="up blanc effect" href="index.php?page=supprAnnonces">Gestion des annonces</a></li>
-            </ul>
+            {% if session %}
+                <ul id="nav_desktop_co">
+                    <li><a class="up blanc effect" href="index.php?page=monCompte">Mon compte</a></li>
+                    {% if session.sessionAdmin is defined %}
+                        <li><a class="up blanc effect" href="index.php?page=validationAnnonces">Validation des annonces</a></li>
+                        <li><a class="up blanc effect" href="index.php?page=supprAnnonces">Gestion des annonces</a></li>
+                    {% endif %}
+                </ul>
             {% endif %}
         </nav>
     </header>

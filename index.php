@@ -35,6 +35,15 @@ if($page != null){
 	include($page);
 }
 
+
+if(isset($_POST["decnx"])){
+	session_destroy();
+
+	header("Location: index.php?page=index");
+	exit();
+}
+
+
 // Chargement du template
 $template = $twig->loadTemplate($template);
 
@@ -46,11 +55,5 @@ echo $template->render($param);
 
 
 
-if(isset($_POST["decnx"])){
-	session_destroy();
-
-	header("Location: index.php?page=index");
-	exit();
-}
 
 ?>	
