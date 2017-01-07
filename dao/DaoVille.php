@@ -46,15 +46,15 @@ class DaoVille extends Dao {
     }
 
     public function create(){
-        $sql = "INSERT INTO ville(NOM_VILLE, ADRESSE, CP, ID_PAYS)
-               VALUES(?, ?, ?, ?)";
+        $sql = "INSERT INTO ville(NOM_VILLE, ADRESSE, CP)
+               VALUES(?, ?, ?)";
 
         $requete = $this->pdo->prepare($sql);
 
         $requete->bindValue(1, $this->bean->getNomVille());
         $requete->bindValue(2, $this->bean->getAdresse());
         $requete->bindValue(3, $this->bean->getCp());
-        $requete->bindValue(4, $this->bean->getPays()->getId());
+//        $requete->bindValue(4, $this->bean->getPays()->getId());
 
         $requete->execute();
     }

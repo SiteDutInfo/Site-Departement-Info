@@ -5,45 +5,35 @@
 {% block contenu %}
     <div>
         <div class="logoEntOffre">
-            <img src="img/web.png" alt="Logo Entreprise">
-            <h3 class="bleuF up">Entreprise</h3>
+            {% for ent in annonce.entreprise %}
+                <img src="img/web.png" alt="Logo de l'entreprise {{ ent.nom }}">
+                <h3 class="bleuF up">{{ ent.nom }}</h3>
+            {% endfor %}
         </div>
         <div>
             <div id="donneesOffre">
                 <h3 class="up">Poste recherché</h3>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    A aliquam commodi consequuntur cumque deleniti deserunt, itaque
-                    minus necessitatibus nemo non nostrum officiis optio quibusdam reiciendis
-                    rerum saepe sit sunt voluptates?
+                    {{ annonce.posteRecherche }}
                 </p>
                 <h3 class="up">Description du poste</h3>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab,
-                    ad alias atque, blanditiis corporis culpa cum cumque debitis
-                    deserunt eligendi illo in ipsam ipsum itaque libero magnam
-                    numquam officia officiis, quae quia quibusdam recusandae
-                    repellendus reprehenderit repudiandae sapiente ullam voluptate.
-                    Aliquam corporis distinctio et, explicabo impedit iure soluta
-                    tempore veritatis.
+                    {{ annonce.descPoste }}
                 </p>
                 <h3 class="up">Profil recherché</h3>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab,
-                    ad alias atque, blanditiis corporis culpa cum cumque debitis
-                    deserunt eligendi illo in ipsam ipsum itaque libero magnam
-                    numquam officia officiis, quae quia quibusdam recusandae
-                    repellendus reprehenderit repudiandae sapiente ullam voluptate.
-                    Aliquam corporis distinctio et, explicabo impedit iure soluta
-                    tempore veritatis.
+                    {{ annonce.profilRecherche }}
                 </p>
             </div>
             <div>
-                <p><a href="" class="bleuF">www.entreprise.com</a></p>
-                <p>Tel. <span class="bleuF">03.81.55.55.55</span></p>
-                <p>Email <span class="bleuF">entreprise@gmail.com</span>
+                {% for ent in annonce.entreprise %}
+                    <p><a href="" class="bleuF">{{ ent.url }}</a></p>
+                {% endfor %}
+                {% for resp in listeResp %}
+                    <p>Tel. <span class="bleuF">{{ resp.tel }}</span></p>
+                    <p>Email <span class="bleuF">{{ resp.mail }}</span>
+                {% endfor %}
             </div>
         </div>
-
     </div>
 {% endblock %}

@@ -5,33 +5,33 @@
 {% block contenu %}
     <h2 class="center up">Validation des annonces</h2>
     <section id="listeOffres">
-
-        <div class="offre">
-            <div class="logoEntOffre">
-                <img src="img/web.png" alt="Logo Entreprise">
-                <h3 class="bleuF up">Stage | Entreprise</h3>
-            </div>
-            <div>
-                <p class="titre">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, doloremque.</p>
-                <p class="desc">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Cum cupiditate delectus dolores ipsum natus nostrum voluptatibus?
-                    A accusamus animi dolorem, eos eveniet iure mollitia nostrum praesentium quas
-                    tempora, temporibus ut?
-                </p>
-                <a href="" class="bleuF">www.entreprise.com</a>
-                <div class="gestion">
-                    <form>
-                        <button name="valAnnonce" class="val"><img src="img/icone_valider.png" alt="Icone supprimer"></button>
-                    </form>
-                    <form>
-                        <button name="suppAnnonce" class="supp"><img src="img/icone_croix.png" alt="Icone supprimer"></button>
-                    </form>
+        {% for annonce in listeAnnonce %}
+            {% for ent in annonce.entreprise %}
+                <div class="offre {% if annonce.stage == 1 %}offreStage{% else %}offreEmploi{% endif %}">
+                    <div class="logoEntOffre">
+                        <img src="img/web.png" alt="Logo de l'entreprise {{ ent.nom }}">
+                        <h3 class="bleuF up">{% if annonce.stage == 1 %}STAGE{% else %}EMPLOI{% endif %} | {{ ent.nom }}</h3>
+                    </div>
+                    <div>
+                        <p class="titre">{{ annonce.posteRecherche[:70] }}</p>
+                        <p class="desc">
+                            {{ annonce.descPoste[:220] }}
+                        </p>
+                        <a href="{{ ent.url }}" class="bleuF">{{ ent.url }}</a>
+                    </div>
+                    <div>
+                        <div class="gestion">
+                            <form method="post" action="index.php?page=validationAnnonces&id={{ annonce.id }}">
+                                <button name="valAnnonce" class="val"><img src="img/icone_valider.png" alt="Icone supprimer"></button>
+                            </form>
+                            <form method="post" action="index.php?page=validationAnnonces&id={{ annonce.id }}">
+                                <button name="suppAnnonce" class="supp"><img src="img/icone_croix.png" alt="Icone supprimer"></button>
+                            </form>
+                        </div>
+                        <span><a href="index.php?page=offreDetaillee&id={{ annonce.id }}" class="blanc up">Voir l'offre</a></span>
+                    </div>
                 </div>
-                <span><a href="index.php?page=offreDetaillee" class="blanc up">Voir l'offre</a></span>
-            </div>
-        </div>
-
-
+            {% endfor %}
+        {% endfor %}
     </section>
 {% endblock %}

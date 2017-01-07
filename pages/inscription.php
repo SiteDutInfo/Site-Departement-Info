@@ -73,9 +73,11 @@ if (isset($_POST["creerEntreprise"])) {
     }
 
     $daoVille = new DaoVille();
+    $daoVille->bean->setAdresse($_POST["adr"]);
     $daoVille->findByName($_POST["ville"]);
     if( !$daoVille->findByName($_POST["ville"])) {
         $daoVille->bean->setNomVille($_POST["ville"]);
+        $daoVille->bean->setCp($_POST["cp"]);
         $daoVille->create();
     }
 

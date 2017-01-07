@@ -30,9 +30,6 @@ for($i=0;$i<count($listeAdmin); $i++){
 }
 
 
-// On passe le liste de villageois en paramètre pour la vue
-// ce tableau est tranféré par lae programme index.php
-// à chaque template demandé
 $param = array(
     "listeEnt" => $listeEnt,
     "listeAdmin" => $listeAdmin

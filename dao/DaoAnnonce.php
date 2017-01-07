@@ -122,10 +122,11 @@ class DaoAnnonce extends Dao {
                 FROM annonce, entreprise
                 WHERE
                 annonce.ID_ANNONCE = ".$this->bean->getId()."
-                AND annonce.ID_ENT = entreprise.ID_ENT
+                AND entreprise.ID_ENT = annonce.ID_ENT
             ";
 
         $requete = $this->pdo->prepare($sql);
+        $liste = array();
         if($requete->execute()){
             while($donnees = $requete->fetch()){
                 $entreprise = new Entreprise(
@@ -139,8 +140,9 @@ class DaoAnnonce extends Dao {
                     $donnees['MDP_ENT'],
                     $donnees['LOGO']
                 );
-                $this->bean->setEntreprise($entreprise);
+                $liste[] = $entreprise;
             }
+            $this->bean->setEntreprise($liste);
         }
     }
 
@@ -163,6 +165,33 @@ class DaoAnnonce extends Dao {
             $this->bean->setAdmin($admin);
         }
     }
+    }
+
+    public function setRespEnt(){
+        $sql = "SELECT *
+                FROM annonce, entreprise, responsable
+                WHERE annonce.ID_ANNONCE = ".$this->bean->getId()."
+                AND annonce.ID_ENT = entreprise.ID_ENT
+                AND entreprise.ID_RESP = responsable.ID_RESP
+                ";
+        $requete = $this->pdo->prepare($sql);
+        $liste = array();
+        if($requete->execute()){
+            while($donnees = $requete->fetch()){
+                $resp = new Responsable($donnees['ID_RESP'], $donnees['NOM_RESP'], $donnees['MAIL_RESP'], $donnees['TEL_RESP']);
+                $liste[] = $resp;
+            }
+        }
+        return $liste;
+    }
+
+    public function valAnnonce(){
+        $sql = "
+                UPDATE annonce
+                SET ETAT_PUBLICATION = 1
+                WHERE ID_ANNONCE = ".$this->bean->getId();
+        $requete = $this->pdo->prepare($sql);
+        $requete->execute();
     }
 
 }

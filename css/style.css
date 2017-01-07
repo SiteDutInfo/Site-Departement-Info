@@ -557,6 +557,11 @@ header {
     border-radius: 5px;
     position: relative;
     background-color: white;
+    height: 315px;
+}
+
+#offres .offre {
+    height: 280px;
 }
 
 .offre .titre {
@@ -574,6 +579,9 @@ header {
     padding: 10px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }
 
 .offre>div:last-child>span>a {
