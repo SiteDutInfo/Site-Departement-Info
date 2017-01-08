@@ -13,17 +13,6 @@ for($i=0;$i<count($listeAnnPubliees); $i++){
     $listeAnnPubliees[$i] = $daoAnn->bean;
 }
 
-
-// Traitement du formulaire
-if(isset($_POST["suppAnnonce"])){
-    // Suppression de la potion
-    $daoAnn->delete();
-    // Redirection sur la liste des potions
-    header('Location: index.php?page=supprAnnonces');
-    exit();
-}
-
-
 $param = array(
     "listeAnnonce" => $listeAnnPubliees
 );

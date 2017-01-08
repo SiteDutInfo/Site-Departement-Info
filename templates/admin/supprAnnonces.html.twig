@@ -23,9 +23,7 @@
                     </div>
                     <div>
                         <div class="gestion">
-                            <form method="post" action="index.php?page=supprAnnonces&id={{ annonce.id }}">
-                                <button name="suppAnnonce" class="supp"><img src="img/icone_croix.png" alt="Icone supprimer"></button>
-                            </form>
+                            <a href="index.php?page=confSuppr&id={{ annonce.id }}"><img class="supp" src="img/icone_croix.png" alt="Icone supprimer"></a>
                         </div>
                         <span><a href="index.php?page=offreDetaillee&id={{ annonce.id }}" class="blanc up">Voir l'offre</a></span>
                     </div>

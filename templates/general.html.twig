@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/typographie.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     {% block head %}{% endblock %}
     <link rel="icon" type="image/png" href="img/logo.png" />
 </head>
@@ -21,8 +21,25 @@
                     <li><a class="up" href="index.php?page=tout_savoir">Tout savoir sur le DUT</a></li>
                     <li><a class="up" href="index.php?page=equipe">L'équipe pédagogique</a></li>
                     <li><a class="up" href="index.php?page=offres">Offres de stages & emplois</a></li>
-                    <li><a class="up" href="index.php?page=connexion">Connexion</a></li>
+                    {% if session %}
+
+                            <li><a class="up blanc effect" href="index.php?page=monCompte">Mon compte</a></li>
+                            {% if session.sessionAdmin is defined %}
+                                <li><a class="up blanc effect" href="index.php?page=validationAnnonces">Validation des annonces</a></li>
+                                <li><a class="up blanc effect" href="index.php?page=supprAnnonces">Gestion des annonces</a></li>
+                            {% endif %}
+
+                    {% endif %}
                 </ul>
+                {% if session %}
+                    <form method="post">
+                        <button id="ongletDeco" class="up" type="submit" name="decnx">Déconnexion</button>
+                    </form>
+                {% else %}
+                    <div>
+                        <a id="ongletCo" class="up" href="index.php?page=connexion">Connexion</a>
+                    </div>
+                {% endif %}
             </nav>
         </div>
 
@@ -36,7 +53,7 @@
                 </ul>
                 <div id="divDeco">
                     {% if session %}
-                        <form method="post" action="">
+                        <form method="post">
                             <button id="ongletDeco" class="up blanc" type="submit" name="decnx">Déconnexion</button>
                         </form>
                     {% else %}

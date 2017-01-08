@@ -57,3 +57,7 @@ footer p, footer a, #oubli_mdp {
     font-size: 10px;
     font-family: Perfect;
 }
+
+#confirmationSupprAnnonces>main>form>p {
+    font-size: 1.2em;
+}
