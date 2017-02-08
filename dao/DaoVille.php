@@ -20,40 +20,39 @@ class DaoVille extends Dao {
     public function getListe(){
         $sql = "SELECT *
                 FROM ville
-                ORDER BY CP";
+                ORDER BY NOM_VILLE";
         $requete = $this->pdo->prepare($sql);
         $liste = array();
         if($requete->execute()){
             while($donnees = $requete->fetch()){
-                $ville = new Ville($donnees['ID_VILLE'], $donnees['NOM_VILLE'], $donnees['ADRESSE'], $donnees['CP']);
+                $ville = new Ville($donnees['ID_VILLE'], $donnees['NOM_VILLE']);
                 $liste[] = $ville;
             }
         }
         return $liste;
     }
 
-    public function findByName($value){
-        $sql = "SELECT * FROM ville WHERE NOM_VILLE = '$value'";
+    public function findByName($value)
+    {
+        $sql = "SELECT ID_VILLE FROM ville WHERE NOM_VILLE = '$value'";
         $requete = $this->pdo->prepare($sql);
-        if($requete->execute()){
-            if($donnees = $requete->fetch()){
+        if ($requete->execute()) {
+            if ($donnees = $requete->fetch()) {
                 $this->bean->setId($donnees['ID_VILLE']);
-                $this->bean->setNomVille($donnees['NOM_VILLE']);
-                return true;
             }
         }
-        return false;
     }
 
+
     public function create(){
-        $sql = "INSERT INTO ville(NOM_VILLE, ADRESSE, CP)
-               VALUES(?, ?, ?)";
+        $sql = "INSERT INTO ville(NOM_VILLE)
+               VALUES(?)";
 
         $requete = $this->pdo->prepare($sql);
 
-        $requete->bindValue(1, $this->bean->getNomVille());
-        $requete->bindValue(2, $this->bean->getAdresse());
-        $requete->bindValue(3, $this->bean->getCp());
+        $requete->bindValue(1, $this->bean->getNom());
+//        $requete->bindValue(2, $this->bean->getAdresse());
+//        $requete->bindValue(3, $this->bean->getCp());
 //        $requete->bindValue(4, $this->bean->getPays()->getId());
 
         $requete->execute();

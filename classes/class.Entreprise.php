@@ -1,7 +1,6 @@
 <?php
 
 require_once("class.Ville.php");
-require_once("class.Responsable.php");
 require_once("class.TypeEntreprise.php");
 require_once("class.StatutJuridique.php");
 require_once("class.Effectif.php");
@@ -17,6 +16,10 @@ class Entreprise {
     private $login = null;
     private $mdp = null;
     private $logo = null;
+    private $civilite = false;
+    private $nomResp = null;
+    private $mailResp = null;
+    private $telResp = null;
 
     private $laVille = null;
     private $leResponsable = null;
@@ -29,7 +32,8 @@ class Entreprise {
     // OPERATIONS
     public function Entreprise($id = 0, $nom = null, $numSiret = null,
                                $codeApeNaf = null, $url = null, $desc = null,
-                               $login = null, $mdp = null, $logo = null){
+                               $login = null, $mdp = null, $logo = null,
+                               $civilite = false, $nomResp = null, $mailResp = null, $telResp = null){
         $this->id=$id;
         $this->nom=$nom;
         $this->numSiret=$numSiret;
@@ -39,6 +43,10 @@ class Entreprise {
         $this->login=$login;
         $this->mdp=$mdp;
         $this->logo=$logo;
+        $this->civilite=$civilite;
+        $this->nomResp=$nomResp;
+        $this->mailResp=$mailResp;
+        $this->telResp=$telResp;
     }
 
     public function getId(){return $this->id;}
@@ -50,8 +58,11 @@ class Entreprise {
     public function getLogin(){return $this->login;}
     public function getMdp(){return $this->mdp;}
     public function getLogo(){return $this->logo;}
+    public function getCivilite(){return $this->civilite;}
+    public function getNomResp(){return $this->nomResp;}
+    public function getMailResp(){return $this->mailResp;}
+    public function getTelResp(){return $this->telResp;}
     public function getLaVille(){return $this->laVille;}
-    public function getLeResponsable(){return $this->leResponsable;}
     public function getLeTypeEnt(){return $this->leTypeEntreprise;}
     public function getLeStatutJur(){return $this->leStatutJuridique;}
     public function getEffectif(){return $this->effectif;}
@@ -66,8 +77,11 @@ class Entreprise {
     public function setLogin($login){$this->login=$login;}
     public function setMdp($mdp){$this->mdp=$mdp;}
     public function setLogo($logo){$this->logo=$logo;}
+    public function setCivilite($civilite){$this->civilite=$civilite;}
+    public function setNomResp($nomResp){$this->nomResp=$nomResp;}
+    public function setMailResp($mailResp){$this->mailResp=$mailResp;}
+    public function setTelResp($telResp){$this->telResp=$telResp;}
     public function setLaVille($laVille){$this->laVille=$laVille;}
-    public function setLeResponsable($leResponsable){$this->leResponsable=$leResponsable;}
     public function setLeTypeEnt($leTypeEntreprise){$this->leTypeEntreprise=$leTypeEntreprise;}
     public function setLeStatutJur($leStatutJuridique){$this->leStatutJuridique=$leStatutJuridique;}
     public function setEffectif($effectif){$this->effectif=$effectif;}

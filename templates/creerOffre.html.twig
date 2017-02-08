@@ -34,7 +34,7 @@
 
                     <label class="dates" for="dateFin">Fin du stage / de l'emploi</label>
                     <input type="date" name="dateFin" id="dateFin"/>
-
+                    <input name="idpost" type="hidden" value="{{ session.sessionEnt.id }}">
                     <input name="creerAnnonce" class="btn blanc up" type="submit" value="Valider"/>
                 </p>
             </form>

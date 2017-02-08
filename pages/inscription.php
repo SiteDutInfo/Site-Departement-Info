@@ -3,18 +3,17 @@
 require_once('dao/DaoTypeEntreprise.php');
 require_once('dao/DaoStatutJuridique.php');
 require_once("dao/DaoEntreprise.php");
-require_once("dao/DaoResponsable.php");
 require_once("dao/DaoEffectif.php");
 require_once("dao/DaoVille.php");
 require_once("dao/DaoPays.php");
 
-
-$daoResp = new DaoResponsable();
 $daoVille = new DaoVille();
 $daoPays = new DaoPays();
 
 $daoTypeEnt = new DaoTypeEntreprise();
 $listeTypeEnt = $daoTypeEnt->getListe();
+
+$listeVilles = $daoVille->getListe();
 
 $daoStatutJur = new DaoStatutJuridique();
 $listeStatutJur = $daoStatutJur->getListe();
@@ -25,88 +24,46 @@ $listeEff = $daoEff->getListe();
 
 
 
-if (isset($_POST["creerEntreprise"])) {
+if (isset($_POST["creerEntreprise"]) && ($_POST["pswEnt"] == $_POST["ConfirmedPsw"])) {
 
     $daoEnt = new DaoEntreprise();
     $daoEnt->bean->setLogin($_POST["loginEnt"]);
-
-    if($_POST["pswEnt"] == $_POST["ConfirmedPsw"]) {
-        $daoEnt->bean->setMdp($_POST["pswEnt"]);
-    }
-
+    $daoEnt->bean->setMdp(sha1($_POST["pswEnt"]));
     $daoEnt->bean->setNom($_POST["nomEnt"]);
+    $daoEnt->bean->setNumSiret($_POST['numeroSiret']);
     $daoEnt->bean->setCodeApeNaf($_POST["codeAPENAF"]);
     $daoEnt->bean->setUrl($_POST["url"]);
 //    $daoEnt->bean->setLogo($_POST["logoEnt"]);
+    $daoEnt->bean->setNomResp($_POST['nomResp']);
+    $daoEnt->bean->setMailResp($_POST['mail']);
+    $daoEnt->bean->setTelResp($_POST['tel']);
+    $daoEnt->bean->setLogo("null");
+    if($_POST['civilite'] == "mme"){
+        $daoAnn->bean->setCivilite(1);
+    }
+    else{
+        $daoAnn->bean->setCivilite(0);
+    }
     $daoEnt->bean->setDesc($_POST["desc"]);
+    $daoEnt->bean->setLaVille((int)$_POST['ville']);
+//    var_dump($daoEnt);
 
+    $daoEnt->bean->setEffectif($_POST["effectif"]);
 
-//
-//    $daoVille = new DaoVille();
-//    $daoVille->findByName($_POST["ville"]);
-//    if($daoVille == null) {
-//        $daoVille->bean->setId();
-//        $daoVille->bean->setNom();
-//    }
-//    else {
-//        $daoVille->bean->getId();
-//    }
-//    $daoVille->find($_POST["ville"]);
-//    $daoEnt->bean->setLaVille($daoVille->bean);
+    $daoEnt->bean->setLeTypeEnt($_POST["typeEnt"]);
 
-//    $daoResp = new DaoResponsable();
-////    $daoNomResp = $daoResp->findByName($_POST["nomResp"]);
-////    if($daoNomResp == null) {
-////        $daoResp->bean->setNom();
-////    }
-////    else {
-////        $daoResp->bean->getId();
-////    }
-//    $daoResp->find($_POST["nomResp"]);
-//    $daoEnt->bean->setLeResponsable($daoResp->bean);
-
-    $daoPays = new DaoPays();
-    $daoPays->findByName($_POST["pays"]);
-    if( !$daoPays->findByName($_POST["pays"])) {
-        $daoPays->bean->setNom($_POST["pays"]);
-        $daoPays->create();
-    }
-
-    $daoVille = new DaoVille();
-    $daoVille->bean->setAdresse($_POST["adr"]);
-    $daoVille->findByName($_POST["ville"]);
-    if( !$daoVille->findByName($_POST["ville"])) {
-        $daoVille->bean->setNomVille($_POST["ville"]);
-        $daoVille->bean->setCp($_POST["cp"]);
-        $daoVille->create();
-    }
-
-    $daoResp = new DaoResponsable();
-    $daoResp->bean->setNom($_POST["nomResp"]);
-    $daoResp->bean->setMail($_POST["mail"]);
-    $daoResp->bean->setTel($_POST["tel"]);
-    $daoResp->create();
-
-
-    $daoEff->find($_POST["effectif"]);
-    $daoEnt->bean->setEffectif($daoEff->bean);
-
-    $daoTypeEnt->find($_POST["typeEnt"]);
-    $daoEnt->bean->setLeTypeEnt($daoTypeEnt->bean);
-
-    $daoStatutJur->find($_POST["statutJur"]);
-    $daoEnt->bean->setLeStatutJur($daoStatutJur->bean);
-
-
+    $daoEnt->bean->setLeStatutJur($_POST["statutJur"]);
+//    var_dump($daoEnt);
     $daoEnt->create();
 
 
     // redirection formulaire
-    header('Location: index.php?page=index');
+    header('Location: index.php');
 }
 
 $param = array(
     "listeTypeEntreprise" => $listeTypeEnt,
+    "listeVilles" => $listeVilles,
     "listeStatutJuridique" => $listeStatutJur,
     "listeEff" => $listeEff
 );

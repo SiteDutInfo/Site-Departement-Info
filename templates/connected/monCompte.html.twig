@@ -6,53 +6,45 @@
     <h2 class="center up">Mon compte</h2>
     <div id="donneesCompte">
         {% if session.sessionEnt is defined %}
-            {% for ent in listeEnt %}
                 <div class="logoEntOffre">
-                    <img src="img/web.png" alt="Logo de l'entreprise {{ ent.nom }}">
-                    <p class="up bleuF">{{ ent.nom }}</p>
+                    <img src="img/web.png" alt="Logo de l'entreprise {{ session.sessionEnt.nom }}">
+                    <p class="up bleuF">{{ session.sessionEnt.nom }}</p>
                 </div>
-                <p>Description : <br><span class="bleuF">{{ ent.desc }}</span></p>
+                <p>Description : <br><span class="bleuF">{{ session.sessionEnt.desc }}</span></p>
 
-                <p>Pays : <span class="bleuF">{{ ent.pays }}</span></p>
 
-                {% for ville in ent.laVille %}
-                    <p>Ville : <span class="bleuF">{{ ville.nomVille }}</span></p>
-                    <p>Adresse : <span class="bleuF">{{ ville.adresse }}</span></p>
-                    <p>Code postal : <span class="bleuF">{{ ville.cp }}</span></p>
-                {% endfor %}
+                    <p>Ville : <span class="bleuF">{% for ville in session.sessionEnt.ville %}{{ nom }}{% endfor %}</span></p>
 
-                <p>Numéro SIRET : <span class="bleuF">{{ ent.numSiret }}</span></p>
-                <p>Code APE/NAF : <span class="bleuF">{{ ent.codeApeNaf }}</span></p>
 
-                {% for typeEnt in ent.leTypeEnt %}
-                    <p>Type d'entreprise : <span class="bleuF">{{ typeEnt.lib }}</span></p>
-                {% endfor %}
+                <p>Numéro SIRET : <span class="bleuF">{{ session.sessionEnt.numSiret }}</span></p>
+                <p>Code APE/NAF : <span class="bleuF">{{ session.sessionEnt.codeApeNaf }}</span></p>
 
-                {% for statJur in ent.leStatutJur%}
-                    <p>Statut juridique : <span class="bleuF">{{ statJur.lib }}</span></p>
-                {% endfor %}
 
-                {% for eff in ent.effectif %}
-                    <p>Effectif : <span class="bleuF">{{ eff.qte }}</span></p>
-                {% endfor %}
+                    <p>Type d'entreprise : <span class="bleuF">{{ session.sessionEnt.typeEnt.lib }}</span></p>
 
-                <p>Site web : <span class="bleuF">{{ ent.url }}</span></p>
 
-                {% for resp in ent.leResponsable %}
-                    <p>Nom du responsable : <span class="bleuF">{{ resp.nom }}</span></p>
-                    <p>Email du responsable : <span class="bleuF">{{ resp.mail }}</span></p>
-                    <p>Téléphone du responsable : <span class="bleuF">{{ resp.tel }}</span></p>
-                {% endfor %}
 
-                <p>Identifiant : <span class="bleuF">{{ ent.login }}</span></p>
-                <p>Mot de passe : <span class="bleuF">{{ ent.mdp }}</span></p>
-            {% endfor %}
+                    <p>Statut juridique : <span class="bleuF">{{ session.sessionEnt.statut }}</span></p>
+
+
+
+                    <p>Effectif : <span class="bleuF">{{ session.sessionEnt.effectif }}</span></p>
+
+
+                <p>Site web : <span class="bleuF">{{ session.sessionEnt.url }}</span></p>
+
+
+                    <p>Nom du responsable : <span class="bleuF">{{ session.sessionEnt.civilite }}{{ session.sessionEnt.nomResp }}</span></p>
+                    <p>Email du responsable : <span class="bleuF">{{ session.sessionEnt.mailResp }}</span></p>
+                    <p>Téléphone du responsable : <span class="bleuF">{{ session.sessionEnt.telResp }}</span></p>
+
+
+                <p>Identifiant : <span class="bleuF">{{ session.sessionEnt.login }}</span></p>
+                <p>Mot de passe : <span class="bleuF">{{ session.sessionEnt.mdp }}</span></p>
         {% endif %}
         {% if session.sessionAdmin is defined %}
-            {% for admin in listeAdmin %}
-                <p>Identifiant : <span class="bleuF">{{ admin.login }}</span></p>
-                <p>Mot de passe : <span class="bleuF">{{ admin.mdp }}</span></p>
-            {% endfor %}
+                <p>Identifiant : <span class="bleuF">{{ session.sessionAdmin.login }}</span></p>
+                <p>Mot de passe : <span class="bleuF">{{ session.sessionAdmin.mdp }}</span></p>
         {% endif %}
     </div>
 
@@ -61,31 +53,30 @@
             <h2 class="center up bleuF">Mes annonces</h2>
 
             <section id="listeOffres">
-            {% for ent in listeEnt %}
-                {% for annonce in ent.lesAnnonces %}
+        {% for offre in session.sessionEnt.annonces %}
                     <div class="offre">
                         <div class="logoEntOffre">
                             <img src="img/web.png" alt="Logo Entreprise">
-                            <h3 class="bleuF up">{% if annonce.stage == 1 %}STAGE{% else %}EMPLOI{% endif %}  | {{ ent.nom }}</h3>
+
+                            <h3 class="bleuF up">{% if offre.stage == 1 %}STAGE{% else %}EMPLOI{% endif %}  | {{ session.sessionEnt.nom }}</h3>
                         </div>
                         <div>
-                            <p class="titre">{{ annonce.posteRecherche[:70] }}</p>
+                            <p class="titre">{{ offre.posteRecherche[:70] }}</p>
                             <p class="desc">
-                                {{ annonce.descPoste[:220] }}
+                                {{ offre.descPoste[:220] }}
                             </p>
-                            <a href="{{ ent.url }}" class="bleuF">{{ ent.url }}</a>
+                            <a href="{{ session.sessionEnt.url }}" class="bleuF">{{ session.sessionEnt.url }}</a>
                         </div>
                         <div>
                             <div class="gestion">
                                 <span class="edit">
-                                    <a href=""><img src="img/edit-icon.png" alt="Icone editer"></a>
+                                    <a href="index.php?page=modifAnnonce"><img src="img/edit-icon.png" alt="Icone editer"></a>
                                 </span>
-                                <a href="index.php?page=confSuppr&id={{ annonce.id }}"><img class="supp" src="img/icone_croix.png" alt="Icone supprimer"></a>
+                                <a href="index.php?page=confSuppr&id={{ offre.id }}"><img class="supp" src="img/icone_croix.png" alt="Icone supprimer"></a>
                             </div>
-                            <span><a href="index.php?page=offreDetaillee&id={{ annonce.id }}" class="blanc up">Voir l'offre</a></span>
+                            <span><a href="index.php?page=offreDetaillee&id={{ offre.id }}" class="blanc up">Voir l'offre</a></span>
                         </div>
                     </div>
-                {% endfor %}
             {% endfor %}
             </section>
         </div>

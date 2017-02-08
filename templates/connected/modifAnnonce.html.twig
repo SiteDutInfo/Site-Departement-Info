@@ -1,0 +1,46 @@
+{% extends 'general.html.twig' %}
+
+{% block idBody %}modifAnnonce{% endblock %}
+
+{% block contenu %}
+    <section>
+        <h2 class="center up">Modifiez votre offre de stage ou d'emploi</h2>
+        <div id="formModifAnnonce">
+            {#{% for offre in session.sessionEnt.annonces %}#}
+                <form method="post">
+                    <p>
+                        <label>Type d'offre</label><br>
+                        <span id="typeAnnonce">
+                            {% if  %}
+                            <span>
+                                <input type="radio" name="typeAnnonce" value="stage" id="stage"/>
+                                <label for="stage">Stage</label>
+                            </span>
+                            <span>
+                                <input type="radio" name="typeAnnonce" value="job" id="job" />
+                                <label for="job">Emploi</label>
+                            </span>
+                        </span><br>
+
+                        <label for="posteRecherche">Poste recherché</label>
+                        <input type="text" name="posteRecherche" id="posteRecherche"/><br>
+
+                        <label for="descPoste">Description du poste</label>
+                        <textarea name="descPoste" id="descPoste" rows="10" cols="40"></textarea><br>
+
+                        <label for="profil">Profil recherché</label>
+                        <textarea name="profil" id="profil" rows="10" cols="40"></textarea><br>
+
+                        <label class="dates" for="dateDebut">Début du stage / de l'emploi</label>
+                        <input type="date" name="dateDebut" id="dateDebut"/><br>
+
+                        <label class="dates" for="dateFin">Fin du stage / de l'emploi</label>
+                        <input type="date" name="dateFin" id="dateFin"/>
+                        <input name="idpost" type="hidden" value="{{ session.sessionEnt.id }}">
+                        <input name="creerAnnonce" class="btn blanc up" type="submit" value="Valider"/>
+                    </p>
+                </form>
+            {#{% endfor %}#}
+        </div>
+    </section>
+{% endblock %}

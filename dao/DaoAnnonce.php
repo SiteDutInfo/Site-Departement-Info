@@ -69,8 +69,8 @@ class DaoAnnonce extends Dao {
     }
 
     public function create(){
-        $sql = "INSERT INTO annonce(ID_ANNONCE, POSTE_RECHERCHE, DESC_POSTE, PROFIL_RECHERCHE, STAGE, ETAT_PUBLICATION, DEBUT_STAGE, FIN_STAGE)
-               VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO annonce(ID_ANNONCE, POSTE_RECHERCHE, DESC_POSTE, PROFIL_RECHERCHE, STAGE, ETAT_PUBLICATION, DEBUT_STAGE, FIN_STAGE, ID_ENT)
+               VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $requete = $this->pdo->prepare($sql);
 
@@ -82,6 +82,7 @@ class DaoAnnonce extends Dao {
         $requete->bindValue(6, $this->bean->getEtatPublication());
         $requete->bindValue(7, $this->bean->getDebut());
         $requete->bindValue(8, $this->bean->getFin());
+        $requete->bindValue(9, $this->bean->getEntreprise());
 
 
 //        $requete->bindValue(9, $this->bean->getEntreprise()->getId());

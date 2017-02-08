@@ -20,8 +20,9 @@ if (isset($_POST["creerAnnonce"])) {
     $daoAnn->bean->setProfilRecherche($_POST["profil"]);
     $daoAnn->bean->setDebut($_POST["dateDebut"]);
     $daoAnn->bean->setFin($_POST["dateFin"]);
-
     $daoAnn->bean->setEtatPublication(0);
+    $daoAnn->bean->setEntreprise($_POST['idpost']);
+//    var_dump($daoAnn);
 
     $daoAnn->create();
 

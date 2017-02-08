@@ -1,13 +1,14 @@
 <?php
 
 require_once("Dao.php");
-require_once("classes/class.Entreprise.php");
+require_once 'classes/class.Entreprise.php';
 
 class DaoEntreprise extends Dao {
     public function DaoEntreprise(){
         parent::__construct();
         $this->bean = new Entreprise();
     }
+
 
     public function find($id) {
         $donnees = $this->findById("entreprise", "ID_ENT", $id);
@@ -20,6 +21,10 @@ class DaoEntreprise extends Dao {
         $this->bean->setLogin($donnees['LOGIN_ENT']);
         $this->bean->setMdp($donnees['MDP_ENT']);
         $this->bean->setLogo($donnees['LOGO']);
+        $this->bean->setCivilite($donnees['CIVILITE']);
+        $this->bean->setNomResp($donnees['NOM_RESP']);
+        $this->bean->setMailResp($donnees['MAIL_RESP']);
+        $this->bean->setTelResp($donnees['TEL_RESP']);
     }
 
     public function getListe(){
@@ -30,7 +35,9 @@ class DaoEntreprise extends Dao {
         $liste = array();
         if($requete->execute()){
             while($donnees = $requete->fetch()){
-                $entreprise = new Entreprise($donnees['ID_ENT'], $donnees['NOM_ENT'], $donnees['NUM_SIRET'], $donnees['CODE_APE_NAF'], $donnees['URL_ENT'], $donnees['DESC_ENT'], $donnees['LOGIN_ENT'], $donnees['MDP_ENT'], $donnees['LOGO']);
+                $entreprise = new Entreprise($donnees['ID_ENT'], $donnees['NOM_ENT'], $donnees['NUM_SIRET'], $donnees['CODE_APE_NAF'], $donnees['URL_ENT'],
+                                                $donnees['DESC_ENT'], $donnees['LOGIN_ENT'], $donnees['MDP_ENT'], $donnees['LOGO'], $donnees['CIVILITE'],
+                                                $donnees['NOM_RESP'], $donnees['MAIL_RESP'], $donnees['TEL_RESP']);
                 $liste[] = $entreprise;
             }
         }
@@ -38,8 +45,8 @@ class DaoEntreprise extends Dao {
     }
 
     public function create(){
-        $sql = "INSERT INTO entreprise(NOM_ENT, NUM_SIRET, CODE_APE_NAF, URL_ENT, DESC_ENT, LOGIN_ENT, MDP_ENT, LOGO, ID_VILLE, ID_RESP, ID_TYPE_ENT, ID_STATUT, ID_EFF)
-               VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO entreprise(NOM_ENT, NUM_SIRET, CODE_APE_NAF, URL_ENT, DESC_ENT, LOGIN_ENT, MDP_ENT, LOGO, CIVILITE, NOM_RESP, MAIL_RESP, TEL_RESP, ID_VILLE, ID_TYPE_ENT, ID_STATUT, ID_EFF)
+               VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $requete = $this->pdo->prepare($sql);
 
@@ -51,11 +58,14 @@ class DaoEntreprise extends Dao {
         $requete->bindValue(6, $this->bean->getLogin());
         $requete->bindValue(7, $this->bean->getMdp());
         $requete->bindValue(8, $this->bean->getLogo());
-//        $requete->bindValue(9, $this->bean->getLaVille()->getId());
-//        $requete->bindValue(10, $this->bean->getLeResponsable()->getId());
-        $requete->bindValue(11, $this->bean->getLeTypeEnt()->getId());
-        $requete->bindValue(12, $this->bean->getLeStatutJur()->getId());
-        $requete->bindValue(13, $this->bean->getEffectif()->getId());
+        $requete->bindValue(9, $this->bean->getCivilite());
+        $requete->bindValue(10, $this->bean->getNomResp());
+        $requete->bindValue(11, $this->bean->getMailResp());
+        $requete->bindValue(12, $this->bean->getTelResp());
+        $requete->bindValue(13, $this->bean->getLaVille());
+        $requete->bindValue(14, $this->bean->getLeTypeEnt());
+        $requete->bindValue(15, $this->bean->getLeStatutJur());
+        $requete->bindValue(16, $this->bean->getEffectif());
 
         $requete->execute();
     }
@@ -71,8 +81,11 @@ class DaoEntreprise extends Dao {
                     LOGIN_ENT = ".$this->bean->getLogin().",
                     MDP_ENT = ".$this->bean->getMdp().",
                     LOGO = ".$this->bean->getLogo().",
+                    CIVILITE = ".$this->bean->getCivilite().",
+                    NOM_RESP = ".$this->bean->getNomResp().",
+                    MAIL_RESP = ".$this->bean->getMailResp().",
+                    TEL_RESP = ".$this->bean->getTelResp().",
                     ID_VILLE = ".$this->bean->getLaVille()->getId().",
-                    ID_RESP = ".$this->bean->getLeResponsable()->getId().",
                     ID_TYPE_ENT = ".$this->bean->getLeTypeEnt()->getId().",
                     ID_STATUT = ".$this->bean->getLeStatutJur()->getId().",
                     ID_EFF = ".$this->bean->getEffectif()->getId().",
@@ -97,37 +110,11 @@ class DaoEntreprise extends Dao {
         if($requete->execute()){
             while($donnees = $requete->fetch()){
                 $ville = new Ville(
-                    $donnees['NOM_VILLE'],
-                    $donnees['ADRESSE'],
-                    $donnees['CP']
+                    $donnees['NOM_VILLE']
                 );
                 $liste[] = $ville;
             }
             $this->bean->setLaVille($liste);
-        }
-    }
-
-    public function setLeResponsable(){
-        $sql = "SELECT *
-                FROM entreprise, responsable
-                WHERE
-                entreprise.ID_RESP = responsable.ID_RESP
-                AND entreprise.ID_ENT = ".$this->bean->getId()
-            ;
-
-        $requete = $this->pdo->prepare($sql);
-        $liste = array();
-        if($requete->execute()){
-            while($donnees = $requete->fetch()){
-                $responsable = new Responsable(
-                    $donnees['ID_RESP'],
-                    $donnees['NOM_RESP'],
-                    $donnees['MAIL_RESP'],
-                    $donnees['TEL_RESP']
-                );
-                $liste[] = $responsable;
-            }
-            $this->bean->setLeResponsable($liste);
         }
     }
 
@@ -229,7 +216,7 @@ class DaoEntreprise extends Dao {
                 FROM entreprise
                 WHERE
                 entreprise.LOGIN_ENT = '".$login."'
-                AND entreprise.MDP_ENT = '".$mdp."' ";
+                AND entreprise.MDP_ENT = '".$mdp."'";
         $requete = $this->pdo->prepare($sql);
         if($requete->execute()){
             while($donnees = $requete->fetch()){
@@ -242,6 +229,10 @@ class DaoEntreprise extends Dao {
                 $this->bean->setLogin($donnees['LOGIN_ENT']);
                 $this->bean->setMdp($donnees['MDP_ENT']);
                 $this->bean->setLogo($donnees['LOGO']);
+                $this->bean->setCivilite($donnees['CIVILITE']);
+                $this->bean->setNomResp($donnees['NOM_RESP']);
+                $this->bean->setMailResp($donnees['MAIL_RESP']);
+                $this->bean->setTelResp($donnees['TEL_RESP']);
             }
         }
     }
