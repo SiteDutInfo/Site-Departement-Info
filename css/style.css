@@ -65,6 +65,29 @@ section {
     text-transform: uppercase;
 }
 
+.error {
+    border-color: #e4442c;
+}
+
+.errorDiv>p {
+    margin: 5px 0 0 15px;
+    color: #e4442c;
+}
+
+#errorForm>p {
+    color: #e4442c;
+    text-align: center;
+    margin: 40px 0 -30px 0;
+}
+
+#formInsc.error {
+    border : 2px solid #e4442c
+}
+
+.valid {
+    border-color: #97a800;
+}
+
 iframe {
     width: 100%;
     min-height: 210px;
@@ -81,7 +104,7 @@ ul {
 }
 
 input, textarea, select {
-    margin-bottom: 25px;
+    margin-top: 25px;
     border: solid 1px rgba(0,0,0,0.3);
 }
 
@@ -91,6 +114,10 @@ input, select {
 
 textarea {
     width: 100%;
+}
+
+#posteRecherche {
+    margin-bottom: 25px;
 }
 
 input:focus, select:focus, textarea:focus, button:focus {
@@ -221,7 +248,7 @@ header {
 #index .entete {
     width: 100%;
     height: 670px;
-    background: url("img-interface/iut_belfort.jpg") no-repeat center;
+    background: url("img-interface/departement_informatique_belfort_exterieur.jpg") no-repeat center;
     background-size: cover;
 }
 
@@ -260,11 +287,12 @@ header {
 
 #index #video {
     background-color: #395c94;
+    box-shadow: 0 -4px 20px 0 rgba(0,0,0,0.3);
 }
 
 #index #video iframe {
     margin: 20px 0;
-    border: none;
+    border: 2px solid black;
 }
 
 #index #nav_secondaire {
@@ -317,7 +345,7 @@ header {
 #tout_savoir .entete {
     width: 100%;
     height: 670px;
-    background: url("img-interface/image_tout_savoir.jpg") no-repeat center;
+    background: url("img-interface/salle_de_classe_mac-1.jpg") no-repeat center;
     background-size: cover;
 }
 
@@ -333,12 +361,13 @@ header {
     margin-bottom: 50px;
 }
 
-#tout_savoir .entete nav ul li a:after {
-    content: '';
-    display: block;
-    border-bottom: solid 1px #fbfbf1;
-    width: 130px;
-    margin: 5px auto;
+#tout_savoir .entete nav ul li a {
+    border: 1px solid white;
+    padding: 15px;
+}
+
+#tout_savoir .entete nav ul li a:hover {
+    background-color: #395c94;
 }
 
 #tout_savoir section h2 {
@@ -406,7 +435,7 @@ header {
 #bg_alt {
     width: 100%;
     height: 345px;
-    background: url("img-interface/image_alternance.jpg") no-repeat center fixed;
+    background: url("img-interface/salle_de_classe.jpg") no-repeat center fixed;
     background-size: cover;
 }
 
@@ -432,6 +461,14 @@ header {
 
 #equipe section ul li {
     margin-bottom: 25px;
+}
+
+#equipe #contact {
+    margin-top: 60px;
+}
+
+#equipe #contact a {
+    display: block;
 }
 
 #flecheAnim {
@@ -522,7 +559,7 @@ header {
     width: 50%;
     border: none;
     background-color: #fbfbf1;
-    padding: 3px 0;
+    padding: 10px 0;
     cursor: pointer;
     text-align: center;
 }
@@ -531,7 +568,7 @@ header {
     border-right: 1px solid black;
 }
 
-#filtres button:focus {
+#filtres button:focus, #filtres button:hover {
     color: #fbfbf1;
     background-color: #395c94;
     outline-color: #395c94;
@@ -642,9 +679,16 @@ header {
 }
 
 .logoEntOffre img {
-    width: 40px;
     float: left;
     margin: 10px;
+}
+
+.logoEntOffre_Min img {
+    width: 50px;
+}
+
+.logoEntOffre_Max img {
+    width: 100px;
 }
 
 .logoEntOffre h3 {
@@ -708,7 +752,7 @@ header {
     margin-top: 40px;
 }
 
-#formInsc>form>p>label {
+#formInsc>form>label {
     width: 40%;
     display: inline-block;
 }
@@ -737,7 +781,7 @@ header {
 }
 
 #logoEnt {
-    margin: 10px 0 25px 0;
+    margin: 25px 0;
 }
 
 /* ---------------------------------------------------------------------------------------- */
@@ -772,11 +816,15 @@ header {
 }
 
 #typeAnnonce input {
-    margin-bottom: 0;
+    margin-top: 0;
 }
 
 #formCreation>form .dates {
     width: 190px;
+}
+
+#formCreation>form>p:first-child {
+    margin-bottom: 40px;
 }
 
 /* ---------------------------------------------------------------------------------------- */
@@ -961,6 +1009,10 @@ footer .logo_dut {
 
 
     /* PAGE TOUT SAVOIR TABLETTE */
+    #tout_savoir .entete nav ul li a {
+        padding: 15px 100px;
+    }
+
     #programme .img_container {
         margin: 30px auto 50px auto;
     }
@@ -977,13 +1029,6 @@ footer .logo_dut {
     #alternance>div>div:last-child {
         max-width: 860px;
         margin: 0 auto;
-    }
-
-    #bg_alt {
-        width: 100%;
-        height: 345px;
-        background: url("img-interface/image_alternance.jpg") no-repeat center fixed;
-        background-size: cover;
     }
 
     #bg_alt>div {
@@ -1220,11 +1265,19 @@ footer .logo_dut {
         width: initial;
     }
 
+    #nav_secondaire .savoir_plus:hover>a {
+        background-color: #395c94
+    }
+
     /* ---------------------------------------------------------------------------------------- */
 
 
 
     /* PAGE TOUT SAVOIR BUREAU */
+    #tout_savoir .entete nav ul li a {
+        padding: 15px 230px;
+    }
+
     #programme .img_container {
         margin: 30px auto 50px auto;
     }
@@ -1266,13 +1319,6 @@ footer .logo_dut {
 
     #poursuiteEtude>div {
         width: 45%;
-    }
-
-    #bg_alt {
-        width: 100%;
-        height: 345px;
-        background: url("img-interface/image_alternance.jpg") no-repeat center fixed;
-        background-size: cover;
     }
 
     #bg_alt>div {

@@ -2,12 +2,13 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Dép. Info. Belfort</title>
+    <title>DUT Informatique Belfort</title>
+    <meta name="robots">
+    <meta name="description" content="Le DUT Informatique de Belfort forme des étudiants qui répondent aux besoins informatiques d'une entreprise. Devenez un spécialiste du développement informatique."/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/typographie.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     {% block head %}{% endblock %}
     <link rel="icon" type="image/png" href="img/logo.png" />
 </head>
@@ -21,14 +22,12 @@
                     <li><a class="up" href="index.php?page=tout_savoir">Tout savoir sur le DUT</a></li>
                     <li><a class="up" href="index.php?page=equipe">L'équipe pédagogique</a></li>
                     <li><a class="up" href="index.php?page=offres">Offres de stages & emplois</a></li>
-                    {% if session %}
-
-                            <li><a class="up blanc effect" href="index.php?page=monCompte">Mon compte</a></li>
-                            {% if session.sessionAdmin is defined %}
-                                <li><a class="up blanc effect" href="index.php?page=validationAnnonces">Validation des annonces</a></li>
-                                <li><a class="up blanc effect" href="index.php?page=supprAnnonces">Gestion des annonces</a></li>
-                            {% endif %}
-
+                    {% if (session.sessionAdmin or session.sessionEnt) %}
+                        <li><a class="up blanc effect" href="index.php?page=monCompte">Mon compte</a></li>
+                        {% if session.sessionAdmin is defined %}
+                            <li><a class="up blanc effect" href="index.php?page=validationAnnonces">Validation des annonces</a></li>
+                            <li><a class="up blanc effect" href="index.php?page=supprAnnonces">Gestion des annonces</a></li>
+                        {% endif %}
                     {% endif %}
                 </ul>
                 {% if session %}

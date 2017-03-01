@@ -1,25 +1,30 @@
 {% extends 'general.html.twig' %}
 
+{% block head %}<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>{% endblock %}
+
 {% block idBody %}connexion{% endblock %}
 
 {% block contenu %}
     <section>
-        <h2 class="center up">Connexion</h2>
-        <div id="formCo">
-            <form method="post">
-                <p>
+        {% if session %}
+            <h2 class="center up">Vous êtes déjà connecté</h2>
+        {% else %}
+            <h2 class="center up">Connexion</h2>
+            <div id="formCo">
+                <form method="post">
                     <label for="idCo">Identifiant</label>
-                    <input type="text" name="logincnx" id="idCo"/><br>
+                    <input type="text" name="logincnx" id="idCo" required/><br>
 
                     <label for="psw">Mot de passe</label>
-                    <input type="password" name="pswcnx" id="psw"/><br>
+                    <input type="password" name="pswcnx" id="psw" required/><br>
                     <a id="oubli_mdp" class="bleuC" href="">Mot de passe oublié ?</a><br>
 
                     <input class="btn blanc up" type="submit" value="Valider" name="valcnx"/>
-                </p>
-            </form>
-            <p class="center">Pas encore de compte ?</p>
-            <a class="bleuC center" href="index.php?page=inscription">Inscrivez-vous</a>
-        </div>
+                </form>
+                <p class="center">Pas encore de compte ?</p>
+                <a class="bleuC center" href="index.php?page=inscription">Inscrivez-vous</a>
+            </div>
+        {% endif %}
     </section>
 {% endblock %}
+

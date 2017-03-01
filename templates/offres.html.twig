@@ -1,5 +1,7 @@
 {% extends 'general.html.twig' %}
 
+{% block head %}<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>{% endblock %}
+
 {% block idBody %}offres{% endblock %}
 
 {% block contenu %}
@@ -17,24 +19,24 @@
             <button id="btn_stage" class="up" data-affiche="affiche-offreStage">Stages</button>
             <button id="btn_emploi" class="up" data-affiche="affiche-offreEmploi">Emplois</button>
         </div>
-        <div id="searchForm">
-            <form method="post" action="traitement.php">
-                <img src="img/icone_loupe.png" alt="Icône Loupe">
-                <input type="search"/>
-            </form>
-            <form method="post" action="traitement.php">
-                <img src="img/icone_pointeur.png" alt="Icône Pointeur">
-                <input type="search"/>
-            </form>
-        </div>
+        {#<div id="searchForm">#}
+            {#<form method="post" action="traitement.php">#}
+                {#<img src="img/icone_loupe.png" alt="Icône Loupe">#}
+                {#<input type="search"/>#}
+            {#</form>#}
+            {#<form method="post" action="traitement.php">#}
+                {#<img src="img/icone_pointeur.png" alt="Icône Pointeur">#}
+                {#<input type="search"/>#}
+            {#</form>#}
+        {#</div>#}
     </div>
     
     <section id="listeOffres">
         {% for annonce in listeAnnonce %}
             {% for ent in annonce.entreprise %}
                 <div class="offre {% if annonce.stage == 1 %}offreStage{% else %}offreEmploi{% endif %}">
-                    <div class="logoEntOffre">
-                        <img src="img/web.png" alt="Logo de l'entreprise {{ ent.nom }}">
+                    <div class="logoEntOffre logoEntOffre_Min">
+                        <img src="logosEntreprises/{{ ent.logo }}" alt="Logo de l'entreprise {{ ent.nom }}">
                         <h3 class="bleuF up">{% if annonce.stage == 1 %}STAGE{% else %}EMPLOI{% endif %} | {{ ent.nom }}</h3>
                     </div>
                     <div>

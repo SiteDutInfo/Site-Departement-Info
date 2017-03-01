@@ -1,5 +1,7 @@
 {% extends 'general.html.twig' %}
 
+{% block head %}<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>{% endblock %}
+
 {% block idBody %}validationAnnonces{% endblock %}
 
 {% block contenu %}
@@ -8,8 +10,8 @@
         {% for annonce in listeAnnonce %}
             {% for ent in annonce.entreprise %}
                 <div class="offre {% if annonce.stage == 1 %}offreStage{% else %}offreEmploi{% endif %}">
-                    <div class="logoEntOffre">
-                        <img src="img/web.png" alt="Logo de l'entreprise {{ ent.nom }}">
+                    <div class="logoEntOffre logoEntOffre_Min">
+                        <img src="logosEntreprises/{{ ent.logo }}" alt="Logo de l'entreprise {{ ent.nom }}">
                         <h3 class="bleuF up">{% if annonce.stage == 1 %}STAGE{% else %}EMPLOI{% endif %} | {{ ent.nom }}</h3>
                     </div>
                     <div>

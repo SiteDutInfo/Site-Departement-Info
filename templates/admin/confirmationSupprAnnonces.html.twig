@@ -1,5 +1,9 @@
 {% extends 'general.html.twig' %}
+
+{% block head %}<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>{% endblock %}
+
 {% block idBody %}confirmationSupprAnnonces{% endblock %}
+
 {% block contenu %}
     <form method="post">
         <p>Voulez-vous vraiment supprimer cette annonce ? </p>

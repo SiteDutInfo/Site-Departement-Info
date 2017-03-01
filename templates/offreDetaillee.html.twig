@@ -1,12 +1,14 @@
 {% extends 'general.html.twig' %}
 
+{% block head %}<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>{% endblock %}
+
 {% block idBody %}offreDetaillee{% endblock %}
 
 {% block contenu %}
     <div>
-        <div class="logoEntOffre">
+        <div class="logoEntOffre logoEntOffre_Max">
             {% for ent in annonce.entreprise %}
-                <img src="img/web.png" alt="Logo de l'entreprise {{ ent.nom }}">
+                <img src="logosEntreprises/{{ ent.logo }}" alt="Logo de l'entreprise {{ ent.nom }}">
                 <h3 class="bleuF up">{{ ent.nom }}</h3>
             {% endfor %}
         </div>
@@ -27,11 +29,10 @@
             </div>
             <div>
                 {% for ent in annonce.entreprise %}
-                    <p><a href="" class="bleuF">{{ ent.url }}</a></p>
-                {% endfor %}
-                {% for resp in listeResp %}
-                    <p>Tel. <span class="bleuF">{{ resp.tel }}</span></p>
-                    <p>Email <span class="bleuF">{{ resp.mail }}</span>
+                    <p><a href="{{ ent.url }}" class="bleuF">{{ ent.url }}</a></p>
+                    <p>Responsable : <span class="bleuF">{% if ent.civilite == 0 %}Monsieur {% else %}Madame {% endif %}{{ ent.nomResp }}</span></p>
+                    <p>Tel. <span class="bleuF">{{ ent.telResp }}</span></p>
+                    <p>Email <span class="bleuF">{{ ent.mailResp }}</span>
                 {% endfor %}
             </div>
         </div>

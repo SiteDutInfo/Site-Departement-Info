@@ -1,9 +1,12 @@
 {% extends 'general.html.twig' %}
 
+{% block head %}<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>{% endblock %}
+
 {% block idBody %}creerOffre{% endblock %}
 
 {% block contenu %}
     <section>
+    {% if session.sessionEnt is defined %}
         <h2 class="center up">Soumettez-nous une offre de stage ou d'emploi</h2>
         <div id="formCreation">
             <form method="post">
@@ -35,9 +38,14 @@
                     <label class="dates" for="dateFin">Fin du stage / de l'emploi</label>
                     <input type="date" name="dateFin" id="dateFin"/>
                     <input name="idpost" type="hidden" value="{{ session.sessionEnt.id }}">
+
+                    <p class="center">Après la confirmation, votre annonce sera traitée par les administrateurs et sera publiée d'ici peu.</p>
                     <input name="creerAnnonce" class="btn blanc up" type="submit" value="Valider"/>
                 </p>
             </form>
         </div>
+    {% else %}
+        <h2 class="center up">Vous devez être connecté en tant qu'entreprise pour accéder au contenu de cette page</h2>
+    {% endif %}
     </section>
 {% endblock %}

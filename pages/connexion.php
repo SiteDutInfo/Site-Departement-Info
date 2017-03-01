@@ -36,14 +36,18 @@
 
 require_once ("dao/DaoEntreprise.php");
 require_once ("dao/DaoAdministrateur.php");
+require_once("dao/DaoTypeEntreprise.php");
 
 
 $daoEnt = new DaoEntreprise();
 $daoAdmin = new DaoAdministrateur();
+$daoTypeEnt = new DaoTypeEntreprise();
+
+
 
 if(isset($_POST["valcnx"])){
     $daoAdmin->cnx($_POST["logincnx"], $_POST["pswcnx"]);
-    $daoEnt->cnx($_POST["logincnx"], $_POST["pswcnx"]);
+    $daoEnt->cnx($_POST["logincnx"], sha1($_POST["pswcnx"]));
 
     if($daoAdmin->bean->getLogin()!=null) {
         $_SESSION['sessionAdmin'] = array();
@@ -69,7 +73,8 @@ if(isset($_POST["valcnx"])){
         $_SESSION['sessionEnt']['telResp'] = $daoEnt->bean->getTelResp();
         $daoEnt->setLaVille();
         $_SESSION['sessionEnt']['ville'] = $daoEnt->bean->getLaVille();
-        $daoEnt->setLeTypeEntreprise();
+        $daoEnt->setLeTypeEntreprise($daoTypeEnt->find($_POST["typeEnt"]));
+
         $_SESSION['sessionEnt']['typeEnt'] = $daoEnt->bean->getLeTypeEnt();
         $daoEnt->setLeStatutJuridique();
         $_SESSION['sessionEnt']['statut'] = $daoEnt->bean->getLeStatutJur();
@@ -80,11 +85,8 @@ if(isset($_POST["valcnx"])){
 
         header("Location: index.php?page=monCompte");
     }
-    else {
-        $_SESSION["sessionAdmin"] = "null";
-        $_SESSION["sessionEnt"] = "null";
-    }
 }
+
 
 
 

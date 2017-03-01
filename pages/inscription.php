@@ -33,29 +33,35 @@ if (isset($_POST["creerEntreprise"]) && ($_POST["pswEnt"] == $_POST["ConfirmedPs
     $daoEnt->bean->setNumSiret($_POST['numeroSiret']);
     $daoEnt->bean->setCodeApeNaf($_POST["codeAPENAF"]);
     $daoEnt->bean->setUrl($_POST["url"]);
-//    $daoEnt->bean->setLogo($_POST["logoEnt"]);
+
+
     $daoEnt->bean->setNomResp($_POST['nomResp']);
     $daoEnt->bean->setMailResp($_POST['mail']);
     $daoEnt->bean->setTelResp($_POST['tel']);
     $daoEnt->bean->setLogo("null");
     if($_POST['civilite'] == "mme"){
-        $daoAnn->bean->setCivilite(1);
+        $daoEnt->bean->setCivilite(1);
     }
     else{
-        $daoAnn->bean->setCivilite(0);
+        $daoEnt->bean->setCivilite(0);
     }
     $daoEnt->bean->setDesc($_POST["desc"]);
     $daoEnt->bean->setLaVille((int)$_POST['ville']);
-//    var_dump($daoEnt);
 
     $daoEnt->bean->setEffectif($_POST["effectif"]);
 
     $daoEnt->bean->setLeTypeEnt($_POST["typeEnt"]);
 
     $daoEnt->bean->setLeStatutJur($_POST["statutJur"]);
-//    var_dump($daoEnt);
-    $daoEnt->create();
 
+
+    $logo = $_FILES['logoEnt']['name'];
+
+    if(move_uploaded_file($_FILES['logoEnt']['tmp_name'], "logosEntreprises/".$logo)){
+        $daoEnt->bean->setLogo($logo);
+    }
+
+    $daoEnt->create();
 
     // redirection formulaire
     header('Location: index.php');

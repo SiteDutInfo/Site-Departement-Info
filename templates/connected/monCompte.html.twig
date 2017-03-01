@@ -1,13 +1,15 @@
 {% extends 'general.html.twig' %}
 
+{% block head %}<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>{% endblock %}
+
 {% block idBody %}monCompte{% endblock %}
 
 {% block contenu %}
     <h2 class="center up">Mon compte</h2>
     <div id="donneesCompte">
         {% if session.sessionEnt is defined %}
-                <div class="logoEntOffre">
-                    <img src="img/web.png" alt="Logo de l'entreprise {{ session.sessionEnt.nom }}">
+                <div class="logoEntOffre logoEntOffre_Max">
+                    <img src="logosEntreprises/{{ session.sessionEnt.logo }}" alt="Logo de l'entreprise {{ session.sessionEnt.nom }}">
                     <p class="up bleuF">{{ session.sessionEnt.nom }}</p>
                 </div>
                 <p>Description : <br><span class="bleuF">{{ session.sessionEnt.desc }}</span></p>
@@ -20,7 +22,7 @@
                 <p>Code APE/NAF : <span class="bleuF">{{ session.sessionEnt.codeApeNaf }}</span></p>
 
 
-                    <p>Type d'entreprise : <span class="bleuF">{{ session.sessionEnt.typeEnt.lib }}</span></p>
+                    <p>Type d'entreprise : <span class="bleuF">{{ session.sessionEnt.typeEnt }}</span></p>
 
 
 
@@ -34,7 +36,7 @@
                 <p>Site web : <span class="bleuF">{{ session.sessionEnt.url }}</span></p>
 
 
-                    <p>Nom du responsable : <span class="bleuF">{{ session.sessionEnt.civilite }}{{ session.sessionEnt.nomResp }}</span></p>
+                    <p>Nom du responsable : <span class="bleuF">{% if session.sessionEnt.civilite == 0 %}Monsieur {% else %}Madame {% endif %}{{ session.sessionEnt.nomResp }}</span></p>
                     <p>Email du responsable : <span class="bleuF">{{ session.sessionEnt.mailResp }}</span></p>
                     <p>Téléphone du responsable : <span class="bleuF">{{ session.sessionEnt.telResp }}</span></p>
 
@@ -51,12 +53,14 @@
     {% if session.sessionEnt is defined %}
         <div class="annonces">
             <h2 class="center up bleuF">Mes annonces</h2>
+            <p class="center">Vous pouvez déposez une annonce <a href="index.php?page=creerOffre" class="bleuC">ici</a></p>
 
             <section id="listeOffres">
         {% for offre in session.sessionEnt.annonces %}
+            {% if offre != null %}
                     <div class="offre">
-                        <div class="logoEntOffre">
-                            <img src="img/web.png" alt="Logo Entreprise">
+                        <div class="logoEntOffre logoEntOffre_Min">
+                            <img src="logosEntreprises/{{ session.sessionEnt.logo }}" alt="Logo Entreprise">
 
                             <h3 class="bleuF up">{% if offre.stage == 1 %}STAGE{% else %}EMPLOI{% endif %}  | {{ session.sessionEnt.nom }}</h3>
                         </div>
@@ -77,6 +81,9 @@
                             <span><a href="index.php?page=offreDetaillee&id={{ offre.id }}" class="blanc up">Voir l'offre</a></span>
                         </div>
                     </div>
+            {% else %}
+                <p>Vous n'avez encore pas déposez d'annonces</p>
+            {% endif %}
             {% endfor %}
             </section>
         </div>

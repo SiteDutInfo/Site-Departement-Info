@@ -28,7 +28,7 @@ if (isset($_POST["creerAnnonce"])) {
 
 
     // redirection formulaire
-    header('Location: index.php?page=index');
+    header('Location: index.php?page=offres');
 }
 
 

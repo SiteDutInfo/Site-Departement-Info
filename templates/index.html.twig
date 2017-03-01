@@ -1,5 +1,7 @@
 {% extends 'general.html.twig' %}
 
+{% block head %}<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>{% endblock %}
+
 {% block idBody %}index{% endblock %}
 
 {% block contenu %}
@@ -11,7 +13,7 @@
                 <h1 id="titreIndex_handle" class="center blanc up">
                     Département Informatique de l'IUT Belfort
                 </h1>
-                <svg id="titreIndex_desktop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 36.33">
+                <svg id="titreIndex_desktop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 36.33">
                     <g>
                         <text  class="cls-1" transform="translate(0 17.5)">D
                             <animate id="t1" attributeName="opacity" attributeType="XML"
@@ -171,90 +173,58 @@
                                      fill="freeze"/></text>
 
 
-                        <text class="cls-1" transform="translate(196 17.5)">L
+                        <text class="cls-1" transform="translate(196 17.5)">B
                             <animate id="t26" attributeName="opacity" attributeType="XML"
                                      from="0" to="1"
                                      begin="t25.end+0.1s"
                                      dur="0.1s"
                                      fill="freeze"/></text>
-                        <text class="cls-1" transform="translate(203 17.5)">'
+                        <text class="cls-1" transform="translate(203 17.5)">E
                             <animate id="t27" attributeName="opacity" attributeType="XML"
                                      from="0" to="1"
                                      begin="t26.end"
                                      dur="0.1s"
                                      fill="freeze"/></text>
-                        <text class="cls-1" transform="translate(210 17.5)">I
+                        <text class="cls-1" transform="translate(210 17.5)">L
                             <animate id="t28" attributeName="opacity" attributeType="XML"
                                      from="0" to="1"
                                      begin="t27.end"
                                      dur="0.1s"
                                      fill="freeze"/></text>
-                        <text class="cls-1" transform="translate(217 17.5)">U
+                        <text class="cls-1" transform="translate(217 17.5)">F
                             <animate id="t29" attributeName="opacity" attributeType="XML"
                                      from="0" to="1"
                                      begin="t28.end"
                                      dur="0.1s"
                                      fill="freeze"/></text>
-                        <text class="cls-1" transform="translate(224 17.5)">T
+                        <text class="cls-1" transform="translate(224 17.5)">O
                             <animate id="t30" attributeName="opacity" attributeType="XML"
                                      from="0" to="1"
                                      begin="t29.end"
                                      dur="0.1s"
                                      fill="freeze"/></text>
-
-
-                        <text class="cls-1" transform="translate(238 17.5)">B
+                        <text class="cls-1" transform="translate(231 17.5)">R
                             <animate id="t31" attributeName="opacity" attributeType="XML"
                                      from="0" to="1"
-                                     begin="t30.end+0.1s"
+                                     begin="t30.end"
                                      dur="0.1s"
                                      fill="freeze"/></text>
-                        <text class="cls-1" transform="translate(245 17.5)">E
+                        <text class="cls-1" transform="translate(238 17.5)">T
                             <animate id="t32" attributeName="opacity" attributeType="XML"
                                      from="0" to="1"
                                      begin="t31.end"
                                      dur="0.1s"
                                      fill="freeze"/></text>
-                        <text class="cls-1" transform="translate(252 17.5)">L
+                        <rect x="245" y="11" width="4" height="7">
                             <animate id="t33" attributeName="opacity" attributeType="XML"
                                      from="0" to="1"
                                      begin="t32.end"
-                                     dur="0.1s"
-                                     fill="freeze"/></text>
-                        <text class="cls-1" transform="translate(259 17.5)">F
-                            <animate id="t34" attributeName="opacity" attributeType="XML"
-                                     from="0" to="1"
-                                     begin="t33.end"
-                                     dur="0.1s"
-                                     fill="freeze"/></text>
-                        <text class="cls-1" transform="translate(266 17.5)">O
-                            <animate id="t35" attributeName="opacity" attributeType="XML"
-                                     from="0" to="1"
-                                     begin="t34.end"
-                                     dur="0.1s"
-                                     fill="freeze"/></text>
-                        <text class="cls-1" transform="translate(273 17.5)">R
-                            <animate id="t36" attributeName="opacity" attributeType="XML"
-                                     from="0" to="1"
-                                     begin="t35.end"
-                                     dur="0.1s"
-                                     fill="freeze"/></text>
-                        <text class="cls-1" transform="translate(280 17.5)">T
-                            <animate id="t37" attributeName="opacity" attributeType="XML"
-                                     from="0" to="1"
-                                     begin="t36.end"
-                                     dur="0.1s"
-                                     fill="freeze"/></text>
-                        <rect x="287" y="11" width="4" height="7">
-                            <animate id="t38" attributeName="opacity" attributeType="XML"
-                                     from="0" to="1"
-                                     begin="t37.end"
                                      dur="0.4s"
                                      repeatCount="3"
                                      fill="freeze"/>
-                            <animate id="t39" attributeName="opacity" attributeType="XML"
+                            <animate id="t34" attributeName="opacity" attributeType="XML"
                                      from="1" to="0"
-                                     begin="t38.end"
+                                     begin="t33.end"
                                      dur="0.4s"
                                      fill="freeze"/>
 
@@ -286,7 +256,7 @@
         <section id="nav_secondaire">
             <div id="tout_savoir">
                 <div class="savoir_plus">
-                    <img src="img/accueil_1.jpg" alt="Photo étudiants Départment Informatique">
+                    <img src="img/salle_de_classe_mac-1.jpg" alt="Photo étudiants Départment Informatique">
                     <a class="center blanc up" href="index.php?page=tout_savoir"><span>En savoir plus</span></a>
                 </div>
                 <div>
@@ -302,7 +272,7 @@
 
             <div id="equipe">
                 <div class="savoir_plus">
-                    <img src="img/accueil_2.jpg" alt="Photo étudiants Département Informatique">
+                    <img src="img/equipe_pedagogique.jpg" alt="Photo étudiants Département Informatique">
                     <a class="center blanc up" href="index.php?page=equipe"><span>En savoir plus</span></a>
                 </div>
                 <div>
@@ -318,7 +288,7 @@
 
             <div id="offres">
                 <div class="savoir_plus">
-                    <img src="img/accueil_3.jpg" alt="Photo étudiants Département Informatique">
+                    <img src="img/salle_de_classe_mac-2.jpg" alt="Photo étudiants Département Informatique">
                     <a class="center blanc up" href="index.php?page=offres"><span>En savoir plus</span></a>
                 </div>
                 <div>

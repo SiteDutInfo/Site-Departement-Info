@@ -1,250 +1,177 @@
 {% extends 'general.html.twig' %}
 
+{% block head %}
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="js/previewImage.js"></script>
+{% endblock %}
+
 {% block idBody %}inscription{% endblock %}
 
 {% block contenu %}
     <section>
         <h2 class="center up">Inscription</h2>
+        <div id="errorForm"></div>
         <div id="formInsc">
-            <form method="post" action="#">
-                <p>
-                    <label for="idCo">Identifiant</label>
-                    <input type="text" name="loginEnt" id="idCo"/><br>
-                    <span id="spanId"></span>
+            <form method="post" action="index.php?page=inscription" enctype="multipart/form-data">
+                <label for="id">Identifiant</label>
+                <input type="text" name="loginEnt" id="id" required/><br>
+                <div id="errorId" class="errorDiv"></div>
 
-                    <label for="psw">Mot de passe</label>
-                    <input type="password" name="pswEnt" id="psw"/><br>
-                    <span id="spanPsw"></span>
+                <label for="psw">Mot de passe</label>
+                <input type="password" name="pswEnt" id="psw" required/><br>
+                <div id="errorPsw" class="errorDiv"></div>
 
-                    <label for="ConfirmedPsw">Confirmation mot de passe</label>
-                    <input type="password" name="ConfirmedPsw" id="ConfirmedPsw"/><br>
-                    <span id="spanConfirmedPsw"></span>
+                <label for="ConfirmedPsw">Confirmation mot de passe</label>
+                <input type="password" name="ConfirmedPsw" id="ConfirmedPsw" required/><br>
+                <div id="errorConfPsw" class="errorDiv"></div>
 
-                    <label for="nomEnt">Nom de l'entreprise</label>
-                    <input type="text" name="nomEnt" id="nomEnt"/><br>
-                    <span id="spanNomEnt"></span>
+                <label for="nomEnt">Nom de l'entreprise</label>
+                <input type="text" name="nomEnt" id="nomEnt" required/><br>
+                <div id="errorNomEnt" class="errorDiv"></div>
 
-                    <label for="siret">N°SIRET</label>
-                    <input type="text" name="numeroSiret" id="siret"/><br>
-                    <span id="spanSiret"></span>
+                <label for="siret">N°SIRET</label>
+                <input type="text" name="numeroSiret" id="siret" required/><br>
+                <div id="errorSiret" class="errorDiv"></div>
 
-                    <label for="code">Code APE/NAF</label>
-                    <input type="text" name="codeAPENAF" id="code"/><br>
-                    <span id="spanCode"></span>
+                <label for="code">Code APE/NAF</label>
+                <input type="text" name="codeAPENAF" id="code" required/><br>
+                <div id="errorCode" class="errorDiv"></div>
 
-                    <label for="typeEnt">Type d'entreprise</label>
-                    <select name="typeEnt" id="typeEnt">
-                        <option>- Choisir une valeur -</option>
-                        {% for typeEnt in listeTypeEntreprise %}
-                            <option value="{{typeEnt.id}}">{{ typeEnt.lib }}</option>
-                        {% endfor %}
-                    </select><br>
+                <label for="typeEnt">Type d'entreprise</label>
+                <select name="typeEnt" id="typeEnt" required>
+                    <option>- Choisir un type d'entreprise -</option>
+                    {% for typeEnt in listeTypeEntreprise %}
+                        <option value="{{typeEnt.id}}">{{ typeEnt.lib }}</option>
+                    {% endfor %}
+                </select><br>
+                <div id="errorTypeEnt" class="errorDiv"></div>
 
-                    <label for="statutJur">Statut juridique</label>
-                    <select name="statutJur" id="statutJur">
-                        <option>- Choisir une valeur -</option>
-                        {% for statJur in listeStatutJuridique %}
-                            <option value="{{statJur.id}}">{{ statJur.lib }}</option>
-                        {% endfor %}
-                    </select><br>
+                <label for="statutJur">Statut juridique</label>
+                <select name="statutJur" id="statutJur" required>
+                    <option>- Choisir un statut -</option>
+                    {% for statJur in listeStatutJuridique %}
+                        <option value="{{statJur.id}}">{{ statJur.lib }}</option>
+                    {% endfor %}
+                </select><br>
 
-                    <label for="eff">Effectif</label>
-                    <select name="effectif" id="eff">
-                        <option>- Choisir une valeur -</option>
-                        {% for eff in listeEff %}
-                            <option value="{{eff.id}}">{{ eff.qte }}</option>
-                        {% endfor %}
-                    </select><br>
+                <label for="eff">Effectif</label>
+                <select name="effectif" id="eff" required>
+                    <option>- Choisir un effectif -</option>
+                    {% for eff in listeEff %}
+                        <option value="{{eff.id}}">{{ eff.qte }}</option>
+                    {% endfor %}
+                </select><br>
 
-                    <label for="url">Site Web</label>
-                    <input type="url" name="url" id="url"/><br>
-                    <span id="spanUrl"></span>
+                <label for="url">Site Web</label>
+                <input type="url" name="url" id="url"/><br>
+                <div id="errorUrl" class="errorDiv"></div>
 
-                    <label>Civilité</label><br>
-                    <span id="civilite">
-                        <span>
-                            <input type="radio" name="civilite" value="mme" id="mme"/>
-                            <label for="mme">Mme</label>
-                        </span>
-                        <span>
-                            <input type="radio" name="civilite" value="m" id="m"/>
-                            <label for="m">M.</label>
-                        </span>
-                    </span><br>
+                <label>Civilité</label><br>
+                <span id="civilite">
+                    <span>
+                        <input type="radio" name="civilite" value="mme" id="mme" required/>
+                        <label for="mme">Mme</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="civilite" value="m" id="m" required/>
+                        <label for="m">M.</label>
+                    </span>
+                </span><br>
 
-                    <label for="nomResp">Nom de la personne à contacter</label>
-                    <input type="text" name="nomResp" id="nomResp"/><br>
-                    <span id="spanNomResp"></span>
+                <label for="nomResp">Nom de la personne à contacter</label>
+                <input type="text" name="nomResp" id="nomResp" required/><br>
+                <div id="errorNomResp" class="errorDiv"></div>
 
-                    <label for="mail">E-mail de la personne à contacter</label>
-                    <input type="email" name="mail" id="mail"/><br>
-                    <span id="spanMail"></span>
+                <label for="mail">E-mail de la personne à contacter</label>
+                <input type="email" name="mail" id="mail" required/><br>
+                <div id="errorMail" class="errorDiv"></div>
 
-                    <label for="tel">Téléphone de la personne à contacter</label>
-                    <input type="tel" name="tel" id="tel"/><br>
-                    <span id="spanTel"></span>
+                <label for="tel">Téléphone de la personne à contacter</label>
+                <input type="tel" name="tel" id="tel" required/><br>
+                <div id="errorTel" class="errorDiv"></div>
 
-                    <label for="logoEnt">Logo</label>
-                    <input type="file" name="logoEnt" id="logoEnt"/><br>
+                <div>
+                    <img id="previewImage" src="logosEntreprises/exemple.png" alt="">
+                </div>
+                <label for="logoEnt">Logo</label>
+                <input type="file" name="logoEnt" id="logoEnt" required/><br>
 
-                    <label for="desc">Description</label>
-                    <textarea name="desc" id="desc" rows="10" cols="40"></textarea><br>
+                <label for="desc">Description de l'entreprise</label>
+                <textarea name="desc" id="desc" rows="10" cols="40"></textarea><br>
 
-                    <label for="pays">Pays</label>
-                    <input type="text" name="pays" id="pays"/><br>
+                {#<label for="pays">Pays</label>#}
+                {#<input type="text" name="pays" id="pays"/><br>#}
 
-                    <label for="ville">Ville</label>
-                    <select name="ville" id="ville">
-                        <option>- Choisir une ville -</option>
-                        {% for ville in listeVilles %}
-                            <option value="{{ville.id}}">{{ ville.nom }}</option>
-                        {% endfor %}
-                    </select><br>
+                <label for="ville">Ville</label>
+                <select name="ville" id="ville" required>
+                    <option>- Choisir une ville -</option>
+                    {% for ville in listeVilles %}
+                        <option value="{{ville.id}}">{{ ville.nom }}</option>
+                    {% endfor %}
+                </select><br>
 
-                    <label for="adr">Adresse</label>
-                    <input type="text" name="adr" id="adr"/><br>
+                {#<label for="adr">Adresse</label>#}
+                {#<input type="text" name="adr" id="adr"/><br>#}
 
-                    <label for="cp">Code postal</label>
-                    <input type="text" name="cp" id="cp"/><br>
+                {#<label for="cp">Code postal</label>#}
+                {#<input type="text" name="cp" id="cp"/><br>#}
 
-                    <input class="btn blanc up" type="submit" value="Valider" name="creerEntreprise"/>
-                </p>
+                <input class="btn blanc up" type="submit" value="Valider" name="creerEntreprise"/>
             </form>
         </div>
     </section>
 {% endblock %}
 
 {% block script %}
-    <script>
-        $(document).ready(function(){
-            var idCoTest = false;
-            var pswTest = false;
-            var ConfirmedPswTest = false;
-            var nomEntTest = false;
-            var siretTest = false;
-            var codeTest = false;
-            var urlTest = false;
-            var nomRespTest = false;
-            var mailTest = false;
-            var telTest = false;
+    {#<script>#}
+        {#$(document).ready(function(){#}
+            {#var id = false;#}
+            {#var psw = false;#}
+            {#var confPsw = false;#}
+            {#var nomEnt = false;#}
+            {#var siret = false;#}
+            {#var code = false;#}
+            {#var typeEnt = false;#}
+            {#var statutJur = false;#}
+            {#var eff = false;#}
+            {#var url = false;#}
+            {#var nomResp = false;#}
+            {#var mail = false;#}
+            {#var tel = false;#}
 
-            $('#form').on('submit',function(e) {
-                e.preventDefault();
-                if(){
-                    var formPost = $.post($('#form').attr('action'),$('#form').serialize());
-                    formPost.done(function (data) {
-                        $('#resultat').empty().append(data);
-                    });
-                } else {
-                    $('#erreur').empty().append("<p>Erreur : formulaire incorrect</p>");
-                    $('#form').addClass('rouge');
-                }
-            });
+{#//            $('form').on('submit',function(e) {#}
+{#//                e.preventDefault();#}
+{#//                if(!()){#}
+{#//                    $('#errorForm').empty().append("<p>Erreur : formulaire incorrect</p>");#}
+{#//                    $('#formInsc').addClass('error');#}
+{#//                }#}
+{#//            });#}
 
-            $('#prenom').change(function(){
-                prenomTest = $(this).val().match(/^[A-ZÀ-Ö][a-zà-ÿ]+(([-][A-ZÀ-Ö][a-zà-ÿ]+)?)$/);
-                if(prenomTest){
-                    $('#prenom').removeClass('rouge').addClass('vert');
-                    $('#divPrenom').empty().append('');
-                }
-                else{
-                    $('#prenom').removeClass('vert').addClass('rouge');
-                    $('#divPrenom').empty().append('<p>Format attendu : majuscule suivie de minuscules</p>')
-                }
-            });
+            {#$('#id').change(function(){#}
+                {#id = $(this).val().match(/^[A-ZÀ-Öa-zà-ÿ0-9]+$/);#}
+                {#if(id){#}
+                    {#$('#id').removeClass('error').addClass('valid');#}
+                    {#$('#errorId').empty().append('');#}
+                {#}#}
+                {#else{#}
+                    {#$('#id').removeClass('valid').addClass('error');#}
+                    {#$('#errorId').empty().append('<p>Format attendu : pas de caractères spéciaux</p>')#}
+                {#}#}
+            {#});#}
 
+            {#$('#nomEnt').change(function(){#}
+                {#id = $(this).val().match(/^[A-ZÀ-Öa-zà-ÿ0-9]+$/);#}
+                {#if(id){#}
+                    {#$('#id').removeClass('error').addClass('valid');#}
+                    {#$('#errorId').empty().append('');#}
+                {#}#}
+                {#else{#}
+                    {#$('#id').removeClass('valid').addClass('error');#}
+                    {#$('#errorId').empty().append('<p>Format attendu : pas de caractères spéciaux</p>')#}
+                {#}#}
+            {#});#}
 
-
-            $('#nom').change(function(){
-                nomTest = $(this).val().match(/^[A-ZÀ-Ö]+(([ ]|[']|[-]){1}[A-ZÀ-Ö]+)*$/);
-                if(nomTest){
-                    $('#nom').removeClass('rouge').addClass('vert');
-                    $('#divNom').empty().append('');
-                }
-                else{
-                    $('#nom').removeClass('vert').addClass('rouge');
-                    $('#divNom').empty().append('<p>Format attendu : majuscules</p>')
-                }
-            });
-
-
-            $('#date').change(function(){
-                dateTest = $(this).val().match(/^((0[1-9])|([1-2][0-9])|(3[0-1]))[-]((0[1-9])|(1[0-2]))[-]((19[0-9][0-9])|(200[-9])|(201[0-7]))$/);
-                if(dateTest){
-                    $('#date').removeClass('rouge').addClass('vert');
-                    $('#divDate').empty().append('');
-                }
-                else{
-                    $('#date').removeClass('vert').addClass('rouge');
-                    $('#divDate').empty().append('<p>Format attendu : JJ-MM-AAAA</p>')
-                }
-            });
-
-
-            $('#ville').change(function(){
-                villeTest = $(this).val().match(/^[A-ZÀ-Ö]{1}[a-zà-ÿ]+(([ ]|[']|[-]){1}?[A-ZÀ-Ö][a-zà-ÿ]+)*$/);
-                if(villeTest){
-                    $('#ville').removeClass('rouge').addClass('vert');
-                    $('#divVille').empty().append('');
-                }
-                else{
-                    $('#ville').removeClass('vert').addClass('rouge');
-                    $('#divVille').empty().append('<p>Format attendu : majuscule suivie de minuscules</p>')
-                }
-            });
-
-
-            $('#cp').change(function(){
-                cpTest = $(this).val().match(/^[0-9]{5}$/);
-                if(cpTest){
-                    $('#cp').removeClass('rouge').addClass('vert');
-                    $('#divCp').empty().append('');
-                }
-                else{
-                    $('#cp').removeClass('vert').addClass('rouge');
-                    $('#divCp').empty().append('<p>Format attendu : 5 chiffres à la suite</p>')
-                }
-            });
-
-
-            $('#tel').change(function(){
-                telTest = $(this).val().match(/^0[1-9]{1}([ ]{1}[0-9]{2}){4}$/);
-                if(telTest){
-                    $('#tel').removeClass('rouge').addClass('vert');
-                    $('#divTel').empty().append('');
-                }
-                else{
-                    $('#tel').removeClass('vert').addClass('rouge');
-                    $('#divTel').empty().append('<p>Format attendu : 0X XX XX XX XX</p>')
-                }
-            });
-
-
-            $('#mail').change(function(){
-                mailTest = $(this).val().match(/^[A-Za-z]+[@]{1}[a-z]+[.]{1}[a-z]{2,}$/);
-                if(mailTest){
-                    $('#mail').removeClass('rouge').addClass('vert');
-                    $('#divMail').empty().append('');
-                }
-                else{
-                    $('#mail').removeClass('vert').addClass('rouge');
-                    $('#divMail').empty().append('<p>Format attendu : toto@toto.fr</p>')
-                }
-            });
-
-
-            $('#url').change(function(){
-                urlTest = $(this).val().match(/^[w]{3}[.]{1}([a-z]+([-]|[_]|[.])*)*[.]{1}[a-z]{2,}$/);
-                if(urlTest){
-                    $('#url').removeClass('rouge').addClass('vert');
-                    $('#divUrl').empty().append('');
-                }
-                else{
-                    $('#url').removeClass('vert').addClass('rouge');
-                    $('#divUrl').empty().append('<p>Format attendu : www.toto.fr</p>')
-                }
-            });
-        })
-    </script>
+        {#})#}
+    {#</script>#}
 {% endblock %}
 
